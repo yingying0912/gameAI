@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using System.Collections.Generic;
 namespace Project
 {
     /// <summary>
@@ -9,6 +10,9 @@ namespace Project
     /// </summary>
     public class Game1 : Game
     {
+        public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
+        public static GameWindow Screen;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -16,6 +20,7 @@ namespace Project
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            Screen = this.Window;
         }
 
         /// <summary>
@@ -27,7 +32,7 @@ namespace Project
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            IsMouseVisible = true;
             base.Initialize();
         }
 
@@ -41,6 +46,10 @@ namespace Project
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            Assets.Add("player", Content.Load<Texture2D>("player"));
+            
+            World.Add("player", new Character());
+            World.Initialize();
         }
 
         /// <summary>
@@ -50,6 +59,7 @@ namespace Project
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            World.Clear();
         }
 
         /// <summary>
@@ -63,6 +73,7 @@ namespace Project
                 Exit();
 
             // TODO: Add your update logic here
+            World.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -76,6 +87,7 @@ namespace Project
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            World.Draw(spriteBatch, gameTime);
 
             base.Draw(gameTime);
         }
