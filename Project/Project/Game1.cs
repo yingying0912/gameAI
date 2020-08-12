@@ -19,6 +19,8 @@ namespace Project
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             Content.RootDirectory = "Content";
             Screen = this.Window;
         }
@@ -33,6 +35,8 @@ namespace Project
         {
             // TODO: Add your initialization logic here
             IsMouseVisible = true;
+            graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
             base.Initialize();
         }
 
