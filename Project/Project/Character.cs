@@ -33,7 +33,7 @@ namespace Project
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(chartex, position, origin:origin);
+            spriteBatch.Draw(chartex, position, origin:origin, scale: new Vector2(0.5f,0.5f));
         }
     }
 }
