@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using Comora; 
 using System.Collections.Generic;
 namespace Project
 {
@@ -12,7 +13,8 @@ namespace Project
     {
         public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
         public static GameWindow Screen;
-
+        private Camera camera; 
+        
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -35,6 +37,7 @@ namespace Project
         {
             // TODO: Add your initialization logic here
             IsMouseVisible = true;
+            camera = new Camera(GraphicsDevice);
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             base.Initialize();
@@ -51,7 +54,8 @@ namespace Project
 
             // TODO: use this.Content to load your game content here
             Assets.Add("player", Content.Load<Texture2D>("player"));
-            
+            Assets.Add("background", Content.Load<Texture2D>("wall"));
+
             World.Add("player", new Character());
             World.Initialize();
         }
@@ -75,9 +79,12 @@ namespace Project
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            
             // TODO: Add your update logic here
             World.Update(gameTime);
+
+            camera.Update(gameTime);
+            camera.Position = World.objects["player"].position;
 
             base.Update(gameTime);
         }
@@ -90,10 +97,13 @@ namespace Project
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
-            World.Draw(spriteBatch, gameTime);
+            spriteBatch.Begin(camera); 
+                // TODO: Add your drawing code here
+                World.Draw(spriteBatch, gameTime);
+            spriteBatch.End();
 
             base.Draw(gameTime);
+            
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 using System.Collections.Generic;
 using System;
@@ -11,6 +10,7 @@ namespace Project
     {
         public static Dictionary<string, GameObject> objects = new Dictionary<string, GameObject>();
         private static LinkedList<GameObject> drawList = new LinkedList<GameObject>();
+        private static Background bg; 
 
         public static void Add(string key, GameObject obj)
         {
@@ -46,6 +46,7 @@ namespace Project
 
         public static void Initialize()
         {
+            bg = new Background(); 
             foreach (GameObject obj in drawList)
                 obj.Initialize();
         }
@@ -63,11 +64,10 @@ namespace Project
         
         public static void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Begin();
+            bg.Draw(spriteBatch);
             foreach (GameObject obj in drawList) 
                 if (obj.alive)
                     obj.Draw(spriteBatch, gameTime);
-            spriteBatch.End();
         }
     }
 }

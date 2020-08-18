@@ -5,8 +5,10 @@
   <Config />
   <SourceFiles>
     <File>D:/Documents/GitHub/gameAI/Project/Project/Content/player.png</File>
+    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/wall.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

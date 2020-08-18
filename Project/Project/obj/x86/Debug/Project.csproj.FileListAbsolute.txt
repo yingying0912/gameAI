@@ -22,3 +22,5 @@ D:\Documents\GitHub\gameAI\Project\Project\obj\x86\Debug\Project.csproj.CopyComp
 D:\Documents\GitHub\gameAI\Project\Project\obj\x86\Debug\Project.exe
 D:\Documents\GitHub\gameAI\Project\Project\obj\x86\Debug\Project.pdb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\player.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Comora.dll
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\wall.xnb
