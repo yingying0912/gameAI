@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using System; 
 
 namespace Project
 {
@@ -24,8 +24,9 @@ namespace Project
         public override void Initialize()
         {
             enemyTex = Game1.Assets[enemyTexName];
-            position = new Vector2(Game1.Screen.ClientBounds.Width / 2.0f,
-                location * Game1.Screen.ClientBounds.Height / 2.0f);
+            Random rand = new Random(); 
+            position = new Vector2(Game1.Screen.ClientBounds.Width/rand.Next(5),
+                location * Game1.Screen.ClientBounds.Height);
             origin = new Vector2(enemyTex.Width / 2.0f, enemyTex.Height / 2.0f);
             alive = true;
         }
