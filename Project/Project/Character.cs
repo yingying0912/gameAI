@@ -6,7 +6,7 @@ namespace Project
 {
     public class Character : GameObject
     {
-        Texture2D chartex;
+        Texture2D charTex;
         string charTexName;
 
         public Character()
@@ -16,10 +16,10 @@ namespace Project
 
         public override void Initialize()
         {
-            chartex = Game1.Assets[charTexName];
+            charTex = Game1.Assets[charTexName];
             position = new Vector2(Game1.Screen.ClientBounds.Width / 2.0f,
                 Game1.Screen.ClientBounds.Height / 2.0f);
-            origin = new Vector2(chartex.Width / 2.0f, chartex.Height / 2.0f);
+            origin = new Vector2(charTex.Width / 2.0f, charTex.Height / 2.0f);
             alive = true;
         }
 
@@ -33,7 +33,7 @@ namespace Project
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(chartex, position, origin:origin, scale: new Vector2(0.5f,0.5f));
+            spriteBatch.Draw(charTex, position, origin:origin, scale: new Vector2(0.5f,0.5f));
         }
     }
 }

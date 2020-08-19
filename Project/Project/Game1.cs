@@ -53,10 +53,12 @@ namespace Project
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            Assets.Add("player", Content.Load<Texture2D>("player"));
             Assets.Add("background", Content.Load<Texture2D>("wall"));
+            Assets.Add("player", Content.Load<Texture2D>("player"));
+            Assets.Add("blueWhale", Content.Load<Texture2D>("blue whale"));
 
             World.Add("player", new Character());
+            World.Add("blueWhale", new Enemy("blueWhale", 4, 1, 1, false));
             World.Initialize();
         }
 

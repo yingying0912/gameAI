@@ -1,3 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/Documents/GitHub/gameAI/Project/Project/Content/blue whale.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/blue whale.xnb","TextureProcessor","Texture2DContent",103816,493669,0.1506354
 "D:/Documents/GitHub/gameAI/Project/Project/Content/player.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/player.xnb","TextureProcessor","Texture2DContent",31455,634965,0.132642
 "D:/Documents/GitHub/gameAI/Project/Project/Content/wall.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/wall.xnb","TextureProcessor","Texture2DContent",249952,639029,0.1545546
