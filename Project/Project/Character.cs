@@ -28,10 +28,10 @@ namespace Project
         {
             /*
             MouseState mouse = Mouse.GetState();
-
             heading = mouse.Position.ToVector2() - position;
+            position += heading * (float)gameTime.ElapsedGameTime.TotalSeconds;
             */
-
+            
             KeyboardState keystate = Keyboard.GetState();
             if (keystate.IsKeyDown(Keys.W) && position.Y > charTex.Height / 4)
                 position.Y -= 1000.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -41,8 +41,6 @@ namespace Project
                 position.Y += 1000.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (keystate.IsKeyDown(Keys.D) && position.X < World.worldSize.X - charTex.Width / 4)
                 position.X += 1000.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            System.Diagnostics.Debug.WriteLine(position); 
-            //position += heading * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

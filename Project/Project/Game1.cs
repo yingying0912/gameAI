@@ -90,6 +90,7 @@ namespace Project
 
             Vector2 temp = camera.Position; 
             camera.Update(gameTime);
+
             if (World.objects["player"].position.X > Screen.ClientBounds.Width / 2 &&
                 World.objects["player"].position.X < World.worldSize.X - Screen.ClientBounds.Width / 2)
                 camera.Position = new Vector2(World.objects["player"].position.X, temp.Y);
