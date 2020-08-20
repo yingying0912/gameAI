@@ -10,7 +10,8 @@ namespace Project
     {
         public static Dictionary<string, GameObject> objects = new Dictionary<string, GameObject>();
         private static LinkedList<GameObject> drawList = new LinkedList<GameObject>();
-        private static Background bg; 
+        private static Background bg;
+        public static Vector2 worldSize;
 
         public static void Add(string key, GameObject obj)
         {
@@ -44,11 +45,12 @@ namespace Project
             drawList.Clear();
         }
 
-        public static void Initialize()
+        public static void Initialize(Random rand)
         {
-            bg = new Background(); 
+            bg = new Background();
+            worldSize = bg.bgSize;
             foreach (GameObject obj in drawList)
-                obj.Initialize();
+                obj.Initialize(rand);
         }
 
         public static void Update(GameTime gameTime)

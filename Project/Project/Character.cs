@@ -2,23 +2,23 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using System;
+
 namespace Project
 {
     public class Character : GameObject
     {
         Texture2D charTex;
-        string charTexName;
 
         public Character()
         {
-            charTexName = "player";
+            texname = "player";
         }
 
-        public override void Initialize()
+        public override void Initialize(Random rand)
         {
-            charTex = Game1.Assets[charTexName];
-            position = new Vector2(Game1.Screen.ClientBounds.Width / 2.0f,
-                Game1.Screen.ClientBounds.Height / 2.0f);
+            charTex = Game1.Assets[texname];
+            position = new Vector2(0f, 0f);
             origin = new Vector2(charTex.Width / 2.0f, charTex.Height / 2.0f);
             alive = true;
         }

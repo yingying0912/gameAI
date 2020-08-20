@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 using Comora; 
 using System.Collections.Generic;
+using System;
 namespace Project
 {
     /// <summary>
@@ -13,8 +14,9 @@ namespace Project
     {
         public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
         public static GameWindow Screen;
-        private Camera camera; 
-        
+        private Camera camera;
+
+        public Random rand = new Random();
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -58,8 +60,8 @@ namespace Project
             Assets.Add("blueWhale", Content.Load<Texture2D>("blue whale"));
 
             World.Add("player", new Character());
-            World.Add("blueWhale", new Enemy("blueWhale", 4, 1, 1, false));
-            World.Initialize();
+            World.Add("blueWhale", new BlueWhale());
+            World.Initialize(rand);
         }
 
         /// <summary>
