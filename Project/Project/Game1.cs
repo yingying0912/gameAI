@@ -93,11 +93,14 @@ namespace Project
 
             if (World.objects["player"].position.X > Screen.ClientBounds.Width / 2 &&
                 World.objects["player"].position.X < World.worldSize.X - Screen.ClientBounds.Width / 2)
-                camera.Position = new Vector2(World.objects["player"].position.X, temp.Y);
-
+                temp.X = World.objects["player"].position.X;
+                //camera.Position = new Vector2(World.objects["player"].position.X, temp.Y);
             if (World.objects["player"].position.Y > Screen.ClientBounds.Height / 2 &&
                 World.objects["player"].position.Y < World.worldSize.Y - Screen.ClientBounds.Height / 2)
-                camera.Position = new Vector2(temp.X, World.objects["player"].position.Y);
+                temp.Y = World.objects["player"].position.Y;
+                //camera.Position = new Vector2(temp.X, World.objects["player"].position.Y);
+            
+            camera.Position = temp; 
 
             base.Update(gameTime);
         }
