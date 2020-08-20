@@ -24,14 +24,18 @@ namespace Project
         {
             enemyTex = Game1.Assets[texname];
             position = new Vector2(World.worldSize.X * rand.Next(1, 5) / 5f,
-            (location / 5f * World.worldSize.Y) * (float)rand.NextDouble());// / 5f);
-            origin = new Vector2(enemyTex.Width / 2.0f, 0);
+            (location / 5f * World.worldSize.Y) * (float)rand.NextDouble());
+            origin = new Vector2(0, 0);
             alive = true;
         }
 
         public override void Update(GameTime gameTime)
         {
-            
+            if (position.X > World.worldSize.X - enemyTex.Width / 2 || position.X < 1)
+            {
+                heading.X *= -1;
+            }
+            position += heading * 100 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

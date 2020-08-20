@@ -62,6 +62,7 @@ namespace Project
             World.Add("player", new Character());
             World.Add("blueWhale", new BlueWhale());
             World.Initialize(rand);
+            camera.Position = World.objects["player"].position;
         }
 
         /// <summary>
@@ -87,8 +88,15 @@ namespace Project
             // TODO: Add your update logic here
             World.Update(gameTime);
 
+            Vector2 temp = camera.Position; 
             camera.Update(gameTime);
-            camera.Position = World.objects["player"].position;
+            if (World.objects["player"].position.X > Screen.ClientBounds.Width / 2 &&
+                World.objects["player"].position.X < World.worldSize.X - Screen.ClientBounds.Width / 2)
+                camera.Position = new Vector2(World.objects["player"].position.X, temp.Y);
+
+            if (World.objects["player"].position.Y > Screen.ClientBounds.Height / 2 &&
+                World.objects["player"].position.Y < World.worldSize.Y - Screen.ClientBounds.Height / 2)
+                camera.Position = new Vector2(temp.X, World.objects["player"].position.Y);
 
             base.Update(gameTime);
         }

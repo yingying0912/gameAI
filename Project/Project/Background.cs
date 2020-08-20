@@ -16,14 +16,14 @@ namespace Project
             bgTex = Game1.Assets[bgName];
             width = Game1.Assets[bgName].Width;
             height = Game1.Assets[bgName].Height;
-            x = y = 5;
+            x = y = 10;
             bgSize = new Vector2(width * x, height * y);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0 ; i < 2*y; i++)
-                for (int j = 0; j < 2*x; j++)
+            for (int i = 0 ; i < y; i++)
+                for (int j = 0; j < x; j++)
                     spriteBatch.Draw(bgTex, new Rectangle(width * i, height * j, width, height), Color.White);
         }
     }
