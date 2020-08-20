@@ -18,8 +18,11 @@ namespace Project
         public override void Initialize(Random rand)
         {
             charTex = Game1.Assets[texname];
+            /*
             position = new Vector2((World.worldSize.X + Game1.Screen.ClientBounds.Width / 2) * rand.Next(1, 5) / 5f,
             ((0.2f *(World.worldSize.Y) + Game1.Screen.ClientBounds.Height / 2) * (float)rand.NextDouble()));
+            */
+            position = new Vector2(1000, 800);
             origin = new Vector2(charTex.Width / 2.0f, charTex.Height / 2.0f);
             alive = true;
         }

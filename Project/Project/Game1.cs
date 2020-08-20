@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-using Comora; 
-using System.Collections.Generic;
+using Comora;
 using System;
+using System.Collections.Generic;
 namespace Project
 {
     /// <summary>
@@ -15,6 +15,7 @@ namespace Project
         public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
         public static GameWindow Screen;
         private Camera camera;
+        private float moveSpeed, speedMultiplier; 
 
         public Random rand = new Random();
         GraphicsDeviceManager graphics;
@@ -38,6 +39,8 @@ namespace Project
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            moveSpeed = 100;
+
             IsMouseVisible = true;
             camera = new Camera(GraphicsDevice);
             graphics.IsFullScreen = true;
@@ -100,8 +103,8 @@ namespace Project
                 temp.Y = World.objects["player"].position.Y;
                 //camera.Position = new Vector2(temp.X, World.objects["player"].position.Y);
             
-            camera.Position = temp; 
-
+            camera.Position = temp;
+            Input(gameTime); 
             base.Update(gameTime);
         }
 
@@ -120,6 +123,74 @@ namespace Project
 
             base.Draw(gameTime);
             
+        }
+
+        public void Input(GameTime gameTime)
+        {
+            MouseState mouse = Mouse.GetState();
+            foreach (var obj in World.objects)
+            {
+                if (obj.Key != "player")
+                {
+                    /*
+                    speedMultiplier: 
+                    3 3 3 3 3 3 3 3 3 
+                    3 2 2 2 2 2 2 2 3 
+                    3 2 1 1 1 1 1 2 3 
+                    3 2 1 0 0 0 1 2 3 
+                    3 2 1 0 0 0 1 2 3 
+                    3 2 1 0 0 0 1 2 3 
+                    3 2 1 1 1 1 1 2 3 
+                    3 2 2 2 2 2 2 2 3 
+                    3 3 3 3 3 3 3 3 3 
+                    */
+                    if (mouse.Position.X < Screen.ClientBounds.Width / 3)
+                    {
+                        speedMultiplier = 1;
+                        World.objects[obj.Key].position.X -= 100f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (mouse.Position.X < Screen.ClientBounds.Width * 2 / 9)
+                        {
+                            speedMultiplier++;
+                            if (mouse.Position.X < Screen.ClientBounds.Width * 1 / 9)
+                                speedMultiplier++;
+                        }
+                        World.objects[obj.Key].position.X -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    if (mouse.Position.X > Screen.ClientBounds.Width * 2 / 3)
+                    {
+                        speedMultiplier = 1; 
+                        if (mouse.Position.X > Screen.ClientBounds.Width * 7 / 9)
+                        {
+                            speedMultiplier++; 
+                            if (mouse.Position.X > Screen.ClientBounds.Width * 8 / 9)
+                                speedMultiplier++;
+                        }
+                        World.objects[obj.Key].position.X += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    if (mouse.Position.Y < Screen.ClientBounds.Height / 3)
+                    {
+                        speedMultiplier = 1;
+                        if (mouse.Position.Y < Screen.ClientBounds.Height * 2 / 9)
+                        {
+                            speedMultiplier++;
+                            if (mouse.Position.Y < Screen.ClientBounds.Height * 1 / 9)
+                                speedMultiplier++;
+                        }
+                        World.objects[obj.Key].position.Y -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    if (mouse.Position.Y > Screen.ClientBounds.Height * 2 / 3)
+                    {
+                        speedMultiplier = 1;
+                        if (mouse.Position.Y > Screen.ClientBounds.Height * 7 / 9)
+                        {
+                            speedMultiplier++;
+                            if (mouse.Position.Y > Screen.ClientBounds.Height * 8 / 9)
+                                speedMultiplier++;
+                        }
+                        World.objects[obj.Key].position.Y += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                }
+            }
         }
     }
 }
