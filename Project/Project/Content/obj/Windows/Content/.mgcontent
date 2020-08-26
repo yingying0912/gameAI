@@ -4,9 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/blue whale.png</File>
-    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/player.png</File>
-    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/wall.png</File>
+    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/blue whale.png</File>
+    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/player.png</File>
+    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/wall.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

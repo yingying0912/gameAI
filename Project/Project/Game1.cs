@@ -147,14 +147,14 @@ namespace Project
                     if (mouse.Position.X < Screen.ClientBounds.Width / 3)
                     {
                         speedMultiplier = 1;
-                        World.objects[obj.Key].position.X -= 100f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        //World.objects[obj.Key].position.X += 100f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                         if (mouse.Position.X < Screen.ClientBounds.Width * 2 / 9)
                         {
                             speedMultiplier++;
                             if (mouse.Position.X < Screen.ClientBounds.Width * 1 / 9)
                                 speedMultiplier++;
                         }
-                        World.objects[obj.Key].position.X -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        World.objects[obj.Key].position.X += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
                     if (mouse.Position.X > Screen.ClientBounds.Width * 2 / 3)
                     {
@@ -165,7 +165,7 @@ namespace Project
                             if (mouse.Position.X > Screen.ClientBounds.Width * 8 / 9)
                                 speedMultiplier++;
                         }
-                        World.objects[obj.Key].position.X += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        World.objects[obj.Key].position.X -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
                     if (mouse.Position.Y < Screen.ClientBounds.Height / 3)
                     {
@@ -176,7 +176,7 @@ namespace Project
                             if (mouse.Position.Y < Screen.ClientBounds.Height * 1 / 9)
                                 speedMultiplier++;
                         }
-                        World.objects[obj.Key].position.Y -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        World.objects[obj.Key].position.Y += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
                     if (mouse.Position.Y > Screen.ClientBounds.Height * 2 / 3)
                     {
@@ -187,7 +187,7 @@ namespace Project
                             if (mouse.Position.Y > Screen.ClientBounds.Height * 8 / 9)
                                 speedMultiplier++;
                         }
-                        World.objects[obj.Key].position.Y += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        World.objects[obj.Key].position.Y -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
                 }
             }
