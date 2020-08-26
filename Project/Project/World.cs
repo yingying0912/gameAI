@@ -68,7 +68,7 @@ namespace Project
         
         public static void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            //bg.Draw(spriteBatch);
+            bg.Draw(spriteBatch);
             foreach (GameObject obj in drawList) 
                 if (obj.alive)
                     obj.Draw(spriteBatch, gameTime);
