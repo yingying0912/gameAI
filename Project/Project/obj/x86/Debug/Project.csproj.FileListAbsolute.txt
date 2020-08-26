@@ -25,3 +25,30 @@ D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\player.
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Comora.dll
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\wall.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\blue whale.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\blue whale.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\player.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\wall.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Project.exe
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Project.pdb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Comora.dll
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\obj\x86\Debug\Project.csprojAssemblyReference.cache
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\obj\x86\Debug\Project.csproj.CoreCompileInputs.cache
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\obj\x86\Debug\Project.csproj.CopyComplete
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\obj\x86\Debug\Project.exe
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\obj\x86\Debug\Project.pdb
