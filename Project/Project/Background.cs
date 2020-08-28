@@ -11,7 +11,8 @@ namespace Project
         float scale; 
         public Vector2 bgSize;
 
-        bool wall = false;
+        bool wall = false; 
+        bool grid = true; 
 
         public Background()
         {
@@ -28,7 +29,8 @@ namespace Project
             if (!wall)
             {
                 scale = 5f;
-                bgName = "background";
+                if (grid) bgName = "backgroundwgrid"; 
+                else bgName = "background"; 
                 bgTex = Game1.Assets[bgName];
                 bgSize = new Vector2(Game1.Assets[bgName].Width * scale, Game1.Assets[bgName].Height * scale); 
             }
