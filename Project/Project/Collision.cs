@@ -4,8 +4,18 @@ using System;
 
 namespace Project
 {
-    class Collision
+    public class Collision
     {
+        public Collision()
+        {
 
+        }
+
+        public static void Initialize()
+        {
+
+        }
+
+        public static void 
     }
 }
