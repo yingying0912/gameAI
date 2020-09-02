@@ -25,6 +25,7 @@ namespace Project
             position = new Vector2(1000, 800);
             origin = new Vector2(charTex.Width / 2.0f, charTex.Height / 2.0f);
             alive = true;
+            size = new Vector2(charTex.Width, charTex.Height);
         }
 
         public override void Update(GameTime gameTime)

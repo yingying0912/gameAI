@@ -7,14 +7,14 @@ namespace Project
     public abstract class Enemy: GameObject
     {
         public Texture2D enemyTex;
-        public int size, speed, location;
+        public int gameSize, speed, location;
         public bool school;
 
 
         protected Enemy()
         {
             texname = string.Empty;
-            size = 0;
+            gameSize = 0;
             speed = 0;
             location = 0;
             school = false;
@@ -27,6 +27,7 @@ namespace Project
             (location / 5f * World.worldSize.Y) * (float)rand.NextDouble());
             origin = new Vector2(0, 0);
             alive = true;
+            size = new Vector2(enemyTex.Width, enemyTex.Height);
         }
 
         public override void Update(GameTime gameTime)

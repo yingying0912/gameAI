@@ -11,7 +11,7 @@ namespace Project
         public BlueWhale()
         {
             texname = "blueWhale";
-            size = 4;
+            gameSize = 4;
             speed = 1;
             location = 1;
         }
