@@ -16,6 +16,9 @@ namespace Project
 
         }
 
-        public static void 
+        public static void Update()
+        {
+
+        }
     }
 }
