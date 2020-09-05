@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 using System;
 
@@ -10,19 +9,14 @@ namespace Project
     {
         public bool alive;
         public string texname;
-        public Vector2 position;
-        public Vector2 origin;
-        public Vector2 heading;
-        public Vector2 size;
+        public Vector2 heading, position, origin, size, scale;
 
         protected GameObject()
         {
-            texname = string.Empty;
             alive = false;
-            position = Vector2.Zero;
-            origin = Vector2.Zero;
+            texname = string.Empty;
             heading = new Vector2(1f, 0f);
-            size = Vector2.Zero;
+            position = origin = size = scale = Vector2.Zero;
         }
 
         public abstract void Initialize(Random rand);
@@ -30,7 +24,6 @@ namespace Project
         public abstract void Update(GameTime gameTime);
 
         public abstract void Draw(SpriteBatch spriteBatch, GameTime gameTime);
-
-
+        
     }
 }

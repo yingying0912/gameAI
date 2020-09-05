@@ -3,4 +3,3 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "D:/Documents/GitHub/gameAI/Project/Project/Content/backgroundwgrid.jpg","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/backgroundwgrid.xnb","TextureProcessor","Texture2DContent",153727,8294485,0.3875871
 "D:/Documents/GitHub/gameAI/Project/Project/Content/blue whale.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/blue whale.xnb","TextureProcessor","Texture2DContent",103816,493669,0.5605663
 "D:/Documents/GitHub/gameAI/Project/Project/Content/player.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/player.xnb","TextureProcessor","Texture2DContent",31455,634965,0.0289239
-"D:/Documents/GitHub/gameAI/Project/Project/Content/wall.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/wall.xnb","TextureProcessor","Texture2DContent",249952,639029,0.0319138

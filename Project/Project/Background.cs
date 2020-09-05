@@ -1,51 +1,36 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Project
 {
-    public class Background
+    public class Background : GameObject 
     {
-        Texture2D bgTex; 
-        string bgName;
-        int x, y, height, width;
-        float scale; 
-        public Vector2 bgSize;
-
-        bool wall = false; 
-        bool grid = true; 
+        Texture2D backTex;
 
         public Background()
         {
-            if (wall)
-            {
-                scale = 10f; 
-                bgName = "wbackground";
-                bgTex = Game1.Assets[bgName];
-                width = Game1.Assets[bgName].Width;
-                height = Game1.Assets[bgName].Height;
-                x = y = (int)scale;
-                bgSize = new Vector2(width * x, height * y);
-            }
-            if (!wall)
-            {
-                scale = 5f;
-                if (grid) bgName = "backgroundwgrid"; 
-                else bgName = "background"; 
-                bgTex = Game1.Assets[bgName];
-                bgSize = new Vector2(Game1.Assets[bgName].Width * scale, Game1.Assets[bgName].Height * scale); 
-            }
+            texname = "backgroundwgrid";
+            scale = new Vector2(5f, 5f); 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Initialize(Random rand)
         {
-            if (wall)
-            {
-                for (int i = 0; i < y; i++)
-                    for (int j = 0; j < x; j++)
-                        spriteBatch.Draw(bgTex, new Rectangle(width * i, height * j, width, height), Color.White);
-            } 
-            if (!wall)
-                spriteBatch.Draw(bgTex, new Vector2(0,0), scale: new Vector2(5f, 5f)); 
+            backTex = Game1.Assets[texname];
+            alive = true; 
+            position = new Vector2(backTex.Width / 2.0f, backTex.Height / 2.0f);
+            origin = new Vector2(backTex.Width / 2.0f, backTex.Height / 2.0f);
+            size = new Vector2(backTex.Width * scale.X, backTex.Height * scale.Y);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+
+        }
+
+        public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            spriteBatch.Draw(backTex, position, origin: origin, scale: scale);
         }
     }
 }
