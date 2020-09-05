@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Documents/GitHub/gameAI/Project/Project/Content/player.png</SourceFile>
-  <SourceTime>2020-08-12T14:19:36.4427675+08:00</SourceTime>
-  <DestFile>D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/player.xnb</DestFile>
-  <DestTime>2020-09-05T21:06:29.3789279+08:00</DestTime>
+  <SourceFile>D:/Documents/GitHub/gameAI/Project/Project/Content/Barracudina.png</SourceFile>
+  <SourceTime>2020-08-20T19:22:09.1953946+08:00</SourceTime>
+  <DestFile>D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Barracudina.xnb</DestFile>
+  <DestTime>2020-09-05T21:06:29.2752006+08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-09T00:35:54+08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

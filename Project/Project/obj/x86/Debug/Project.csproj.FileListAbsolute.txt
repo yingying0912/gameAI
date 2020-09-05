@@ -52,3 +52,7 @@ C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\P
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\obj\x86\Debug\Project.pdb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\background.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\backgroundwgrid.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\Barracudina.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\flatfish.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\opah.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\tripodfish.xnb

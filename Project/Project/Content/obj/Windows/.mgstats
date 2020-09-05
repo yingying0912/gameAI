@@ -1,5 +1,9 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"D:/Documents/GitHub/gameAI/Project/Project/Content/background.jpg","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/background.xnb","TextureProcessor","Texture2DContent",25556,8294485,0.6781627
-"D:/Documents/GitHub/gameAI/Project/Project/Content/backgroundwgrid.jpg","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/backgroundwgrid.xnb","TextureProcessor","Texture2DContent",153727,8294485,0.2732671
-"D:/Documents/GitHub/gameAI/Project/Project/Content/blue whale.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/blue whale.xnb","TextureProcessor","Texture2DContent",103816,493669,0.0279246
-"D:/Documents/GitHub/gameAI/Project/Project/Content/player.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/player.xnb","TextureProcessor","Texture2DContent",31455,634965,0.0269288
+"D:/Documents/GitHub/gameAI/Project/Project/Content/background.jpg","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/background.xnb","TextureProcessor","Texture2DContent",25556,8294485,0.3922741
+"D:/Documents/GitHub/gameAI/Project/Project/Content/backgroundwgrid.jpg","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/backgroundwgrid.xnb","TextureProcessor","Texture2DContent",153727,8294485,0.2563157
+"D:/Documents/GitHub/gameAI/Project/Project/Content/Barracudina.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Barracudina.xnb","TextureProcessor","Texture2DContent",31733,249061,0.0139602
+"D:/Documents/GitHub/gameAI/Project/Project/Content/blue whale.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/blue whale.xnb","TextureProcessor","Texture2DContent",103816,493669,0.0179795
+"D:/Documents/GitHub/gameAI/Project/Project/Content/flatfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/flatfish.xnb","TextureProcessor","Texture2DContent",132885,1173833,0.0409223
+"D:/Documents/GitHub/gameAI/Project/Project/Content/opah.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/opah.xnb","TextureProcessor","Texture2DContent",65662,499573,0.0199791
+"D:/Documents/GitHub/gameAI/Project/Project/Content/player.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/player.xnb","TextureProcessor","Texture2DContent",31455,634965,0.0199541
+"D:/Documents/GitHub/gameAI/Project/Project/Content/tripodfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/tripodfish.xnb","TextureProcessor","Texture2DContent",165929,1769593,0.0828568

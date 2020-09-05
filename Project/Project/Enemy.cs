@@ -23,9 +23,11 @@ namespace Project
         public override void Initialize(Random rand)
         {
             enemyTex = Game1.Assets[texname];
-            
+
             position = new Vector2(World.worldSize.X * rand.Next(1, 5) / 5f,
             (location / 5f * World.worldSize.Y) * (float)rand.NextDouble());
+
+            System.Diagnostics.Debug.WriteLine(World.worldSize); 
             
             origin = new Vector2(enemyTex.Width / 2, enemyTex.Height / 2);
             alive = true;
@@ -34,8 +36,8 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-            if (position.X > World.objects["bg"].position.X + World.objects["bg"].size.X / 2 - enemyTex.Width / 4
-                || position.X < World.objects["bg"].position.X - World.objects["bg"].size.X / 2 + enemyTex.Width / 4)
+            if (position.X > World.worldSize.X - enemyTex.Width / 4
+                || position.X < 1 + enemyTex.Width / 4)
             {
                 heading.X *= -1;
             }

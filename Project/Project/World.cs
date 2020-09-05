@@ -48,7 +48,8 @@ namespace Project
         {
             foreach (GameObject obj in drawList)
                 obj.Initialize(rand);
-            worldSize = objects["bg"].size;
+            
+            System.Diagnostics.Debug.WriteLine("world.cs: " + worldSize);
         }
 
         public static void Update(GameTime gameTime)

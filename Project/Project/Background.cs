@@ -12,15 +12,15 @@ namespace Project
         {
             texname = "backgroundwgrid";
             scale = new Vector2(5f, 5f); 
+            //1920x1080 
         }
 
         public override void Initialize(Random rand)
         {
             backTex = Game1.Assets[texname];
             alive = true; 
-            position = new Vector2(backTex.Width / 2.0f, backTex.Height / 2.0f);
-            origin = new Vector2(backTex.Width / 2.0f, backTex.Height / 2.0f);
             size = new Vector2(backTex.Width * scale.X, backTex.Height * scale.Y);
+            World.worldSize = size; 
         }
 
         public override void Update(GameTime gameTime)

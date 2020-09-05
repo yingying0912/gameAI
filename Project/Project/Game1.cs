@@ -59,6 +59,10 @@ namespace Project
             Assets.Add("backgroundwgrid", Content.Load<Texture2D>("backgroundwgrid"));
             Assets.Add("player", Content.Load<Texture2D>("player"));
             Assets.Add("blueWhale", Content.Load<Texture2D>("blue whale"));
+            Assets.Add("barracudina", Content.Load<Texture2D>("Barracudina"));
+            Assets.Add("flatfish", Content.Load<Texture2D>("flatfish"));
+            Assets.Add("opah", Content.Load<Texture2D>("opah"));
+            Assets.Add("tripodfish", Content.Load<Texture2D>("tripodfish"));
 
             World.Add("bg", new Background());
             World.Add("player", new Character());
@@ -111,6 +115,7 @@ namespace Project
 
         public void Input(GameTime gameTime)
         {
+            System.Diagnostics.Debug.WriteLine(World.objects["player"].position.X); 
             MouseState mouse = Mouse.GetState();
             foreach (var obj in World.objects)
             {
@@ -137,7 +142,7 @@ namespace Project
                             if (mouse.Position.X < Screen.ClientBounds.Width * 1 / 9)
                                 speedMultiplier++;
                         }
-                        if(World.objects["bg"].position.X - World.objects["bg"].size.X / 2 < World.objects["player"].position.X - World.objects["player"].size.X / 4)
+                        if (World.objects["bg"].position.X < World.objects["player"].position.X - World.objects["player"].size.X / 3)
                             World.objects[obj.Key].position.X += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
                     if (mouse.Position.X > Screen.ClientBounds.Width * 2 / 3)
@@ -149,7 +154,7 @@ namespace Project
                             if (mouse.Position.X > Screen.ClientBounds.Width * 8 / 9)
                                 speedMultiplier++;
                         }
-                        if (World.objects["bg"].position.X + World.objects["bg"].size.X / 2 > World.objects["player"].position.X + World.objects["player"].size.X / 4)
+                        if (World.objects["bg"].position.X + World.objects["bg"].size.X > World.objects["player"].position.X + World.objects["player"].size.X / 3)
                             World.objects[obj.Key].position.X -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
                     if (mouse.Position.Y < Screen.ClientBounds.Height / 3)
@@ -161,7 +166,7 @@ namespace Project
                             if (mouse.Position.Y < Screen.ClientBounds.Height * 1 / 9)
                                 speedMultiplier++;
                         }
-                        if (World.objects["bg"].position.Y - World.objects["bg"].size.Y / 2 < World.objects["player"].position.Y - World.objects["player"].size.Y / 4)
+                        if (World.objects["bg"].position.Y < World.objects["player"].position.Y - World.objects["player"].size.Y / 3)
                             World.objects[obj.Key].position.Y += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
                     if (mouse.Position.Y > Screen.ClientBounds.Height * 2 / 3)
@@ -173,7 +178,7 @@ namespace Project
                             if (mouse.Position.Y > Screen.ClientBounds.Height * 8 / 9)
                                 speedMultiplier++;
                         }
-                        if (World.objects["bg"].position.Y + World.objects["bg"].size.Y / 2 > World.objects["player"].position.Y + World.objects["player"].size.Y / 4)
+                        if (World.objects["bg"].position.Y + World.objects["bg"].size.Y > World.objects["player"].position.Y + World.objects["player"].size.Y / 3)
                             World.objects[obj.Key].position.Y -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
                 }
