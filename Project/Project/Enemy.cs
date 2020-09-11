@@ -36,12 +36,11 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-            if (position.X > World.worldSize.X - enemyTex.Width / 4
-                || position.X < 1 + enemyTex.Width / 4)
+            if (position.X > World.objects["bg"].position.X + World.objects["bg"].size.X +  - enemyTex.Width / 4
+                || position.X < World.objects["bg"].position.X + enemyTex.Width / 4)
             {
                 heading.X *= -1;
             }
-
             position += heading * 300 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 

@@ -20,7 +20,8 @@ namespace Project
             backTex = Game1.Assets[texname];
             alive = true; 
             size = new Vector2(backTex.Width * scale.X, backTex.Height * scale.Y);
-            World.worldSize = size; 
+            World.worldSize = size;
+           
         }
 
         public override void Update(GameTime gameTime)
