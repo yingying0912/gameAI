@@ -10,7 +10,7 @@ namespace Project
     {
         public Tripodfish()
         {
-            texname = "tripodfish";
+            name = "tripodfish";
             gameSize = 4;
             speed = 4;
             location = 4;

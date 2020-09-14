@@ -11,18 +11,18 @@ namespace Project
 
         public Character()
         {
-            texname = "player";
+            name = "player";
         }
 
         public override void Initialize(Random rand)
         {
-            charTex = Game1.Assets[texname];
+            charTex = Game1.Assets[name];
             //position = new Vector2(1000, 800); 
             position = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2);
-            origin = new Vector2(charTex.Width / 2.0f, charTex.Height / 2.0f);
             alive = true;
-            size = new Vector2(charTex.Width, charTex.Height);
-            scale = new Vector2(0.5f, 0.5f); 
+            scale = new Vector2(0.5f, 0.5f);
+            size = new Vector2(charTex.Width * scale.X, charTex.Height * scale.Y);
+            origin = new Vector2(charTex.Width / 2, charTex.Height / 2);
         }
 
         public override void Update(GameTime gameTime)

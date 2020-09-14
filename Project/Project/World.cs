@@ -51,7 +51,7 @@ namespace Project
                 obj.Initialize(rand);
 
             coll = new Collision(); 
-            System.Diagnostics.Debug.WriteLine("world.cs: " + worldSize);
+            Console.WriteLine("world.cs: " + worldSize);
         }
 
         public static void Update(GameTime gameTime)
@@ -63,6 +63,7 @@ namespace Project
                     itr.Value.Update(gameTime);
                 itr = itr.Next;
             }
+            Collision.Update(gameTime); 
         }
         
         public static void Draw(SpriteBatch spriteBatch, GameTime gameTime)

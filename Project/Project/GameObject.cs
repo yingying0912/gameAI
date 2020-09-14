@@ -8,14 +8,14 @@ namespace Project
     public abstract class GameObject
     {
         public bool alive; 
-        public string texname; 
+        public string name; 
         public Vector2 heading, position, origin, size, scale; 
         public int location; 
 
         protected GameObject()
         {
             alive = false;
-            texname = string.Empty;
+            name = string.Empty;
             heading = new Vector2(1f, 0f);
             location = 0;
             position = origin = size = scale = Vector2.Zero;
@@ -26,6 +26,13 @@ namespace Project
         public abstract void Update(GameTime gameTime);
 
         public abstract void Draw(SpriteBatch spriteBatch, GameTime gameTime);
-        
+
+        public Rectangle Boundary()
+        {
+            Vector2 pos;
+            if (name == "backgroundwgrid") pos = position; 
+            else pos = position - size / 2; 
+            return new Rectangle((int)pos.X, (int)pos.Y, (int)size.X, (int)size.Y);
+        }
     }
 }

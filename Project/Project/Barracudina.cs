@@ -10,7 +10,7 @@ namespace Project
     {
         public Barracudina()
         {
-            texname = "barracudina";
+            name = "barracudina";
             gameSize = 4;
             speed = 4;
             location = 3;

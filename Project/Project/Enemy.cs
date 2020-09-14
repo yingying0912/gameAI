@@ -12,33 +12,40 @@ namespace Project
         
         protected Enemy()
         {
-            texname = string.Empty;
+            name = string.Empty;
             gameSize = 0;
             speed = 0;
             school = false;
             scale = new Vector2(0.5f, 0.5f); 
         }
-
+        
         public override void Initialize(Random rand)
         {
-            enemyTex = Game1.Assets[texname];
+            enemyTex = Game1.Assets[name];
 
             float yRand = 0;
             while (yRand == 0)
                 yRand = (float)rand.NextDouble(); 
             position = new Vector2(World.worldSize.X * rand.Next(1, 5) / 5f,
             (location / 5f * World.worldSize.Y) - 1080 * yRand);
-            
+            scale = new Vector2(0.5f, 0.5f);
+            size = new Vector2(enemyTex.Width * scale.X, enemyTex.Height * scale.Y);
             origin = new Vector2(enemyTex.Width / 2, enemyTex.Height / 2);
             alive = true;
-            size = new Vector2(enemyTex.Width, enemyTex.Height);
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (position.X > World.objects["bg"].position.X + World.objects["bg"].size.X +  - enemyTex.Width / 4
-                || position.X < World.objects["bg"].position.X + enemyTex.Width / 4)
+            /*
+            if (position.X  > World.objects["bg"].position.X + World.objects["bg"].size.X 
+                || position.X < World.objects["bg"].position.X)
                 heading.X *= -1;
+            */
+            if (Boundary().Left < World.objects["bg"].Boundary().Left || Boundary().Right > World.objects["bg"].Boundary().Right)
+            {
+                heading.X *= -1; 
+            }
+
             position += heading * 300 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 

@@ -10,7 +10,7 @@ namespace Project
     {
         public Opah()
         {
-            texname = "opah";
+            name = "opah";
             gameSize = 4;
             speed = 1;
             location = 2;

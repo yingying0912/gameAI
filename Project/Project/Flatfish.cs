@@ -10,7 +10,7 @@ namespace Project
     {
         public Flatfish()
         {
-            texname = "flatfish";
+            name = "flatfish";
             gameSize = 4;
             speed = 2;
             location = 5;

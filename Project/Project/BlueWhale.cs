@@ -10,7 +10,7 @@ namespace Project
     {
         public BlueWhale()
         {
-            texname = "blueWhale";
+            name = "blueWhale";
             gameSize = 4;
             speed = 1;
             location = 1;
