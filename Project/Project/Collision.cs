@@ -42,40 +42,40 @@ namespace Project
             {
                 foreach (GameObject enemy in level[1])
                 {
-                    if (playerBounds.Intersects(enemy.Boundary()))
-                        enemy.alive = false; 
+                   // if (playerBounds.Intersects(enemy.Boundary()))
+                        //enemy.alive = false; 
                 }
             }
             else if (World.objects["bg"].position.Y > -1600)
             {
                 foreach (GameObject enemy in level[2])
                 {
-                    if (playerBounds.Intersects(enemy.Boundary()))
-                        enemy.alive = false;
+                    //if (playerBounds.Intersects(enemy.Boundary()))
+                        //enemy.alive = false;
                 }
             }
             else if (World.objects["bg"].position.Y > -2683)
             {
                 foreach (GameObject enemy in level[3])
                 {
-                    if (playerBounds.Intersects(enemy.Boundary()))
-                        enemy.alive = false;
+                    //if (playerBounds.Intersects(enemy.Boundary()))
+                        //enemy.alive = false;
                 }
             }
             else if (World.objects["bg"].position.Y > -3765)
             {
                 foreach (GameObject enemy in level[4])
                 {
-                    if (playerBounds.Intersects(enemy.Boundary()))
-                        enemy.alive = false;
+                   // if (playerBounds.Intersects(enemy.Boundary()))
+                        //enemy.alive = false;
                 }
             }
             else 
             {
                 foreach (GameObject enemy in level[5])
                 {
-                    if (playerBounds.Intersects(enemy.Boundary()))
-                        enemy.alive = false;
+                    //if (playerBounds.Intersects(enemy.Boundary()))
+                        //enemy.alive = false;
                 }
             }
         }

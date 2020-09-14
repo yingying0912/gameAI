@@ -6,6 +6,7 @@ namespace Project
 {
     public abstract class Enemy: GameObject
     {
+
         public int gameSize, speed;
         public bool school;
         
@@ -46,7 +47,14 @@ namespace Project
                 heading.Y *= -1; 
             }
 
-            position += heading * 300 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
+                * (World.objects["player"].position.X - position.X)
+                + (World.objects["player"].position.Y - position.Y)
+                * (World.objects["player"].position.Y - position.Y)) < 100)
+                //Seek(gameTime);
+                Flee(gameTime);
+            else
+                position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -55,5 +63,19 @@ namespace Project
         }
 
         public abstract void PatternMovement();
+
+        public void Seek(GameTime gameTime)
+        {
+            heading =  World.objects["player"].position - position;
+            heading.Normalize();
+            position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        public void Flee(GameTime gameTime)
+        {
+            heading = position - World.objects["player"].position;
+            heading.Normalize();
+            position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
     }
 }

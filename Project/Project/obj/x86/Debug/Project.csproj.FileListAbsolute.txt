@@ -25,10 +25,8 @@ D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\player.
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\blue whale.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\blue whale.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\player.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\wall.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Project.exe
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Project.pdb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Comora.dll
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\MonoGame.Framework.dll
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\SharpDX.dll
@@ -56,3 +54,9 @@ D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\Barracu
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\flatfish.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\opah.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\tripodfish.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\background.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\backgroundwgrid.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\Barracudina.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\flatfish.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\opah.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\tripodfish.xnb

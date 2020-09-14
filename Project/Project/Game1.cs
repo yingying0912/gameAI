@@ -147,7 +147,7 @@ namespace Project
             if (World.objects["player"].Boundary().Top < World.objects["bg"].Boundary().Top && velocity.Y > 0) velocity.Y = 0; 
             if (World.objects["player"].Boundary().Bottom > World.objects["bg"].Boundary().Bottom && velocity.Y < 0) velocity.Y = 0; 
 
-            Console.WriteLine("v " + velocity); 
+           // Console.WriteLine("v " + velocity); 
 
             foreach (var obj in World.objects)
             {
