@@ -11,14 +11,14 @@ namespace Project
         public string name; 
         public Vector2 heading, position, origin, size, scale;
         public Texture2D texture; 
-        public int location; 
+        public int location, gameSize; 
 
         protected GameObject()
         {
             alive = false;
             name = string.Empty;
             heading = new Vector2(1f, 0f);
-            location = 0;
+            location = gameSize = 0;
             position = origin = size = scale = Vector2.Zero;
         }
 

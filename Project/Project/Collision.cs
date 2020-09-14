@@ -9,7 +9,6 @@ namespace Project
     {
         public static List<GameObject> collider;
         public static Dictionary<int, List<GameObject>> level;
-        static int lvl; 
 
         public Collision()
         {
@@ -40,42 +39,66 @@ namespace Project
 
             if (World.objects["bg"].position.Y > -525)
             {
-                foreach (GameObject enemy in level[1])
+                foreach (Enemy enemy in level[1])
                 {
-                   // if (playerBounds.Intersects(enemy.Boundary()))
-                        //enemy.alive = false; 
+                    if (playerBounds.Intersects(enemy.Boundary())) {
+                        if (enemy.gameSize <= World.objects["player"].gameSize)
+                            enemy.alive = false;
+                        else
+                            World.objects["player"].alive = false;
+                    }
                 }
             }
             else if (World.objects["bg"].position.Y > -1600)
             {
                 foreach (GameObject enemy in level[2])
                 {
-                    //if (playerBounds.Intersects(enemy.Boundary()))
-                        //enemy.alive = false;
+                    if (playerBounds.Intersects(enemy.Boundary()))
+                    {
+                        if (enemy.gameSize <= World.objects["player"].gameSize)
+                            enemy.alive = false;
+                        else
+                            World.objects["player"].alive = false;
+                    }
                 }
             }
             else if (World.objects["bg"].position.Y > -2683)
             {
                 foreach (GameObject enemy in level[3])
                 {
-                    //if (playerBounds.Intersects(enemy.Boundary()))
-                        //enemy.alive = false;
+                    if (playerBounds.Intersects(enemy.Boundary()))
+                    {
+                        if (enemy.gameSize <= World.objects["player"].gameSize)
+                            enemy.alive = false;
+                        else
+                            World.objects["player"].alive = false;
+                    }
                 }
             }
             else if (World.objects["bg"].position.Y > -3765)
             {
                 foreach (GameObject enemy in level[4])
                 {
-                   // if (playerBounds.Intersects(enemy.Boundary()))
-                        //enemy.alive = false;
+                    if (playerBounds.Intersects(enemy.Boundary()))
+                    {
+                        if (enemy.gameSize <= World.objects["player"].gameSize)
+                            enemy.alive = false;
+                        else
+                            World.objects["player"].alive = false;
+                    }
                 }
             }
             else 
             {
                 foreach (GameObject enemy in level[5])
                 {
-                    //if (playerBounds.Intersects(enemy.Boundary()))
-                        //enemy.alive = false;
+                    if (playerBounds.Intersects(enemy.Boundary()))
+                    {
+                        if (enemy.gameSize <= World.objects["player"].gameSize)
+                            enemy.alive = false;
+                        else
+                            World.objects["player"].alive = false;
+                    }
                 }
             }
         }

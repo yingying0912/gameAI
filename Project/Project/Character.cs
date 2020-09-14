@@ -21,6 +21,7 @@ namespace Project
             scale = new Vector2(0.5f, 0.5f);
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
+            gameSize = 1;
         }
 
         public override void Update(GameTime gameTime)

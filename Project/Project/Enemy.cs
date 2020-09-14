@@ -7,7 +7,7 @@ namespace Project
     public abstract class Enemy: GameObject
     {
 
-        public int gameSize, speed;
+        public int speed;
         public bool school;
         
         protected Enemy()
@@ -50,9 +50,10 @@ namespace Project
             if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
                 * (World.objects["player"].position.X - position.X)
                 + (World.objects["player"].position.Y - position.Y)
-                * (World.objects["player"].position.Y - position.Y)) < 100)
+                * (World.objects["player"].position.Y - position.Y)) < 500)
                 //Seek(gameTime);
                 Flee(gameTime);
+
             else
                 position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
@@ -75,6 +76,10 @@ namespace Project
         {
             heading = position - World.objects["player"].position;
             heading.Normalize();
+            if (Boundary().Left < World.objects["bg"].Boundary().Left && heading.X < 0) heading.X = 0;
+            if (Boundary().Right > World.objects["bg"].Boundary().Right && heading.X > 0) heading.X = 0;
+            if (Boundary().Top < World.objects["bg"].Boundary().Top && heading.Y < 0) heading.Y = 0;
+            if (Boundary().Bottom > World.objects["bg"].Boundary().Bottom && heading.Y > 0) heading.Y = 0;
             position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
     }
