@@ -36,14 +36,15 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-            /*
-            if (position.X  > World.objects["bg"].position.X + World.objects["bg"].size.X 
-                || position.X < World.objects["bg"].position.X)
-                heading.X *= -1;
-            */
-            if (Boundary().Left < World.objects["bg"].Boundary().Left || Boundary().Right > World.objects["bg"].Boundary().Right)
+            if (Boundary().Left < World.objects["bg"].Boundary().Left 
+             || Boundary().Right > World.objects["bg"].Boundary().Right)
             {
                 heading.X *= -1; 
+            }
+            if (Boundary().Top < World.objects["bg"].Boundary().Top 
+             || Boundary().Bottom > World.objects["bg"].Boundary().Bottom)
+            {
+                heading.Y *= -1; 
             }
 
             position += heading * 300 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
