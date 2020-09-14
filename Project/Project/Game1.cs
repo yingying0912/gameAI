@@ -14,11 +14,13 @@ namespace Project
         public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
         public static GameWindow Screen;
         Vector2 velocity;
-        float distance; 
+        float distance;
+        HUD hud;
 
         public Random rand = new Random();
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public SpriteFont spriteFont;
 
         public Game1()
         {
@@ -43,6 +45,9 @@ namespace Project
             IsMouseVisible = true;
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
+
+            hud = new HUD("test", new Vector2(500, 500), spriteBatch, spriteFont, GraphicsDevice);
+            
             base.Initialize();
         }
 
@@ -56,6 +61,8 @@ namespace Project
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            spriteFont = Content.Load<SpriteFont>("font");
+            
             Assets.Add("background", Content.Load<Texture2D>("background"));
             Assets.Add("backgroundwgrid", Content.Load<Texture2D>("backgroundwgrid"));
             Assets.Add("player", Content.Load<Texture2D>("player"));
@@ -112,7 +119,10 @@ namespace Project
             GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-            World.Draw(spriteBatch, gameTime);
+            spriteBatch.Begin();
+                World.Draw(spriteBatch, gameTime);
+                hud.Draw(); 
+            spriteBatch.End();
 
             base.Draw(gameTime);
 

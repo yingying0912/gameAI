@@ -73,6 +73,13 @@
 /processorParam:TextureFormat=Color
 /build:flatfish.png
 
+#begin font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:font.spritefont
+
 #begin opah.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -15,7 +15,6 @@ namespace Project
         public override void Initialize(Random rand)
         {
             texture = Game1.Assets[name];
-            //position = new Vector2(1000, 800); 
             position = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2);
             alive = true;
             scale = new Vector2(0.5f, 0.5f);

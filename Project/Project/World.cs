@@ -11,7 +11,7 @@ namespace Project
         public static Dictionary<string, GameObject> objects = new Dictionary<string, GameObject>();
         private static LinkedList<GameObject> drawList = new LinkedList<GameObject>();
         public static Vector2 worldSize;
-        static Collision coll; 
+        static Collision coll;
 
         public static void Add(string key, GameObject obj)
         {
@@ -68,11 +68,9 @@ namespace Project
         
         public static void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Begin(); 
-                foreach (GameObject obj in drawList) 
-                    if (obj.alive)
-                        obj.Draw(spriteBatch, gameTime);
-            spriteBatch.End();
+            foreach (GameObject obj in drawList) 
+                if (obj.alive)
+                    obj.Draw(spriteBatch, gameTime);
         }
     }
 }
