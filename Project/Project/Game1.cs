@@ -45,8 +45,6 @@ namespace Project
             IsMouseVisible = true;
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
-
-            hud = new HUD("test", new Vector2(500, 500), spriteBatch, spriteFont, GraphicsDevice);
             
             base.Initialize();
         }
@@ -62,7 +60,8 @@ namespace Project
 
             // TODO: use this.Content to load your game content here
             spriteFont = Content.Load<SpriteFont>("font");
-            
+            hud = new HUD("test", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15));
+
             Assets.Add("background", Content.Load<Texture2D>("background"));
             Assets.Add("backgroundwgrid", Content.Load<Texture2D>("backgroundwgrid"));
             Assets.Add("player", Content.Load<Texture2D>("player"));
@@ -104,7 +103,7 @@ namespace Project
 
             // TODO: Add your update logic here
             World.Update(gameTime);
-
+            hud.Update("value", new Color(255, 255, 255)); 
             Input(gameTime);
             base.Update(gameTime);
         }
@@ -120,8 +119,9 @@ namespace Project
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-                World.Draw(spriteBatch, gameTime);
-                hud.Draw(); 
+                World.Draw(spriteBatch, gameTime); 
+                hud.Draw(spriteBatch, spriteFont); 
+                //spriteBatch.DrawString(spriteFont, "test", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15), new Color(0, 0, 0));
             spriteBatch.End();
 
             base.Draw(gameTime);
