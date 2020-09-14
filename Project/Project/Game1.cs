@@ -13,7 +13,8 @@ namespace Project
     {
         public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
         public static GameWindow Screen;
-        private float moveSpeed, speedMultiplier; 
+        Vector2 velocity;
+        float distance; 
 
         public Random rand = new Random();
         GraphicsDeviceManager graphics;
@@ -26,6 +27,8 @@ namespace Project
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             Content.RootDirectory = "Content";
             Screen = this.Window;
+            velocity = Vector2.Zero;
+            distance = 0;
         }
 
         /// <summary>
@@ -37,8 +40,6 @@ namespace Project
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            moveSpeed = 500;
-
             IsMouseVisible = true;
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
@@ -70,7 +71,7 @@ namespace Project
             World.Add("opah", new Opah());
             World.Add("barracudina", new Barracudina());
             World.Add("tripodfish", new Tripodfish());
-            World.Add("flatfish", new Flatfish()); 
+            World.Add("flatfish", new Flatfish());
             World.Initialize(rand);
         }
 
@@ -93,11 +94,11 @@ namespace Project
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            
+
             // TODO: Add your update logic here
             World.Update(gameTime);
-            
-            Input(gameTime); 
+
+            Input(gameTime);
             base.Update(gameTime);
         }
 
@@ -108,84 +109,50 @@ namespace Project
         protected override void Draw(GameTime gameTime)
         {
             //GraphicsDevice.Clear(Color.CornflowerBlue);
-            GraphicsDevice.Clear(Color.Black); 
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
             World.Draw(spriteBatch, gameTime);
 
             base.Draw(gameTime);
-            
+
         }
 
         public void Input(GameTime gameTime)
         {
             //System.Diagnostics.Debug.WriteLine("Y coord: " + World.objects["bg"].position.Y); 
             MouseState mouse = Mouse.GetState();
+            
+
+            if (mouse.Position.X < Screen.ClientBounds.Width / 3
+             || mouse.Position.X > Screen.ClientBounds.Width * 2 / 3
+             || mouse.Position.Y < Screen.ClientBounds.Height / 3
+             || mouse.Position.Y > Screen.ClientBounds.Height * 2 / 3)
+            {
+                velocity = World.objects["player"].position - mouse.Position.ToVector2();
+                velocity.Normalize();
+                distance = (float)Math.Sqrt((World.objects["player"].position.X - mouse.Position.ToVector2().X) 
+                                          * (World.objects["player"].position.X - mouse.Position.ToVector2().X)
+                                          + (World.objects["player"].position.Y - mouse.Position.ToVector2().Y) 
+                                          * (World.objects["player"].position.Y - mouse.Position.ToVector2().Y));
+            }
+            else
+            {
+                velocity = Vector2.Zero;
+                distance = 0; 
+            }
+
+            if (World.objects["player"].Boundary().Left < World.objects["bg"].Boundary().Left && velocity.X > 0) velocity.X = 0; 
+            if (World.objects["player"].Boundary().Right > World.objects["bg"].Boundary().Right && velocity.X < 0) velocity.X = 0; 
+            if (World.objects["player"].Boundary().Top < World.objects["bg"].Boundary().Top && velocity.Y > 0) velocity.Y = 0; 
+            if (World.objects["player"].Boundary().Bottom > World.objects["bg"].Boundary().Bottom && velocity.Y < 0) velocity.Y = 0; 
+
+            Console.WriteLine("v " + velocity); 
+
             foreach (var obj in World.objects)
             {
                 if (obj.Key != "player")
-                {
-                    /*
-                    speedMultiplier: 
-                    3 3 3 3 3 3 3 3 3 
-                    3 2 2 2 2 2 2 2 3 
-                    3 2 1 1 1 1 1 2 3 
-                    3 2 1 0 0 0 1 2 3 
-                    3 2 1 0 0 0 1 2 3 
-                    3 2 1 0 0 0 1 2 3 
-                    3 2 1 1 1 1 1 2 3 
-                    3 2 2 2 2 2 2 2 3 
-                    3 3 3 3 3 3 3 3 3 
-                    */
-                    if (mouse.Position.X < Screen.ClientBounds.Width / 3)
-                    {
-                        speedMultiplier = 1;
-                        if (mouse.Position.X < Screen.ClientBounds.Width * 2 / 9)
-                        {
-                            speedMultiplier++;
-                            if (mouse.Position.X < Screen.ClientBounds.Width * 1 / 9)
-                                speedMultiplier++;
-                        }
-                        if (World.objects["bg"].position.X < World.objects["player"].position.X - World.objects["player"].size.X / 3)
-                            World.objects[obj.Key].position.X += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    }
-                    if (mouse.Position.X > Screen.ClientBounds.Width * 2 / 3)
-                    {
-                        speedMultiplier = 1; 
-                        if (mouse.Position.X > Screen.ClientBounds.Width * 7 / 9)
-                        {
-                            speedMultiplier++; 
-                            if (mouse.Position.X > Screen.ClientBounds.Width * 8 / 9)
-                                speedMultiplier++;
-                        }
-                        if (World.objects["bg"].position.X + World.objects["bg"].size.X > World.objects["player"].position.X + World.objects["player"].size.X / 3)
-                            World.objects[obj.Key].position.X -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    }
-                    if (mouse.Position.Y < Screen.ClientBounds.Height / 3)
-                    {
-                        speedMultiplier = 1;
-                        if (mouse.Position.Y < Screen.ClientBounds.Height * 2 / 9)
-                        {
-                            speedMultiplier++;
-                            if (mouse.Position.Y < Screen.ClientBounds.Height * 1 / 9)
-                                speedMultiplier++;
-                        }
-                        if (World.objects["bg"].position.Y < World.objects["player"].position.Y - World.objects["player"].size.Y / 3)
-                            World.objects[obj.Key].position.Y += moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    }
-                    if (mouse.Position.Y > Screen.ClientBounds.Height * 2 / 3)
-                    {
-                        speedMultiplier = 1;
-                        if (mouse.Position.Y > Screen.ClientBounds.Height * 7 / 9)
-                        {
-                            speedMultiplier++;
-                            if (mouse.Position.Y > Screen.ClientBounds.Height * 8 / 9)
-                                speedMultiplier++;
-                        }
-                        if (World.objects["bg"].position.Y + World.objects["bg"].size.Y > World.objects["player"].position.Y + World.objects["player"].size.Y / 3)
-                            World.objects[obj.Key].position.Y -= moveSpeed * speedMultiplier * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    }
-                }
+                    World.objects[obj.Key].position += velocity * 2f * distance * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
         }
     }

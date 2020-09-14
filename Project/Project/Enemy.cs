@@ -6,7 +6,6 @@ namespace Project
 {
     public abstract class Enemy: GameObject
     {
-        public Texture2D enemyTex;
         public int gameSize, speed;
         public bool school;
         
@@ -21,7 +20,7 @@ namespace Project
         
         public override void Initialize(Random rand)
         {
-            enemyTex = Game1.Assets[name];
+            texture = Game1.Assets[name];
 
             float yRand = 0;
             while (yRand == 0)
@@ -29,8 +28,8 @@ namespace Project
             position = new Vector2(World.worldSize.X * rand.Next(1, 5) / 5f,
             (location / 5f * World.worldSize.Y) - 1080 * yRand);
             scale = new Vector2(0.5f, 0.5f);
-            size = new Vector2(enemyTex.Width * scale.X, enemyTex.Height * scale.Y);
-            origin = new Vector2(enemyTex.Width / 2, enemyTex.Height / 2);
+            size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
+            origin = new Vector2(texture.Width / 2, texture.Height / 2);
             alive = true;
         }
 
@@ -52,7 +51,7 @@ namespace Project
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(enemyTex, position, origin: origin, scale: scale);
+            spriteBatch.Draw(texture, position, origin: origin, scale: scale);
         }
 
         public abstract void PatternMovement();

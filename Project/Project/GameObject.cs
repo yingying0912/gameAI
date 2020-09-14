@@ -9,7 +9,8 @@ namespace Project
     {
         public bool alive; 
         public string name; 
-        public Vector2 heading, position, origin, size, scale; 
+        public Vector2 heading, position, origin, size, scale;
+        public Texture2D texture; 
         public int location; 
 
         protected GameObject()

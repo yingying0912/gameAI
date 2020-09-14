@@ -7,8 +7,6 @@ namespace Project
 {
     public class Character : GameObject
     {
-        Texture2D charTex;
-
         public Character()
         {
             name = "player";
@@ -16,13 +14,13 @@ namespace Project
 
         public override void Initialize(Random rand)
         {
-            charTex = Game1.Assets[name];
+            texture = Game1.Assets[name];
             //position = new Vector2(1000, 800); 
             position = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2);
             alive = true;
             scale = new Vector2(0.5f, 0.5f);
-            size = new Vector2(charTex.Width * scale.X, charTex.Height * scale.Y);
-            origin = new Vector2(charTex.Width / 2, charTex.Height / 2);
+            size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
+            origin = new Vector2(texture.Width / 2, texture.Height / 2);
         }
 
         public override void Update(GameTime gameTime)
@@ -32,7 +30,7 @@ namespace Project
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(charTex, position, origin:origin, scale: scale);
+            spriteBatch.Draw(texture, position, origin:origin, scale: scale);
         }
     }
 }

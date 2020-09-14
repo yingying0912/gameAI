@@ -6,20 +6,17 @@ namespace Project
 {
     public class Background : GameObject 
     {
-        Texture2D backTex;
-
         public Background()
         {
             name = "backgroundwgrid";
             scale = new Vector2(5f, 5f); 
-            //1920x1080 
         }
 
         public override void Initialize(Random rand)
         {
-            backTex = Game1.Assets[name];
+            texture = Game1.Assets[name];
             alive = true; 
-            size = new Vector2(backTex.Width * scale.X, backTex.Height * scale.Y);
+            size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
             World.worldSize = size;
         }
 
@@ -30,7 +27,7 @@ namespace Project
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(backTex, position, origin: origin, scale: scale);
+            spriteBatch.Draw(texture, position, origin: origin, scale: scale);
         }
     }
 }
