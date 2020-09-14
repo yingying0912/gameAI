@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class Opah : Enemy
+    class Barracudina : Enemy
     {
-        public Opah()
+        public Barracudina()
         {
-            texname = "opah";
+            texname = "barracudina";
             gameSize = 4;
-            speed = 1;
-            location = 2;
+            speed = 4;
+            location = 3;
         }
         public override void PatternMovement()
         {

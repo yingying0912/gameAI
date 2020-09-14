@@ -59,7 +59,7 @@ namespace Project
             Assets.Add("backgroundwgrid", Content.Load<Texture2D>("backgroundwgrid"));
             Assets.Add("player", Content.Load<Texture2D>("player"));
             Assets.Add("blueWhale", Content.Load<Texture2D>("blue whale"));
-            Assets.Add("barracudina", Content.Load<Texture2D>("Barracudina"));
+            Assets.Add("barracudina", Content.Load<Texture2D>("barracudina"));
             Assets.Add("flatfish", Content.Load<Texture2D>("flatfish"));
             Assets.Add("opah", Content.Load<Texture2D>("opah"));
             Assets.Add("tripodfish", Content.Load<Texture2D>("tripodfish"));
@@ -67,6 +67,10 @@ namespace Project
             World.Add("bg", new Background());
             World.Add("player", new Character());
             World.Add("blueWhale", new BlueWhale());
+            World.Add("opah", new Opah());
+            World.Add("barracudina", new Barracudina());
+            World.Add("tripodfish", new Tripodfish());
+            World.Add("flatfish", new Flatfish()); 
             World.Initialize(rand);
         }
 
@@ -115,7 +119,7 @@ namespace Project
 
         public void Input(GameTime gameTime)
         {
-            System.Diagnostics.Debug.WriteLine(World.objects["player"].position.X); 
+            //System.Diagnostics.Debug.WriteLine("Y coord: " + World.objects["bg"].position.Y); 
             MouseState mouse = Mouse.GetState();
             foreach (var obj in World.objects)
             {

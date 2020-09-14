@@ -11,6 +11,7 @@ namespace Project
         public static Dictionary<string, GameObject> objects = new Dictionary<string, GameObject>();
         private static LinkedList<GameObject> drawList = new LinkedList<GameObject>();
         public static Vector2 worldSize;
+        static Collision coll; 
 
         public static void Add(string key, GameObject obj)
         {
@@ -48,7 +49,8 @@ namespace Project
         {
             foreach (GameObject obj in drawList)
                 obj.Initialize(rand);
-            
+
+            coll = new Collision(); 
             System.Diagnostics.Debug.WriteLine("world.cs: " + worldSize);
         }
 
