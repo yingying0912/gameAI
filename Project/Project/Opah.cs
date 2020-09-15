@@ -11,7 +11,7 @@ namespace Project
         public Opah()
         {
             name = "opah";
-            gameSize = 4;
+            gameSize = 1;
             speed = 1;
             location = 2;
         }

@@ -6,9 +6,11 @@ namespace Project
 {
     public abstract class Enemy: GameObject
     {
+        public enum state { Idle, Seeking, Fleeing, Dead}
 
         public int speed;
         public bool school;
+        public state status;
         
         protected Enemy()
         {
@@ -16,7 +18,8 @@ namespace Project
             gameSize = 0;
             speed = 0;
             school = false;
-            scale = new Vector2(0.5f, 0.5f); 
+            scale = new Vector2(0.5f, 0.5f);
+            status = state.Idle;
         }
         
         public override void Initialize(Random rand)
@@ -47,15 +50,23 @@ namespace Project
                 heading.Y *= -1; 
             }
 
-            if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
-                * (World.objects["player"].position.X - position.X)
-                + (World.objects["player"].position.Y - position.Y)
-                * (World.objects["player"].position.Y - position.Y)) < 500)
-                //Seek(gameTime);
-                Flee(gameTime);
+            getStatus();
 
-            else
-                position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            switch (status)
+            {
+                case state.Idle:
+                    position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    break;
+                case state.Seeking:
+                    Seek(gameTime);
+                    break;
+                case state.Fleeing:
+                    Flee(gameTime);
+                    break;
+                case state.Dead:
+                    Console.WriteLine(name + " is dead");
+                    break;
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -64,6 +75,27 @@ namespace Project
         }
 
         public abstract void PatternMovement();
+
+        private void getStatus()
+        {
+            if (alive == true)
+            {
+                if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
+                * (World.objects["player"].position.X - position.X)
+                + (World.objects["player"].position.Y - position.Y)
+                * (World.objects["player"].position.Y - position.Y)) < 500)
+                {
+                    if (gameSize <= World.objects["player"].gameSize)
+                        status = state.Fleeing;
+                    else
+                        status = state.Seeking;
+                }
+                else
+                    status = state.Idle;
+            }
+            else
+                status = state.Dead;
+        }
 
         public void Seek(GameTime gameTime)
         {
@@ -76,11 +108,15 @@ namespace Project
         {
             heading = position - World.objects["player"].position;
             heading.Normalize();
+
+            //next -> can try random heading number of opposite direction when enemy reached the boundary.
             if (Boundary().Left < World.objects["bg"].Boundary().Left && heading.X < 0) heading.X = 0;
             if (Boundary().Right > World.objects["bg"].Boundary().Right && heading.X > 0) heading.X = 0;
             if (Boundary().Top < World.objects["bg"].Boundary().Top && heading.Y < 0) heading.Y = 0;
             if (Boundary().Bottom > World.objects["bg"].Boundary().Bottom && heading.Y > 0) heading.Y = 0;
             position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
+
+        
     }
 }
