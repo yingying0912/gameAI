@@ -52,7 +52,6 @@ namespace Project
 
         public void TextHUD(SpriteBatch spriteBatch, SpriteFont spriteFont)
         {
-            Console.WriteLine("test"); 
             spriteBatch.DrawString(spriteFont, textLabel + ": " + textValue, position, textColor); 
         }
 

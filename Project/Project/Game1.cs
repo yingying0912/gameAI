@@ -16,9 +16,10 @@ namespace Project
         public static GameWindow Screen;
         Vector2 velocity;
         float distance;
-        gameState gameStatus;
+        public static gameState gameStatus;
         HUD scoreHUD, levelHUD;
-        Input input; 
+        Input input;
+        Score scoreCal;
 
         public Random rand = new Random();
         GraphicsDeviceManager graphics;
@@ -35,7 +36,8 @@ namespace Project
             velocity = Vector2.Zero;
             distance = 0;
             gameStatus = gameState.Start;
-            input = new Input(); 
+            input = new Input();
+            scoreCal = new Score();
         }
 
         /// <summary>
@@ -50,7 +52,7 @@ namespace Project
             IsMouseVisible = true;
             graphics.IsFullScreen = true;
             graphics.ApplyChanges();
-            
+            scoreCal.Initialize();
             base.Initialize();
         }
 
@@ -67,8 +69,7 @@ namespace Project
             spriteFont = Content.Load<SpriteFont>("font");
             scoreHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15));
             levelHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15), 5);
-
-
+            
             Assets.Add("background", Content.Load<Texture2D>("background"));
             Assets.Add("backgroundwgrid", Content.Load<Texture2D>("backgroundwgrid"));
             Assets.Add("player", Content.Load<Texture2D>("player"));
@@ -86,6 +87,7 @@ namespace Project
             World.Add("tripodfish", new Tripodfish());
             World.Add("flatfish", new Flatfish());
             World.Initialize(rand);
+
         }
 
         /// <summary>
@@ -154,6 +156,7 @@ namespace Project
             scoreHUD.Update("value", new Color(255, 255, 255));
             levelHUD.Update("value", new Color(255, 255, 255), 2);
             input.Update(Screen, gameTime);
+            scoreCal.Update(gameStatus);
         }
     }
 }
