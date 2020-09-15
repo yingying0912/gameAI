@@ -72,5 +72,14 @@ namespace Project
                 if (obj.alive)
                     obj.Draw(spriteBatch, gameTime);
         }
+
+        public static void Move(GameTime gameTime, Vector2 velocity, float distance)
+        {
+            foreach (var obj in objects)
+            {
+                if (obj.Key != "player")
+                    objects[obj.Key].position += velocity * 2f * distance * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+        }
     }
 }

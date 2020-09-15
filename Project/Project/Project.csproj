@@ -51,6 +51,7 @@
     <Compile Include="GameObject.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="HUD.cs" />
+    <Compile Include="Input.cs" />
     <Compile Include="Opah.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
