@@ -9,9 +9,9 @@ namespace Project
     class World
     {
         public static Dictionary<string, GameObject> objects = new Dictionary<string, GameObject>();
-        private static LinkedList<GameObject> drawList = new LinkedList<GameObject>();
+        static LinkedList<GameObject> drawList = new LinkedList<GameObject>(); 
+        static Collision collision = new Collision();
         public static Vector2 worldSize;
-        static Collision coll;
 
         public static void Add(string key, GameObject obj)
         {
@@ -50,7 +50,7 @@ namespace Project
             foreach (GameObject obj in drawList)
                 obj.Initialize(rand);
 
-            coll = new Collision(); 
+            collision.Initialize(); 
             Console.WriteLine("world.cs: " + worldSize);
         }
 
@@ -63,14 +63,16 @@ namespace Project
                     itr.Value.Update(gameTime);
                 itr = itr.Next;
             }
-            Collision.Update(gameTime); 
+            collision.Update(); 
         }
         
         public static void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach (GameObject obj in drawList) 
+            foreach (GameObject obj in drawList)
+            {
                 if (obj.alive)
                     obj.Draw(spriteBatch, gameTime);
+            }
         }
 
         public static void Move(GameTime gameTime, Vector2 velocity, float distance)
@@ -79,7 +81,7 @@ namespace Project
             {
                 if (obj.Key != "player")
                     objects[obj.Key].position += velocity * 2f * distance * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
+            }                
         }
     }
 }

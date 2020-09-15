@@ -7,98 +7,61 @@ namespace Project
 {
     public class Collision
     {
-        public static List<GameObject> collider;
-        public static Dictionary<int, List<GameObject>> level;
-
+        Dictionary<int, List<GameObject>> level;
+        List<GameObject> collider;
+        List<int> levelCoord;
+        int counter; 
+        
         public Collision()
         {
             level = new Dictionary<int, List<GameObject>>();
-            Console.WriteLine("Collider contents:"); 
+            levelCoord = new List<int>(); 
+        }
+
+        public void Initialize()
+        {
+            Console.WriteLine("Collider contents:");
             for (int i = 1; i < 6; i++)
             {
                 collider = new List<GameObject>();
                 foreach (var obj in World.objects)
                 {
                     if (obj.Key != "player" && World.objects[obj.Key].location == i)
-                        collider.Add(World.objects[obj.Key]); 
+                        collider.Add(World.objects[obj.Key]);
                 }
                 level.Add(i, collider);
+
                 if (collider.Count > 0)
-                    Console.WriteLine("Level " + i + " content: " + collider[0]); 
+                    Console.WriteLine("Level " + i + " content: " + collider[0]);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                levelCoord.Add( - 540 - 1080 * i); 
             }
         }
 
-        public static void Initialize()
+        public void Update()
         {
-
+            Console.WriteLine(World.objects["bg"].position.Y); 
+            counter = 0;
+            for (int i = 0; i < 5;)
+            {
+                i++; 
+                if (World.objects["bg"].position.Y > levelCoord[i])
+                    CheckCollision(i); 
+            }
         }
 
-        public static void Update(GameTime gameTime)
+        void CheckCollision(int no)
         {
-            Rectangle playerBounds = World.objects["player"].Boundary();
-
-            if (World.objects["bg"].position.Y > -525)
+            foreach (GameObject enemy in level[no])
             {
-                foreach (Enemy enemy in level[1])
+                if (World.objects["player"].Boundary().Intersects(enemy.Boundary()))
                 {
-                    if (playerBounds.Intersects(enemy.Boundary())) {
-                        if (enemy.gameSize <= World.objects["player"].gameSize)
-                            enemy.alive = false;
-                        else
-                            World.objects["player"].alive = false;
-                    }
-                }
-            }
-            else if (World.objects["bg"].position.Y > -1600)
-            {
-                foreach (GameObject enemy in level[2])
-                {
-                    if (playerBounds.Intersects(enemy.Boundary()))
-                    {
-                        if (enemy.gameSize <= World.objects["player"].gameSize)
-                            enemy.alive = false;
-                        else
-                            World.objects["player"].alive = false;
-                    }
-                }
-            }
-            else if (World.objects["bg"].position.Y > -2683)
-            {
-                foreach (GameObject enemy in level[3])
-                {
-                    if (playerBounds.Intersects(enemy.Boundary()))
-                    {
-                        if (enemy.gameSize <= World.objects["player"].gameSize)
-                            enemy.alive = false;
-                        else
-                            World.objects["player"].alive = false;
-                    }
-                }
-            }
-            else if (World.objects["bg"].position.Y > -3765)
-            {
-                foreach (GameObject enemy in level[4])
-                {
-                    if (playerBounds.Intersects(enemy.Boundary()))
-                    {
-                        if (enemy.gameSize <= World.objects["player"].gameSize)
-                            enemy.alive = false;
-                        else
-                            World.objects["player"].alive = false;
-                    }
-                }
-            }
-            else 
-            {
-                foreach (GameObject enemy in level[5])
-                {
-                    if (playerBounds.Intersects(enemy.Boundary()))
-                    {
-                        if (enemy.gameSize <= World.objects["player"].gameSize)
-                            enemy.alive = false;
-                        else
-                            World.objects["player"].alive = false;
-                    }
+                    if (enemy.gameSize <= World.objects["player"].gameSize)
+                        enemy.alive = false;
+                    else
+                        World.objects["player"].alive = false;
                 }
             }
         }
