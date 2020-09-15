@@ -11,10 +11,12 @@ namespace Project
     /// </summary>
     public class Game1 : Game
     {
+        public enum gameState {Start, Pause, Win, Lose }
         public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
         public static GameWindow Screen;
         Vector2 velocity;
         float distance;
+        gameState gameStatus;
         HUD scoreHUD, levelHUD;
         Input input; 
 
@@ -32,6 +34,7 @@ namespace Project
             Screen = this.Window;
             velocity = Vector2.Zero;
             distance = 0;
+            gameStatus = gameState.Start;
             input = new Input(); 
         }
 
@@ -105,11 +108,24 @@ namespace Project
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            switch (gameStatus)
+            {
+                case gameState.Start:
+                    StartGame(gameTime);
+                    break;
+                case gameState.Pause:
+                    Console.WriteLine("pauseGame()");
+                    break;
+                case gameState.Win:
+                    Console.WriteLine("WinGame");
+                    break;
+                case gameState.Lose:
+                    Console.WriteLine("LoseGame");
+                    break;
+            }
+
             // TODO: Add your update logic here
-            World.Update(gameTime);
-            scoreHUD.Update("value", new Color(255, 255, 255));
-            levelHUD.Update("value", new Color(255, 255, 255), 2);
-            input.Update(Screen, gameTime);
+            
             base.Update(gameTime);
         }
 
@@ -130,6 +146,14 @@ namespace Project
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public void StartGame(GameTime gameTime)
+        {
+            World.Update(gameTime);
+            scoreHUD.Update("value", new Color(255, 255, 255));
+            levelHUD.Update("value", new Color(255, 255, 255), 2);
+            input.Update(Screen, gameTime);
         }
     }
 }
