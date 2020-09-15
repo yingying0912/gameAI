@@ -15,7 +15,7 @@ namespace Project
         public static GameWindow Screen;
         Vector2 velocity;
         float distance;
-        HUD hud;
+        HUD scoreHUD, levelHUD; 
 
         public Random rand = new Random();
         GraphicsDeviceManager graphics;
@@ -60,7 +60,9 @@ namespace Project
 
             // TODO: use this.Content to load your game content here
             spriteFont = Content.Load<SpriteFont>("font");
-            hud = new HUD("test", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15));
+            scoreHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15));
+            levelHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15), 5);
+
 
             Assets.Add("background", Content.Load<Texture2D>("background"));
             Assets.Add("backgroundwgrid", Content.Load<Texture2D>("backgroundwgrid"));
@@ -103,7 +105,8 @@ namespace Project
 
             // TODO: Add your update logic here
             World.Update(gameTime);
-            hud.Update("value", new Color(255, 255, 255)); 
+            scoreHUD.Update("value", new Color(255, 255, 255));
+            levelHUD.Update("value", new Color(255, 255, 255), 2);
             Input(gameTime);
             base.Update(gameTime);
         }
@@ -120,8 +123,8 @@ namespace Project
             // TODO: Add your drawing code here
             spriteBatch.Begin();
                 World.Draw(spriteBatch, gameTime); 
-                hud.Draw(spriteBatch, spriteFont); 
-                //spriteBatch.DrawString(spriteFont, "test", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15), new Color(0, 0, 0));
+                scoreHUD.Draw(spriteBatch, spriteFont, GraphicsDevice); 
+                levelHUD.Draw(spriteBatch, spriteFont, GraphicsDevice); 
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -130,10 +133,9 @@ namespace Project
 
         public void Input(GameTime gameTime)
         {
-            //System.Diagnostics.Debug.WriteLine("Y coord: " + World.objects["bg"].position.Y); 
+            //Console.WriteLine("Y coord: " + World.objects["bg"].position.Y); 
             MouseState mouse = Mouse.GetState();
             
-
             if (mouse.Position.X < Screen.ClientBounds.Width / 3
              || mouse.Position.X > Screen.ClientBounds.Width * 2 / 3
              || mouse.Position.Y < Screen.ClientBounds.Height / 3
