@@ -29,7 +29,7 @@ namespace Project
             maxScorePerLevel.Add(1000);
         }
 
-        public void Update(Game1.gameState gameStatus)
+        public void Update()
         {
             alive = World.objects["player"].alive;
             if (alive)
@@ -47,9 +47,9 @@ namespace Project
             }
             else
             {
-                gameStatus = Game1.gameState.Lose;
+                Game1.gameStatus = Game1.gameState.Lose;
             }
-            
+
         }
 
         public static void addScore(int enemySize)
