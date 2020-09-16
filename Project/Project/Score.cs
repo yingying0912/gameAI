@@ -8,9 +8,9 @@ namespace Project
 {
     public class Score
     {
-        public int score;
+        private static int score;
         public bool alive;
-        public int level;
+        private static int level;
         public List<int> maxScorePerLevel;
 
         public Score()
@@ -50,6 +50,19 @@ namespace Project
                 gameStatus = Game1.gameState.Lose;
             }
             
+        }
+
+        public static void addScore(int enemySize)
+        {
+            if (level == enemySize)
+                score += 10;
+            else if (level == enemySize + 1)
+                score += 5;
+            else if (level == enemySize + 2)
+                score += 3;
+            else if (level == enemySize + 3)
+                score += 2;
+            Console.WriteLine(score);
         }
 
     }

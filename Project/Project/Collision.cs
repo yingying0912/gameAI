@@ -10,7 +10,6 @@ namespace Project
         Dictionary<int, List<GameObject>> level;
         List<GameObject> collider;
         List<int> levelCoord;
-        int counter; 
         
         public Collision()
         {
@@ -42,8 +41,6 @@ namespace Project
 
         public void Update()
         {
-            Console.WriteLine(World.objects["bg"].position.Y); 
-            counter = 0;
             for (int i = 0; i < 5;)
             {
                 i++; 
@@ -56,12 +53,18 @@ namespace Project
         {
             foreach (GameObject enemy in level[no])
             {
-                if (World.objects["player"].Boundary().Intersects(enemy.Boundary()))
+                if (enemy.alive == true)
                 {
-                    if (enemy.gameSize <= World.objects["player"].gameSize)
-                        enemy.alive = false;
-                    else
-                        World.objects["player"].alive = false;
+                    if (World.objects["player"].Boundary().Intersects(enemy.Boundary()))
+                    {
+                        if (enemy.gameSize <= World.objects["player"].gameSize)
+                        {
+                            enemy.alive = false;
+                            Score.addScore(enemy.gameSize);
+                        }
+                        else
+                            World.objects["player"].alive = false;
+                    }
                 }
             }
         }
