@@ -6,7 +6,7 @@ namespace Project
 {
     class Input
     {
-        MouseState mouse;
+        static MouseState mouse;
         Vector2 velocity;
         float distance;
 
@@ -84,6 +84,11 @@ namespace Project
                                       * (World.objects["player"].position.X - mouse.Position.ToVector2().X)
                                       + (World.objects["player"].position.Y - mouse.Position.ToVector2().Y)
                                       * (World.objects["player"].position.Y - mouse.Position.ToVector2().Y));
+        }
+
+        public static float MousePosition()
+        {
+            return mouse.Position.X;
         }
     }
 }

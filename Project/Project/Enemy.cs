@@ -55,7 +55,7 @@ namespace Project
                 heading.Y *= -1;
             }
 
-            //getStatus();
+            getStatus();
 
             switch (status)
             {
@@ -77,7 +77,10 @@ namespace Project
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(texture, position, origin: origin, scale: scale);
+            if (heading.X > 0)
+                spriteBatch.Draw(texture, position, origin: origin, scale: scale);
+            else
+                spriteBatch.Draw(texture, position, origin: origin, scale: scale, effects: SpriteEffects.FlipHorizontally);
         }
 
         public abstract void PatternMovement();
@@ -137,8 +140,7 @@ namespace Project
             {
                 timeCounter--;
                 position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
-                
+            }    
         }
     }
 }

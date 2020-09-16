@@ -11,7 +11,7 @@ namespace Project
         public string name; 
         public Vector2 heading, position, origin, size, scale;
         public Texture2D texture; 
-        public int location, gameSize; 
+        public int location, gameSize;
 
         protected GameObject()
         {

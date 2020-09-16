@@ -31,7 +31,10 @@ namespace Project
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(texture, position, origin:origin, scale: scale);
+            if (Input.MousePosition() < Game1.Screen.ClientBounds.Width/2)
+                spriteBatch.Draw(texture, position, origin: origin, scale: scale);
+            else
+                spriteBatch.Draw(texture, position, origin: origin, scale: scale, effects: SpriteEffects.FlipHorizontally);
         }
     }
 }
