@@ -41,11 +41,10 @@ namespace Project
 
         public void Update()
         {
-            for (int i = 0; i < 5;)
+            for (int i = 0; i < 5;i++)
             {
-                i++; 
                 if (World.objects["bg"].position.Y > levelCoord[i])
-                    CheckCollision(i); 
+                    CheckCollision(i+1); 
             }
         }
 
