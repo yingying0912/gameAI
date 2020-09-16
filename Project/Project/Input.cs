@@ -72,7 +72,7 @@ namespace Project
             if (World.objects["bg"].Boundary().Left > 1 && velocity.X > 0) velocity.X = 0;
             if (World.objects["bg"].Boundary().Right < Game1.Screen.ClientBounds.Width && velocity.X < 0) velocity.X = 0;
             if (World.objects["bg"].Boundary().Top > 1 && velocity.Y > 0) velocity.Y = 0;
-            if (World.objects["bg"].Boundary().Bottom < Game1.Screen.ClientBounds.Width && velocity.Y < 0) velocity.Y = 0;
+            if (World.objects["bg"].Boundary().Bottom < Game1.Screen.ClientBounds.Height && velocity.Y < 0) velocity.Y = 0;
         }
         
 

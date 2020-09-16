@@ -11,6 +11,8 @@ namespace Project
         public int speed;
         public bool school;
         public state status;
+        private Vector2 displacement;
+        private int timeCounter, maxTime;
 
         protected Enemy()
         {
@@ -20,6 +22,7 @@ namespace Project
             school = false;
             scale = new Vector2(0.5f, 0.5f);
             status = state.Idle;
+            displacement = Vector2.Zero;
         }
 
         public override void Initialize(Random rand)
@@ -35,6 +38,8 @@ namespace Project
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
             alive = true;
+            timeCounter = 0;
+            maxTime = 200;
         }
 
         public override void Update(GameTime gameTime)
@@ -50,12 +55,13 @@ namespace Project
                 heading.Y *= -1;
             }
 
-            getStatus();
+            //getStatus();
 
             switch (status)
             {
                 case state.Idle:
-                    position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    //position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Wander(gameTime, Game1.rand);
                     break;
                 case state.Seeking:
                     Seek(gameTime);
@@ -115,6 +121,24 @@ namespace Project
             if (Boundary().Top < World.objects["bg"].Boundary().Top && heading.Y < 0) heading.Y = 0;
             if (Boundary().Bottom > World.objects["bg"].Boundary().Bottom && heading.Y > 0) heading.Y = 0;
             position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        public void Wander(GameTime gameTime, Random rand)
+        {
+            if (timeCounter == 0)
+            {
+                position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                displacement = new Vector2((float)rand.NextDouble(), (float)rand.NextDouble());
+                heading += displacement;
+                heading.Normalize();
+                timeCounter = maxTime;
+            }
+            else
+            {
+                timeCounter--;
+                position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+                
         }
     }
 }

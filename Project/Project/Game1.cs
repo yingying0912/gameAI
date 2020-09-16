@@ -21,7 +21,7 @@ namespace Project
         Input input;
         Score scoreCal;
 
-        public Random rand = new Random();
+        public static Random rand = new Random();
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public SpriteFont spriteFont;
