@@ -60,8 +60,8 @@ namespace Project
             switch (status)
             {
                 case state.Idle:
-                    //position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    Wander(gameTime, Game1.rand);
+                    position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    //Wander(gameTime, Game1.rand);
                     break;
                 case state.Seeking:
                     Seek(gameTime);
@@ -77,7 +77,7 @@ namespace Project
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            if (heading.X > 0)
+            if (heading.X < 0)
                 spriteBatch.Draw(texture, position, origin: origin, scale: scale);
             else
                 spriteBatch.Draw(texture, position, origin: origin, scale: scale, effects: SpriteEffects.FlipHorizontally);

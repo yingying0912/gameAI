@@ -152,7 +152,7 @@ namespace Project
         public void StartGame(GameTime gameTime)
         {
             World.Update(gameTime);
-            scoreHUD.Update("value", new Color(255, 255, 255));
+            scoreHUD.Update(Score.score.ToString(), new Color(255, 255, 255));
             levelHUD.Update("value", new Color(255, 255, 255), 2);
             input.Update(Screen, gameTime);
             scoreCal.Update();

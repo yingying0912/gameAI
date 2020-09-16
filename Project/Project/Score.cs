@@ -8,7 +8,7 @@ namespace Project
 {
     public class Score
     {
-        private static int score;
+        public static int score;
         public bool alive;
         private static int level;
         public List<int> maxScorePerLevel;
