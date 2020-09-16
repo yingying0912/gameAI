@@ -62,3 +62,10 @@ C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\P
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\tripodfish.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\font.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\font.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\anglerfish.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bristlemouth.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\clownfish.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\cuttlefish.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\lancetfish.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\stingray.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\surgeonfish.xnb

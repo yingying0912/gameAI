@@ -49,7 +49,7 @@ namespace Project
             {
                 Game1.gameStatus = Game1.gameState.Lose;
             }
-
+            World.objects["player"].gameSize = level; 
         }
 
         public static void addScore(int enemySize)

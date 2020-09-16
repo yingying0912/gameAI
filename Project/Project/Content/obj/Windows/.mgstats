@@ -1,10 +1,17 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"D:/Documents/GitHub/gameAI/Project/Project/Content/background.jpg","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/background.xnb","TextureProcessor","Texture2DContent",25556,8294485,0.4009006
-"D:/Documents/GitHub/gameAI/Project/Project/Content/backgroundwgrid.jpg","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/backgroundwgrid.xnb","TextureProcessor","Texture2DContent",153727,8294485,0.2623003
-"D:/Documents/GitHub/gameAI/Project/Project/Content/barracudina.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/barracudina.xnb","TextureProcessor","Texture2DContent",31733,249061,0.0309171
-"D:/Documents/GitHub/gameAI/Project/Project/Content/blue whale.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/blue whale.xnb","TextureProcessor","Texture2DContent",103816,493669,0.0329128
-"D:/Documents/GitHub/gameAI/Project/Project/Content/flatfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/flatfish.xnb","TextureProcessor","Texture2DContent",132885,1173833,0.0479925
-"D:/Documents/GitHub/gameAI/Project/Project/Content/font.spritefont","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/font.xnb","FontDescriptionProcessor","SpriteFontContent",2008,21521,0.2902301
-"D:/Documents/GitHub/gameAI/Project/Project/Content/opah.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/opah.xnb","TextureProcessor","Texture2DContent",65662,499573,0.0229386
-"D:/Documents/GitHub/gameAI/Project/Project/Content/player.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/player.xnb","TextureProcessor","Texture2DContent",31455,634965,0.0259296
-"D:/Documents/GitHub/gameAI/Project/Project/Content/tripodfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/tripodfish.xnb","TextureProcessor","Texture2DContent",165929,1769593,0.0628404
+"D:/Documents/GitHub/gameAI/Project/Project/Content/anglerfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/anglerfish.xnb","TextureProcessor","Texture2DContent",80186,1383313,0.1676447
+"D:/Documents/GitHub/gameAI/Project/Project/Content/background.jpg","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/background.xnb","TextureProcessor","Texture2DContent",25556,8294485,0.2593822
+"D:/Documents/GitHub/gameAI/Project/Project/Content/backgroundwgrid.jpg","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/backgroundwgrid.xnb","TextureProcessor","Texture2DContent",153727,8294485,0.3271262
+"D:/Documents/GitHub/gameAI/Project/Project/Content/barracudina.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/barracudina.xnb","TextureProcessor","Texture2DContent",34994,249061,0.0219408
+"D:/Documents/GitHub/gameAI/Project/Project/Content/blue whale.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/blue whale.xnb","TextureProcessor","Texture2DContent",71393,493669,0.0259315
+"D:/Documents/GitHub/gameAI/Project/Project/Content/bristlemouth.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/bristlemouth.xnb","TextureProcessor","Texture2DContent",483576,482125,0.020943
+"D:/Documents/GitHub/gameAI/Project/Project/Content/clownfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/clownfish.xnb","TextureProcessor","Texture2DContent",1780845,1776965,0.0620247
+"D:/Documents/GitHub/gameAI/Project/Project/Content/cuttlefish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/cuttlefish.xnb","TextureProcessor","Texture2DContent",53313,1243677,0.061836
+"D:/Documents/GitHub/gameAI/Project/Project/Content/flatfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/flatfish.xnb","TextureProcessor","Texture2DContent",1197838,1195037,0.0538552
+"D:/Documents/GitHub/gameAI/Project/Project/Content/font.spritefont","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/font.xnb","FontDescriptionProcessor","SpriteFontContent",2005,267281,0.2483352
+"D:/Documents/GitHub/gameAI/Project/Project/Content/lancetfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/lancetfish.xnb","TextureProcessor","Texture2DContent",52463,1243481,0.0648511
+"D:/Documents/GitHub/gameAI/Project/Project/Content/opah.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/opah.xnb","TextureProcessor","Texture2DContent",495744,494125,0.0309173
+"D:/Documents/GitHub/gameAI/Project/Project/Content/player.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/player.xnb","TextureProcessor","Texture2DContent",40022,634965,0.0528524
+"D:/Documents/GitHub/gameAI/Project/Project/Content/stingray.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/stingray.xnb","TextureProcessor","Texture2DContent",13947,590657,0.0428854
+"D:/Documents/GitHub/gameAI/Project/Project/Content/surgeonfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/surgeonfish.xnb","TextureProcessor","Texture2DContent",1437924,1434685,0.0588425
+"D:/Documents/GitHub/gameAI/Project/Project/Content/tripodfish.png","D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/tripodfish.xnb","TextureProcessor","Texture2DContent",168491,1769593,0.0708106

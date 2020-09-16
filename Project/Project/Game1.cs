@@ -73,10 +73,18 @@ namespace Project
             Assets.Add("background", Content.Load<Texture2D>("background"));
             Assets.Add("backgroundwgrid", Content.Load<Texture2D>("backgroundwgrid"));
             Assets.Add("player", Content.Load<Texture2D>("player"));
-            Assets.Add("blueWhale", Content.Load<Texture2D>("blue whale"));
+
+            Assets.Add("anglerfish", Content.Load<Texture2D>("anglerfish"));
             Assets.Add("barracudina", Content.Load<Texture2D>("barracudina"));
+            Assets.Add("blueWhale", Content.Load<Texture2D>("blue whale"));
+            Assets.Add("bristlemouth", Content.Load<Texture2D>("bristlemouth"));
+            Assets.Add("clownfish", Content.Load<Texture2D>("clownfish"));
+            Assets.Add("cuttlefish", Content.Load<Texture2D>("cuttlefish"));
             Assets.Add("flatfish", Content.Load<Texture2D>("flatfish"));
+            Assets.Add("lancetfish", Content.Load<Texture2D>("lancetfish"));
             Assets.Add("opah", Content.Load<Texture2D>("opah"));
+            Assets.Add("stingray", Content.Load<Texture2D>("stingray"));
+            Assets.Add("surgeonfish", Content.Load<Texture2D>("surgeonfish"));
             Assets.Add("tripodfish", Content.Load<Texture2D>("tripodfish"));
 
             World.Add("bg", new Background());
