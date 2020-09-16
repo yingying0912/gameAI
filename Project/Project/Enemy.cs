@@ -4,14 +4,14 @@ using System;
 
 namespace Project
 {
-    public abstract class Enemy: GameObject
+    public abstract class Enemy : GameObject
     {
-        public enum state { Idle, Seeking, Fleeing, Dead}
+        public enum state { Idle, Seeking, Fleeing, Dead }
 
         public int speed;
         public bool school;
         public state status;
-        
+
         protected Enemy()
         {
             name = string.Empty;
@@ -21,14 +21,14 @@ namespace Project
             scale = new Vector2(0.5f, 0.5f);
             status = state.Idle;
         }
-        
+
         public override void Initialize(Random rand)
         {
             texture = Game1.Assets[name];
 
             float yRand = 0;
             while (yRand == 0)
-                yRand = (float)rand.NextDouble(); 
+                yRand = (float)rand.NextDouble();
             position = new Vector2(World.worldSize.X * rand.Next(1, 5) / 5f,
             (location / 5f * World.worldSize.Y) - 1080 * yRand);
             scale = new Vector2(0.5f, 0.5f);
@@ -39,15 +39,15 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-            if (Boundary().Left < World.objects["bg"].Boundary().Left 
+            if (Boundary().Left < World.objects["bg"].Boundary().Left
              || Boundary().Right > World.objects["bg"].Boundary().Right)
             {
-                heading.X *= -1; 
+                heading.X *= -1;
             }
-            if (Boundary().Top < World.objects["bg"].Boundary().Top 
+            if (Boundary().Top < World.objects["bg"].Boundary().Top
              || Boundary().Bottom > World.objects["bg"].Boundary().Bottom)
             {
-                heading.Y *= -1; 
+                heading.Y *= -1;
             }
 
             getStatus();
@@ -99,7 +99,7 @@ namespace Project
 
         public void Seek(GameTime gameTime)
         {
-            heading =  World.objects["player"].position - position;
+            heading = World.objects["player"].position - position;
             heading.Normalize();
             position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
@@ -116,7 +116,5 @@ namespace Project
             if (Boundary().Bottom > World.objects["bg"].Boundary().Bottom && heading.Y > 0) heading.Y = 0;
             position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
-
-        
     }
 }

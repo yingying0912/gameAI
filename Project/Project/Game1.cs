@@ -87,7 +87,6 @@ namespace Project
             World.Add("tripodfish", new Tripodfish());
             World.Add("flatfish", new Flatfish());
             World.Initialize(rand);
-
         }
 
         /// <summary>

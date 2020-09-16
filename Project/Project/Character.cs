@@ -16,6 +16,7 @@ namespace Project
         {
             texture = Game1.Assets[name];
             position = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2);
+            heading = Vector2.Zero;
             alive = true;
             scale = new Vector2(0.5f, 0.5f);
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
@@ -25,7 +26,7 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-            
+            position += heading * 150f * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

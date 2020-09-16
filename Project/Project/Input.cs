@@ -13,14 +13,47 @@ namespace Project
         public void Update(GameWindow Screen, GameTime gameTime)
         {
             mouse = Mouse.GetState();
+            //World.objects["player"].heading = Vector2.Zero;
             velocity = Vector2.Zero;
             distance = 0;
 
             if (InControlArea(Screen))
-                CalculateMovement(); 
+                CalculateMovement();
 
             CheckBorder();
-            World.Move(gameTime, velocity, distance);
+            /*
+            if (World.objects["bg"].Boundary().Left > 1 && velocity.X > 0)
+            {
+                World.objects["player"].heading.X = velocity.X * -1;
+                velocity.X = 0;
+            }
+            if (World.objects["bg"].Boundary().Right < Game1.Screen.ClientBounds.Width && velocity.X < 0)
+            {
+                World.objects["player"].heading.X = velocity.X * -1;
+                velocity.X = 0;
+            }
+            if (World.objects["bg"].Boundary().Top > 1 && velocity.Y > 0)
+            {
+                World.objects["player"].heading.Y = velocity.Y * -1;
+                velocity.Y = 0;
+            }
+            if (World.objects["bg"].Boundary().Bottom < Game1.Screen.ClientBounds.Height && velocity.Y < 0)
+            {
+                World.objects["player"].heading.Y = velocity.Y * -1;
+                velocity.Y = 0;
+            }
+            
+            if (World.objects["player"].position.X != Game1.Screen.ClientBounds.Width / 2)
+            {
+                World.objects["player"].heading.X = velocity.X * 1;
+                velocity.X = 0;
+            }
+            if (World.objects["player"].position.Y != Game1.Screen.ClientBounds.Height / 2)
+            {
+                World.objects["player"].heading.Y = velocity.Y * 1;
+                velocity.Y = 0;
+            }*/
+            World.Move(gameTime, velocity, distance);            
         }
 
         bool InControlArea(GameWindow Screen)
@@ -36,11 +69,12 @@ namespace Project
 
         void CheckBorder()
         {
-            if (World.objects["player"].Boundary().Left < World.objects["bg"].Boundary().Left && velocity.X > 0) velocity.X = 0;
-            if (World.objects["player"].Boundary().Right > World.objects["bg"].Boundary().Right && velocity.X < 0) velocity.X = 0;
-            if (World.objects["player"].Boundary().Top < World.objects["bg"].Boundary().Top && velocity.Y > 0) velocity.Y = 0;
-            if (World.objects["player"].Boundary().Bottom > World.objects["bg"].Boundary().Bottom && velocity.Y < 0) velocity.Y = 0;
+            if (World.objects["bg"].Boundary().Left > 1 && velocity.X > 0) velocity.X = 0;
+            if (World.objects["bg"].Boundary().Right < Game1.Screen.ClientBounds.Width && velocity.X < 0) velocity.X = 0;
+            if (World.objects["bg"].Boundary().Top > 1 && velocity.Y > 0) velocity.Y = 0;
+            if (World.objects["bg"].Boundary().Bottom < Game1.Screen.ClientBounds.Width && velocity.Y < 0) velocity.Y = 0;
         }
+        
 
         void CalculateMovement()
         {
