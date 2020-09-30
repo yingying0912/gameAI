@@ -12,6 +12,7 @@ namespace Project
         static LinkedList<GameObject> drawList = new LinkedList<GameObject>(); 
         static Collision collision = new Collision();
         public static Vector2 worldSize;
+        public static Vector2 worldPosition;
 
         public static void Add(string key, GameObject obj)
         {
@@ -59,8 +60,7 @@ namespace Project
             LinkedListNode<GameObject> itr = drawList.First;
             while (itr != null)
             {
-                if (itr.Value.alive)
-                    itr.Value.Update(gameTime);
+                itr.Value.Update(gameTime);
                 itr = itr.Next;
             }
             collision.Update(); 

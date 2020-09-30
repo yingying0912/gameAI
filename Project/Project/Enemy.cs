@@ -13,6 +13,7 @@ namespace Project
         public state status;
         private Vector2 displacement;
         private int timeCounter, maxTime;
+        private float respawnTimer, currentTime;
 
         protected Enemy()
         {
@@ -23,6 +24,8 @@ namespace Project
             scale = new Vector2(0.5f, 0.5f);
             status = state.Idle;
             displacement = Vector2.Zero;
+            respawnTimer = 20f;
+            currentTime = 0f;
         }
 
         public override void Initialize(Random rand)
@@ -70,7 +73,8 @@ namespace Project
                     Flee(gameTime);
                     break;
                 case state.Dead:
-                    Console.WriteLine(name + " is dead");
+                    Console.WriteLine(position);
+                    WaitForRespawn(gameTime);
                     break;
             }
         }
@@ -141,6 +145,21 @@ namespace Project
                 timeCounter--;
                 position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }    
+        }
+
+        public void WaitForRespawn(GameTime gameTime)
+        {
+            currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (currentTime >= respawnTimer)
+            {
+                currentTime = 0;
+                Vector2 newPos = new Vector2(World.worldSize.X * Game1.rand.Next(1, 5) / 5f,
+                (location / 5f * World.worldSize.Y) - 1080 * (float)Game1.rand.NextDouble());
+                position = newPos + World.worldPosition;
+                heading = new Vector2(1f, 0f);
+                Console.WriteLine(name + " respawned at " + position);
+                alive = true;
+            }
         }
     }
 }

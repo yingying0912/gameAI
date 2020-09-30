@@ -50,7 +50,7 @@ namespace Project
         {
             // TODO: Add your initialization logic here
             IsMouseVisible = true;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
             graphics.ApplyChanges();
             scoreCal.Initialize();
             base.Initialize();

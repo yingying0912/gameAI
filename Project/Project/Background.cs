@@ -22,7 +22,7 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-
+            World.worldPosition = position;
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
