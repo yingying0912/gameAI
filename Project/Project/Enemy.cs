@@ -14,6 +14,7 @@ namespace Project
         private Vector2 displacement;
         private int timeCounter, maxTime;
         private float respawnTimer, currentTime;
+        private float[] locationBoundary;
 
         protected Enemy()
         {
