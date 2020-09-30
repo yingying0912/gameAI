@@ -35,8 +35,8 @@ namespace Project
             float yRand = 0;
             while (yRand == 0)
                 yRand = (float)rand.NextDouble();
-            position = new Vector2(World.worldSize.X * rand.Next(1, 5) / 5f,
-            (location / 5f * World.worldSize.Y) - 1080 * yRand);
+            position = new Vector2(Game1.Screen.ClientBounds.Width / 2 + (World.worldSize.X - Game1.Screen.ClientBounds.Width) * rand.Next(1, 5) / 5f,
+            Game1.Screen.ClientBounds.Height / 2 + (location / 5f * (World.worldSize.Y - Game1.Screen.ClientBounds.Height)) - Game1.Screen.ClientBounds.Height * yRand);
             scale = new Vector2(0.5f, 0.5f);
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
@@ -47,17 +47,6 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-            if (Boundary().Left < World.objects["bg"].Boundary().Left
-             || Boundary().Right > World.objects["bg"].Boundary().Right)
-            {
-                heading.X *= -1;
-            }
-            if (Boundary().Top < World.objects["bg"].Boundary().Top
-             || Boundary().Bottom > World.objects["bg"].Boundary().Bottom)
-            {
-                heading.Y *= -1;
-            }
-
             getStatus();
 
             switch (status)
@@ -76,6 +65,17 @@ namespace Project
                     Console.WriteLine(position);
                     WaitForRespawn(gameTime);
                     break;
+            }
+
+            if (Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2
+             || Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2)
+            {
+                heading.X *= -1;
+            }
+            if (Boundary().Top < World.objects["bg"].Boundary().Top + Game1.Screen.ClientBounds.Height / 2
+             || Boundary().Bottom > World.objects["bg"].Boundary().Bottom - Game1.Screen.ClientBounds.Height / 2)
+            {
+                heading.Y *= -1;
             }
         }
 
@@ -123,10 +123,10 @@ namespace Project
             heading.Normalize();
 
             //next -> can try random heading number of opposite direction when enemy reached the boundary.
-            if (Boundary().Left < World.objects["bg"].Boundary().Left && heading.X < 0) heading.X = 0;
-            if (Boundary().Right > World.objects["bg"].Boundary().Right && heading.X > 0) heading.X = 0;
-            if (Boundary().Top < World.objects["bg"].Boundary().Top && heading.Y < 0) heading.Y = 0;
-            if (Boundary().Bottom > World.objects["bg"].Boundary().Bottom && heading.Y > 0) heading.Y = 0;
+            if (Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2 && heading.X < 0) heading.X = 0;
+            if (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2 && heading.X > 0) heading.X = 0;
+            if (Boundary().Top < World.objects["bg"].Boundary().Top + Game1.Screen.ClientBounds.Height / 2 && heading.Y < 0) heading.Y = 0;
+            if (Boundary().Bottom > World.objects["bg"].Boundary().Bottom - Game1.Screen.ClientBounds.Height / 2 && heading.Y > 0) heading.Y = 0;
             position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
@@ -153,9 +153,8 @@ namespace Project
             if (currentTime >= respawnTimer)
             {
                 currentTime = 0;
-                Vector2 newPos = new Vector2(World.worldSize.X * Game1.rand.Next(1, 5) / 5f,
-                (location / 5f * World.worldSize.Y) - 1080 * (float)Game1.rand.NextDouble());
-                position = newPos + World.worldPosition;
+                position = World.worldPosition + new Vector2(Game1.Screen.ClientBounds.Width / 2 + (World.worldSize.X - Game1.Screen.ClientBounds.Width) * Game1.rand.Next(1, 5) / 5f,
+                    Game1.Screen.ClientBounds.Height / 2 + (location / 5f * (World.worldSize.Y - Game1.Screen.ClientBounds.Height)) - Game1.Screen.ClientBounds.Height * (float)Game1.rand.NextDouble()); ;
                 heading = new Vector2(1f, 0f);
                 Console.WriteLine(name + " respawned at " + position);
                 alive = true;
