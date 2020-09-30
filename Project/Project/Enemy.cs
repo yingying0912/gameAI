@@ -160,5 +160,20 @@ namespace Project
                 alive = true;
             }
         }
+
+        public void BasicMovement(GameTime gameTime)
+        {
+            position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2
+             || Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2)
+            {
+                heading.X *= -1;
+            }
+            if (Boundary().Top < World.objects["bg"].Boundary().Top + Game1.Screen.ClientBounds.Height / 2
+             || Boundary().Bottom > World.objects["bg"].Boundary().Bottom - Game1.Screen.ClientBounds.Height / 2)
+            {
+                heading.Y *= -1;
+            }
+        }
     }
 }
