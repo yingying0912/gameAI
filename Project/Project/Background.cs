@@ -15,7 +15,8 @@ namespace Project
         public override void Initialize(Random rand)
         {
             texture = Game1.Assets[name]; 
-            alive = true; 
+            alive = true;
+            tag = "background"; 
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
             World.worldSize = size;
             for (int i = 0; i <= 5; i++)

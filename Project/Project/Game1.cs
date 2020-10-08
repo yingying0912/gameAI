@@ -112,7 +112,7 @@ namespace Project
             // Objects 
             //////////////////////////////////////////////////////////////////////////
             World.Add("bg", new Background());
-            World.Add("player", new Character());
+            World.Add("player", new Player());
             World.Add("blueWhale", new BlueWhale());
             World.Add("opah", new Opah());
             World.Add("barracudina", new Barracudina());

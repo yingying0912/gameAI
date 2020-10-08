@@ -1,9 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project
 {
@@ -12,7 +7,7 @@ namespace Project
         public Tripodfish()
         {
             name = "tripodfish";
-            gameSize = 4;
+            gameSize = 2;
             speed = 4;
             location = 4;
         }

@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
+﻿using System;
 using System.Collections.Generic; 
 
 namespace Project
@@ -10,7 +8,7 @@ namespace Project
         Dictionary<int, List<GameObject>> level;
         List<GameObject> collider;
         List<int> levelCoord;
-        Character player; 
+        Player player; 
         
         public Collision()
         {

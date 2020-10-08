@@ -41,10 +41,15 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Enemies\Cuttlefish.cs" />
+    <Compile Include="Enemies\Anglerfish.cs" />
     <Compile Include="Enemies\Barracudina.cs" />
     <Compile Include="Enemies\BlueWhale.cs" />
-    <Compile Include="Character.cs" />
+    <Compile Include="Enemies\Lancetfish.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Collision.cs" />
+    <Compile Include="Enemies\Bristlemouth.cs" />
+    <Compile Include="Enemies\Clownfish.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Enemies\Flatfish.cs" />
     <Compile Include="Game1.cs" />
@@ -58,6 +63,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Score.cs" />
     <Compile Include="Enemies\Tripodfish.cs" />
+    <Compile Include="Enemies\SpermWhale.cs" />
+    <Compile Include="Enemies\Stingray.cs" />
+    <Compile Include="Enemies\Surgeonfish.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -68,7 +68,6 @@ namespace Project
                     WaitForRespawn(gameTime);
                     break;
             }
-
             
             if ((Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2) && heading.X < 0
                 || (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2) && heading.X > 0)

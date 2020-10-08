@@ -33,7 +33,7 @@ namespace Project
         public Rectangle Boundary()
         {
             Vector2 pos;
-            if (name == "backgroundwgrid") pos = position; 
+            if (tag == "background") pos = position; 
             else pos = position - size / 2; 
             return new Rectangle((int)pos.X, (int)pos.Y, (int)size.X, (int)size.Y);
         }

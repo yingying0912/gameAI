@@ -1,9 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project
 {
@@ -12,7 +7,7 @@ namespace Project
         public Flatfish()
         {
             name = "flatfish";
-            gameSize = 4;
+            gameSize = 1;
             speed = 2;
             location = 5;
         }
