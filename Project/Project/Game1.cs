@@ -70,9 +70,8 @@ namespace Project
             scoreHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15));
             levelHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15), 5);
             
-            
-            Assets.Add("backgroundwgrid", Content.Load<Texture2D>("background"));
-            Assets.Add("background", Content.Load<Texture2D>("backgroundwgrid"));
+            Assets.Add("background", Content.Load<Texture2D>("background"));
+            Assets.Add("backgroundwgrid", Content.Load<Texture2D>("backgroundwgrid"));
             Assets.Add("player", Content.Load<Texture2D>("player"));
 
             Assets.Add("anglerfish", Content.Load<Texture2D>("anglerfish"));
