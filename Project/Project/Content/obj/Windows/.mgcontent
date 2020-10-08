@@ -4,24 +4,62 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/anglerfish.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/background.jpg</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/backgroundwgrid.jpg</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/barracudina.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/blue whale.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/bristlemouth.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/clownfish.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/cuttlefish.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/flatfish.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/font.spritefont</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/lancetfish.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/opah.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/player.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/stingray.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/surgeonfish.png</File>
-    <File>D:/Documents/GitHub/gameAI/Project/Project/Content/tripodfish.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/anglerfish.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/background.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/backgroundwgrid.jpg</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/barracudina.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/blue whale.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/bristlemouth.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/clownfish.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/crab.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/cuttlefish.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/flatfish.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/font.spritefont</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/jellyfish.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/lancetfish.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/mermaid.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/mermaid2.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs1.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs10.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs11.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs2.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs3.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs4.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs5.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs6.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs7.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs8.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/obs9.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/opah.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/player.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/prawn.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/sperm whale.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/stingray.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/surgeonfish.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/tripodfish.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/turtle.png</File>
+    <File>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/wall.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
