@@ -14,12 +14,11 @@ namespace Project
         private Vector2 displacement;
         private int timeCounter, maxTime;
         private float respawnTimer, currentTime;
-        private float[] locationBoundary;
+
+        public int moveCounter; 
 
         protected Enemy()
         {
-            name = string.Empty;
-            gameSize = 0;
             speed = 0;
             school = false;
             scale = new Vector2(0.5f, 0.5f);
@@ -27,6 +26,10 @@ namespace Project
             displacement = Vector2.Zero;
             respawnTimer = 20f;
             currentTime = 0f;
+
+            tag = "enemy";
+
+            moveCounter = 0; 
         }
 
         public override void Initialize(Random rand)
@@ -38,7 +41,6 @@ namespace Project
                 yRand = (float)rand.NextDouble();
             position = new Vector2(Game1.Screen.ClientBounds.Width / 2 + (World.worldSize.X - Game1.Screen.ClientBounds.Width) * rand.Next(1, 5) / 5f,
             Game1.Screen.ClientBounds.Height / 2 + (location / 5f * (World.worldSize.Y - Game1.Screen.ClientBounds.Height)) - Game1.Screen.ClientBounds.Height * yRand);
-            scale = new Vector2(0.5f, 0.5f);
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
             alive = true;
@@ -53,8 +55,7 @@ namespace Project
             switch (status)
             {
                 case state.Idle:
-                    position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    //Wander(gameTime, Game1.rand);
+                    PatternMovement(gameTime);
                     break;
                 case state.Seeking:
                     Seek(gameTime);
@@ -68,16 +69,18 @@ namespace Project
                     break;
             }
 
-            if (Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2
-             || Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2)
+            
+            if ((Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2) && heading.X < 0
+                || (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2) && heading.X > 0)
             {
                 heading.X *= -1;
             }
-            if (Boundary().Top < World.objects["bg"].Boundary().Top + Game1.Screen.ClientBounds.Height / 2
-             || Boundary().Bottom > World.objects["bg"].Boundary().Bottom - Game1.Screen.ClientBounds.Height / 2)
+            if ((Boundary().Bottom > World.testLocationBoundary[location] && heading.Y > 0)
+                || (Boundary().Top < World.testLocationBoundary[location - 1] && heading.Y < 0))
             {
                 heading.Y *= -1;
             }
+        
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -88,7 +91,7 @@ namespace Project
                 spriteBatch.Draw(texture, position, origin: origin, scale: scale, effects: SpriteEffects.FlipHorizontally);
         }
 
-        public abstract void PatternMovement();
+        public abstract void PatternMovement(GameTime gameTime);
 
         private void getStatus()
         {
@@ -165,16 +168,6 @@ namespace Project
         public void BasicMovement(GameTime gameTime)
         {
             position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2
-             || Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2)
-            {
-                heading.X *= -1;
-            }
-            if (Boundary().Top < World.objects["bg"].Boundary().Top + Game1.Screen.ClientBounds.Height / 2
-             || Boundary().Bottom > World.objects["bg"].Boundary().Bottom - Game1.Screen.ClientBounds.Height / 2)
-            {
-                heading.Y *= -1;
-            }
         }
     }
 }

@@ -70,10 +70,12 @@ namespace Project
             scoreHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15));
             levelHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15), 5);
             
+            // Textures 
+            //////////////////////////////////////////////////////////////////////////
             Assets.Add("background", Content.Load<Texture2D>("background"));
             Assets.Add("backgroundwgrid", Content.Load<Texture2D>("backgroundwgrid"));
             Assets.Add("player", Content.Load<Texture2D>("player"));
-
+            // Fishes
             Assets.Add("anglerfish", Content.Load<Texture2D>("anglerfish"));
             Assets.Add("barracudina", Content.Load<Texture2D>("barracudina"));
             Assets.Add("blueWhale", Content.Load<Texture2D>("blue whale"));
@@ -83,10 +85,32 @@ namespace Project
             Assets.Add("flatfish", Content.Load<Texture2D>("flatfish"));
             Assets.Add("lancetfish", Content.Load<Texture2D>("lancetfish"));
             Assets.Add("opah", Content.Load<Texture2D>("opah"));
+            Assets.Add("spermWhale", Content.Load<Texture2D>("sperm whale"));
             Assets.Add("stingray", Content.Load<Texture2D>("stingray"));
             Assets.Add("surgeonfish", Content.Load<Texture2D>("surgeonfish"));
             Assets.Add("tripodfish", Content.Load<Texture2D>("tripodfish"));
+            // Obstacles 
+            Assets.Add("obs1", Content.Load<Texture2D>("obs1"));
+            Assets.Add("obs2", Content.Load<Texture2D>("obs2"));
+            Assets.Add("obs3", Content.Load<Texture2D>("obs3"));
+            Assets.Add("obs4", Content.Load<Texture2D>("obs4"));
+            Assets.Add("obs5", Content.Load<Texture2D>("obs5"));
+            Assets.Add("obs6", Content.Load<Texture2D>("obs6"));
+            Assets.Add("obs7", Content.Load<Texture2D>("obs7"));
+            Assets.Add("obs8", Content.Load<Texture2D>("obs8"));
+            Assets.Add("obs9", Content.Load<Texture2D>("obs9"));
+            Assets.Add("obs10", Content.Load<Texture2D>("obs10"));
+            Assets.Add("obs11", Content.Load<Texture2D>("obs11"));
+            // Others 
+            Assets.Add("crab", Content.Load<Texture2D>("crab"));
+            Assets.Add("jellyfish", Content.Load<Texture2D>("jellyfish"));
+            Assets.Add("prawn", Content.Load<Texture2D>("prawn"));
+            Assets.Add("turtle", Content.Load<Texture2D>("turtle"));
+            Assets.Add("mermaid", Content.Load<Texture2D>("mermaid"));
+            //////////////////////////////////////////////////////////////////////////
 
+            // Objects 
+            //////////////////////////////////////////////////////////////////////////
             World.Add("bg", new Background());
             World.Add("player", new Character());
             World.Add("blueWhale", new BlueWhale());
@@ -94,6 +118,10 @@ namespace Project
             World.Add("barracudina", new Barracudina());
             World.Add("tripodfish", new Tripodfish());
             World.Add("flatfish", new Flatfish());
+
+            //World.Add("ob1", new Obstacle("obs1", 2500, 1000)); 
+            //////////////////////////////////////////////////////////////////////////
+
             World.Initialize(rand);
         }
 

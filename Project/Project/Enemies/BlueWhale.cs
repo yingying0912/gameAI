@@ -16,9 +16,9 @@ namespace Project
             location = 1;
         }
 
-        public override void PatternMovement()
+        public override void PatternMovement(GameTime gameTime)
         {
-            
+            BasicMovement(gameTime);
         }
     }
 }

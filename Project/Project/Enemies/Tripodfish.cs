@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,9 @@ namespace Project
             speed = 4;
             location = 4;
         }
-        public override void PatternMovement()
+        public override void PatternMovement(GameTime gameTime)
         {
-
+            BasicMovement(gameTime);
         }
     }
 }

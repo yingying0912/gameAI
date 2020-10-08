@@ -10,11 +10,12 @@ namespace Project
         Dictionary<int, List<GameObject>> level;
         List<GameObject> collider;
         List<int> levelCoord;
+        Character player; 
         
         public Collision()
         {
             level = new Dictionary<int, List<GameObject>>();
-            levelCoord = new List<int>(); 
+            levelCoord = new List<int>();
         }
 
         public void Initialize()
@@ -31,7 +32,7 @@ namespace Project
                 level.Add(i, collider);
 
                 if (collider.Count > 0)
-                    Console.WriteLine("Level " + i + " content: " + collider[0]);
+                    Console.WriteLine("Level " + i + " content: " + collider[0].name);
             }
             for (int i = 0; i < 6; i++)
             {
@@ -50,19 +51,36 @@ namespace Project
 
         void CheckCollision(int no)
         {
-            foreach (GameObject enemy in level[no])
+            foreach (GameObject obj in level[no])
             {
-                if (enemy.alive == true)
+                if (obj.tag == "enemy" && obj.alive == true)
                 {
-                    if (World.objects["player"].Boundary().Intersects(enemy.Boundary()))
+                    if (World.objects["player"].Boundary().Intersects(obj.Boundary()))
                     {
-                        if (enemy.gameSize <= World.objects["player"].gameSize)
+                        if (obj.gameSize <= World.objects["player"].gameSize)
                         {
-                            enemy.alive = false;
-                            Score.addScore(enemy.gameSize);
+                            obj.alive = false;
+                            Score.addScore(obj.gameSize);
                         }
                         else
                             World.objects["player"].alive = false;
+                    }
+
+                    foreach (GameObject obj2 in level[no])
+                    {
+                        if (obj2.tag == "obstacle" && obj2.alive == true && obj2.Boundary().Intersects(obj.Boundary()))
+                        {
+                            if (obj.Boundary().Top < obj2.Boundary().Bottom || obj2.Boundary().Top > obj.Boundary().Bottom)
+                            {
+                                obj.heading.Y *= -1;
+                                Console.WriteLine(obj.name + " hit Y of " + obj2.name); 
+                            }
+                            if (obj.Boundary().Left < obj2.Boundary().Right || obj.Boundary().Right > obj2.Boundary().Left)
+                            {
+                                obj.heading.X *= -1;
+                                Console.WriteLine(obj.name + " hit X of " + obj2.name);
+                            }
+                        }
                     }
                 }
             }

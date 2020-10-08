@@ -8,18 +8,20 @@ namespace Project
     public abstract class GameObject
     {
         public bool alive; 
-        public string name; 
-        public Vector2 heading, position, origin, size, scale;
+        public string name, tag; 
+        public Vector2 heading, position, origin, size, scale; 
         public Texture2D texture; 
-        public int location, gameSize;
+        public int location, gameSize;  
 
         protected GameObject()
         {
             alive = false;
             name = string.Empty;
+            tag = string.Empty; 
             heading = new Vector2(1f, 0f);
             location = gameSize = 0;
-            position = origin = size = scale = Vector2.Zero;
+            position = origin = size = Vector2.Zero;
+            scale = new Vector2(1f, 1f); 
         }
 
         public abstract void Initialize(Random rand);

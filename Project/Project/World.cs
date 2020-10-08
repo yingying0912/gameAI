@@ -13,6 +13,8 @@ namespace Project
         static Collision collision = new Collision();
         public static Vector2 worldSize;
         public static Vector2 worldPosition;
+        public static List<float> locationBoundary = new List<float>();
+        public static List<float> testLocationBoundary = new List<float>();
 
         public static void Add(string key, GameObject obj)
         {
