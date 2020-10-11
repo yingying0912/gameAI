@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace Project
 {
@@ -13,7 +14,7 @@ namespace Project
         }
         public override void PatternMovement(GameTime gameTime)
         {
-            BasicMovement(gameTime);
+            FlockingMovement(gameTime, World.clown);
         }
     }
 }

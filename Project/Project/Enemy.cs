@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System; 
+using System;
+using System.Collections.Generic;
 
 namespace Project
 {
@@ -120,7 +121,7 @@ namespace Project
         {
             heading = World.objects["player"].position - position;
             heading.Normalize();
-            position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            position += heading * speed * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public void Flee(GameTime gameTime)
@@ -133,24 +134,7 @@ namespace Project
             if (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2 && heading.X > 0) heading.X = 0;
             if (Boundary().Top < World.objects["bg"].Boundary().Top + Game1.Screen.ClientBounds.Height / 2 && heading.Y < 0) heading.Y = 0;
             if (Boundary().Bottom > World.objects["bg"].Boundary().Bottom - Game1.Screen.ClientBounds.Height / 2 && heading.Y > 0) heading.Y = 0;
-            position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-        }
-
-        public void Wander(GameTime gameTime, Random rand)
-        {
-            if (timeCounter == 0)
-            {
-                position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                displacement = new Vector2((float)rand.NextDouble(), (float)rand.NextDouble());
-                heading += displacement;
-                heading.Normalize();
-                timeCounter = maxTime;
-            }
-            else
-            {
-                timeCounter--;
-                position += heading * speed * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }    
+            position += heading * speed * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public void WaitForRespawn(GameTime gameTime)
@@ -171,7 +155,64 @@ namespace Project
         {
             acceleration = Separate();
             heading += acceleration;
-            position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            position += heading * 80 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        public void FlockingMovement(GameTime gameTime, List<Enemy> flock)
+        {
+            acceleration = Separate() + Alignment(flock) + Cohesion(flock);
+            heading += acceleration;
+            position += heading * 80 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        private Vector2 Alignment(List<Enemy> flock)
+        {
+            Vector2 average = Vector2.Zero;
+            int count = 0;
+
+            foreach (var obj in flock)
+            {
+                if (obj.alive && obj != this && IsNear(obj, 70))
+                {
+                    average += obj.heading;
+                    count++;
+                }
+            }
+
+            if (count > 0 && average.Length() > 0)
+            {
+                average /= count;
+                average = Vector2.Normalize(average);
+                Vector2 steer = average - heading;
+                return steer;
+            }
+            else
+                return Vector2.Zero;
+        }
+
+        private Vector2 Cohesion(List<Enemy> flock)
+        {
+            Vector2 average = Vector2.Zero;
+            int count = 0;
+
+            foreach (var obj in flock)
+            {
+                if (obj.alive && obj != this && IsNear(obj, 70))
+                {
+                    average += obj.position;
+                    count++;
+                }
+            }
+
+            if (count > 0 && average.Length() > 0)
+            {
+                average /= count;
+                average = Vector2.Normalize(average);
+                Vector2 steer = average - position;
+                return steer;
+            }
+            else
+                return Vector2.Zero;
         }
 
         private Vector2 Separate()
@@ -197,7 +238,7 @@ namespace Project
                 average /= count;
                 average = Vector2.Normalize(average);
                 Vector2 steer = average - heading;
-                return steer * 1.5f;
+                return steer;
             }
             else
                 return Vector2.Zero;

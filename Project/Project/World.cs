@@ -16,19 +16,19 @@ namespace Project
         public static List<float> locationBoundary = new List<float>();
         public static List<float> testLocationBoundary = new List<float>();
 
-        public static List<Anglerfish>      angler  = new List<Anglerfish>(); 
-        public static List<Barracudina>     barra   = new List<Barracudina>(); 
-        public static List<BlueWhale>       blue    = new List<BlueWhale>(); 
-        public static List<Bristlemouth>    bristle = new List<Bristlemouth>(); 
-        public static List<Clownfish>       clown   = new List<Clownfish>(); 
-        public static List<Cuttlefish>      cuttle  = new List<Cuttlefish>(); 
-        public static List<Flatfish>        flat    = new List<Flatfish>(); 
-        public static List<Lancetfish>      lancet  = new List<Lancetfish>(); 
-        public static List<Opah>            opah    = new List<Opah>(); 
-        public static List<SpermWhale>      sperm   = new List<SpermWhale>(); 
-        public static List<Stingray>        stingray= new List<Stingray>(); 
-        public static List<Surgeonfish>     surgeon = new List<Surgeonfish>(); 
-        public static List<Tripodfish>      tripod  = new List<Tripodfish>();
+        public static List<Enemy>    angler     = new List<Enemy>(); 
+        public static List<Enemy>    barra      = new List<Enemy>(); 
+        public static List<Enemy>    blue       = new List<Enemy>(); 
+        public static List<Enemy>    bristle    = new List<Enemy>(); 
+        public static List<Enemy>    clown      = new List<Enemy>(); 
+        public static List<Enemy>    cuttle     = new List<Enemy>(); 
+        public static List<Enemy>    flat       = new List<Enemy>(); 
+        public static List<Enemy>    lancet     = new List<Enemy>(); 
+        public static List<Enemy>    opah       = new List<Enemy>(); 
+        public static List<Enemy>    sperm      = new List<Enemy>(); 
+        public static List<Enemy>    stingray   = new List<Enemy>(); 
+        public static List<Enemy>    surgeon    = new List<Enemy>(); 
+        public static List<Enemy>    tripod     = new List<Enemy>();
 
         public static void Sort()
         {
