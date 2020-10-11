@@ -13,7 +13,6 @@ namespace Project
         public void Update(GameWindow Screen, GameTime gameTime)
         {
             mouse = Mouse.GetState();
-            //World.objects["player"].heading = Vector2.Zero;
             velocity = Vector2.Zero;
             distance = 0;
 
@@ -21,39 +20,17 @@ namespace Project
                 CalculateMovement();
 
             CheckBorder();
-            /*
-            if (World.objects["bg"].Boundary().Left > 1 && velocity.X > 0)
-            {
-                World.objects["player"].heading.X = velocity.X * -1;
-                velocity.X = 0;
-            }
-            if (World.objects["bg"].Boundary().Right < Game1.Screen.ClientBounds.Width && velocity.X < 0)
-            {
-                World.objects["player"].heading.X = velocity.X * -1;
-                velocity.X = 0;
-            }
-            if (World.objects["bg"].Boundary().Top > 1 && velocity.Y > 0)
-            {
-                World.objects["player"].heading.Y = velocity.Y * -1;
-                velocity.Y = 0;
-            }
-            if (World.objects["bg"].Boundary().Bottom < Game1.Screen.ClientBounds.Height && velocity.Y < 0)
-            {
-                World.objects["player"].heading.Y = velocity.Y * -1;
-                velocity.Y = 0;
-            }
-            
-            if (World.objects["player"].position.X != Game1.Screen.ClientBounds.Width / 2)
-            {
-                World.objects["player"].heading.X = velocity.X * 1;
-                velocity.X = 0;
-            }
-            if (World.objects["player"].position.Y != Game1.Screen.ClientBounds.Height / 2)
-            {
-                World.objects["player"].heading.Y = velocity.Y * 1;
-                velocity.Y = 0;
-            }*/
-            World.Move(gameTime, velocity, distance);            
+            World.Move(gameTime, velocity, distance);
+
+            if (mouse.LeftButton == ButtonState.Pressed)
+                Game1.gameStatus = Game1.gameState.Pause;
+        }
+
+        public void Update()
+        {
+            mouse = Mouse.GetState();
+            if (mouse.RightButton == ButtonState.Pressed)
+                Game1.gameStatus = Game1.gameState.Start;
         }
 
         bool InControlArea(GameWindow Screen)

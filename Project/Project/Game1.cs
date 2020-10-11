@@ -274,7 +274,7 @@ namespace Project
                     StartGame(gameTime);
                     break;
                 case gameState.Pause:
-                    Console.WriteLine("pauseGame()");
+                    PauseGame(gameTime);
                     break;
                 case gameState.Win:
                     Console.WriteLine("WinGame");
@@ -308,13 +308,18 @@ namespace Project
             base.Draw(gameTime);
         }
 
-        public void StartGame(GameTime gameTime)
+        private void StartGame(GameTime gameTime)
         {
             World.Update(gameTime);
             scoreHUD.Update(Score.score.ToString(), new Color(255, 255, 255));
             levelHUD.Update("value", new Color(255, 255, 255), 2);
             input.Update(Screen, gameTime);
             scoreCal.Update();
+        }
+
+        private void PauseGame(GameTime gameTime)
+        {
+            input.Update();
         }
     }
 }
