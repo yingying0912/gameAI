@@ -13,7 +13,7 @@ namespace Project
         }
         public override void PatternMovement(GameTime gameTime)
         {
-            FlockingMovement(gameTime, World.stingray);
+            position += heading * speed * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
     }
 }

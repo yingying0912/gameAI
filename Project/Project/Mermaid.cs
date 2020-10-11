@@ -27,11 +27,11 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-            //if (position.Y < 4500 || position.Y > 5200)
-                //heading.Y *= -1;
+            if (position.Y < World.worldPosition.Y + World.worldSize.Y - Game1.Screen.ClientBounds.Height + 300 && heading.Y < 0 || 
+                position.Y > World.worldPosition.Y + World.worldSize.Y - Game1.Screen.ClientBounds.Height / 2 - 50 && heading.Y > 0)
+                heading.Y *= -1;
 
-            //Console.WriteLine("mermaid Y " + position.Y);
-            //position += heading * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            position += heading * 20f * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         }
 
