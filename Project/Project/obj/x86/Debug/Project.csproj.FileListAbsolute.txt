@@ -87,4 +87,4 @@ D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\prawn.x
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\sperm whale.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\turtle.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\mermaid2.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\wall.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\Alo.xnb

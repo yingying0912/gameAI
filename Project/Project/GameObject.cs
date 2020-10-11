@@ -21,7 +21,7 @@ namespace Project
             heading = new Vector2(1f, 0f);
             location = gameSize = 0;
             position = origin = size = Vector2.Zero;
-            scale = new Vector2(1f, 1f); 
+            scale = new Vector2(0.25f, 0.25f); 
         }
 
         public abstract void Initialize(Random rand);

@@ -16,6 +16,71 @@ namespace Project
         public static List<float> locationBoundary = new List<float>();
         public static List<float> testLocationBoundary = new List<float>();
 
+        public static List<Anglerfish>      angler  = new List<Anglerfish>(); 
+        public static List<Barracudina>     barra   = new List<Barracudina>(); 
+        public static List<BlueWhale>       blue    = new List<BlueWhale>(); 
+        public static List<Bristlemouth>    bristle = new List<Bristlemouth>(); 
+        public static List<Clownfish>       clown   = new List<Clownfish>(); 
+        public static List<Cuttlefish>      cuttle  = new List<Cuttlefish>(); 
+        public static List<Flatfish>        flat    = new List<Flatfish>(); 
+        public static List<Lancetfish>      lancet  = new List<Lancetfish>(); 
+        public static List<Opah>            opah    = new List<Opah>(); 
+        public static List<SpermWhale>      sperm   = new List<SpermWhale>(); 
+        public static List<Stingray>        stingray= new List<Stingray>(); 
+        public static List<Surgeonfish>     surgeon = new List<Surgeonfish>(); 
+        public static List<Tripodfish>      tripod  = new List<Tripodfish>(); 
+
+        public static void Sort()
+        {
+            foreach (var obj in objects)
+            {
+                switch (objects[obj.Key].name)
+                {
+                    case "anglerfish":
+                        angler.Add((Anglerfish)objects[obj.Key]);
+                        break; 
+                    case "barracudina":
+                        barra.Add((Barracudina)objects[obj.Key]); 
+                            break; 
+                    case "blueWhale":
+                        blue.Add((BlueWhale)objects[obj.Key]);
+                        break; 
+                    case "brislemouth":
+                        bristle.Add((Bristlemouth)objects[obj.Key]);
+                        break; 
+                    case "clownfish":
+                        clown.Add((Clownfish)objects[obj.Key]);
+                        break; 
+                    case "cuttlefish":
+                        cuttle.Add((Cuttlefish)objects[obj.Key]);
+                        break; 
+                    case "flatfish":
+                        flat.Add((Flatfish)objects[obj.Key]);
+                        break; 
+                    case "lancetfish":
+                        lancet.Add((Lancetfish)objects[obj.Key]);
+                        break; 
+                    case "opah":
+                        opah.Add((Opah)objects[obj.Key]);
+                        break; 
+                    case "spermWhale":
+                        sperm.Add((SpermWhale)objects[obj.Key]);
+                        break; 
+                    case "stingray":
+                        stingray.Add((Stingray)objects[obj.Key]);
+                        break; 
+                    case "surgeonfish":
+                        surgeon.Add((Surgeonfish)objects[obj.Key]);
+                        break; 
+                    case "tripodfish":
+                        tripod.Add((Tripodfish)objects[obj.Key]);
+                        break;
+                    default:
+                        break; 
+                }
+            }
+        }
+
         public static void Add(string key, GameObject obj)
         {
             try

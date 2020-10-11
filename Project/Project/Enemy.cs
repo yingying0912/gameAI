@@ -21,7 +21,6 @@ namespace Project
         {
             speed = 0;
             school = false;
-            scale = new Vector2(0.5f, 0.5f);
             status = state.Idle;
             displacement = Vector2.Zero;
             respawnTimer = 20f;
@@ -35,6 +34,8 @@ namespace Project
         public override void Initialize(Random rand)
         {
             texture = Game1.Assets[name];
+
+            scale = new Vector2(gameSize * 0.15f, gameSize * 0.15f); 
 
             float yRand = 0;
             while (yRand == 0)

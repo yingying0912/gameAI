@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Documents/GitHub/gameAI/Project/Project/Content/obs10.png</SourceFile>
-  <SourceTime>2020-09-30T20:02:26.8037177+08:00</SourceTime>
-  <DestFile>D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/obs10.xnb</DestFile>
-  <DestTime>2020-10-11T18:26:28.1850683+08:00</DestTime>
+  <SourceFile>D:/Documents/GitHub/gameAI/Project/Project/Content/Alo.png</SourceFile>
+  <SourceTime>2020-10-11T18:23:01.8111838+08:00</SourceTime>
+  <DestFile>D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/Alo.xnb</DestFile>
+  <DestTime>2020-10-11T18:26:27.0927743+08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-09T00:35:54+08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
