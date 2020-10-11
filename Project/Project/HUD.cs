@@ -6,8 +6,8 @@ namespace Project
 {
     class HUD
     {
-        Vector2 position, dimension;
-        string textLabel, textValue;
+        Vector2 position, dimension, desPos;
+        string textLabel, textValue, textDescription;
         float valueMax, valueCurrent;
         Color textColor;
         int type; 
@@ -25,6 +25,26 @@ namespace Project
             this.position = position;
             this.valueMax = valueMax;
             type = 1; 
+        }
+
+        public HUD()
+        {
+            textLabel = "Pause";
+            textDescription = "Right click to resume";
+            textColor = new Color(255, 255, 255);
+            position = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2);
+            desPos = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2 + 55);
+            type = 2;
+        }
+
+        public HUD(string textLabel)
+        {
+            this.textLabel = "You " + textLabel;
+            textDescription = "Press Enter to replay";
+            textColor = new Color(255, 255, 255);
+            position = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2);
+            desPos = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2 + 55);
+            type = 3; 
         }
 
         public void Update(string textValue, Color textColor)
@@ -45,7 +65,9 @@ namespace Project
             switch (type)
             {
                 case 0: TextHUD(spriteBatch, spriteFont); break; 
-                case 1: BarHUD(spriteBatch, spriteFont, graphicsDevice); break; 
+                case 1: BarHUD(spriteBatch, spriteFont, graphicsDevice); break;
+                case 2: PauseHUD(spriteBatch, spriteFont); break;
+                case 3: EndHUD(spriteBatch, spriteFont); break;
                 default: break; 
             }
         }
@@ -93,6 +115,18 @@ namespace Project
             dummyTexture.SetData(new Color[] { barColor });
 
             spriteBatch.Draw(dummyTexture, backgroundRectangle, barColor);
+        }
+
+        public void PauseHUD(SpriteBatch spriteBatch, SpriteFont spriteFont)
+        {
+            spriteBatch.DrawString(spriteFont, textLabel, position, textColor);
+            spriteBatch.DrawString(spriteFont, textDescription, desPos, textColor);
+        }
+
+        public void EndHUD(SpriteBatch spriteBatch, SpriteFont spriteFont)
+        {
+            spriteBatch.DrawString(spriteFont, textLabel, position, textColor);
+            spriteBatch.DrawString(spriteFont, textDescription, desPos, textColor);
         }
     }
 }

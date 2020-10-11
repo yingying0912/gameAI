@@ -10,7 +10,7 @@ namespace Project
     {
         public static int score;
         public bool alive;
-        private static int level;
+        public static int level;
         public List<int> maxScorePerLevel;
 
         public Score()
@@ -24,7 +24,7 @@ namespace Project
             alive = true;
             // Testing purposes
             // level = 1;
-            level = 5;
+            level = 1;
             maxScorePerLevel.Add(200);
             maxScorePerLevel.Add(500);
             maxScorePerLevel.Add(750);
@@ -44,8 +44,6 @@ namespace Project
                     level++;
                 if (level == 4 && score >= 500)
                     level++;
-                //if (level == 5 && EndTriggered)
-                //Game1.gameStatus = gameState.Win
             }
             else
             {

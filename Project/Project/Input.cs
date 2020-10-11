@@ -7,6 +7,7 @@ namespace Project
     class Input
     {
         static MouseState mouse;
+        static KeyboardState key;
         Vector2 velocity;
         float distance;
 
@@ -29,8 +30,11 @@ namespace Project
         public void Update()
         {
             mouse = Mouse.GetState();
-            if (mouse.RightButton == ButtonState.Pressed)
+            key = Keyboard.GetState();
+            if (Game1.gameStatus == Game1.gameState.Pause && mouse.RightButton == ButtonState.Pressed)
                 Game1.gameStatus = Game1.gameState.Start;
+            else if ((Game1.gameStatus == Game1.gameState.Lose || Game1.gameStatus == Game1.gameState.Win) && key.IsKeyDown(Keys.Enter))
+                Game1.RestartGame();
         }
 
         bool InControlArea(GameWindow Screen)

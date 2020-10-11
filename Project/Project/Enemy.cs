@@ -71,7 +71,11 @@ namespace Project
                     if (name != "alo")
                         WaitForRespawn(gameTime);
                     else
+                    {
+                        alive = false;
                         Game1.endState = true;
+                    }
+                        
                     break;
             }
             
@@ -148,7 +152,6 @@ namespace Project
                 position = World.worldPosition + new Vector2(Game1.Screen.ClientBounds.Width / 2 + (World.worldSize.X - Game1.Screen.ClientBounds.Width) * Game1.rand.Next(1, 5) / 5f,
                     Game1.Screen.ClientBounds.Height / 2 + (location / 5f * (World.worldSize.Y - Game1.Screen.ClientBounds.Height)) - Game1.Screen.ClientBounds.Height * (float)Game1.rand.NextDouble()); ;
                 heading = new Vector2(1f, 0f);
-                Console.WriteLine(name + " respawned at " + position);
                 alive = true;
             }
         }

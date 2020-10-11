@@ -11,15 +11,17 @@ namespace Project
     /// </summary>
     public class Game1 : Game
     {
-        public enum gameState {Start, Pause, Win, Lose }
+        public enum gameState {Start, Pause, Win, Lose}
+        public static gameState gameStatus;
+        public static bool endState;
+        public static bool triggerEnd;
+
         public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
         public static GameWindow Screen;
         Vector2 velocity;
         float distance;
-        public static gameState gameStatus;
-        public static bool endState;
-        public static bool triggerEnd;
-        HUD scoreHUD, levelHUD;
+        
+        HUD scoreHUD, levelHUD, pauseHUD, loseHUD, winHUD;
         Input input;
         Score scoreCal;
 
@@ -56,13 +58,6 @@ namespace Project
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             Content.RootDirectory = "Content";
             Screen = this.Window;
-            velocity = Vector2.Zero;
-            distance = 0;
-            gameStatus = gameState.Start;
-            input = new Input();
-            scoreCal = new Score();
-            endState = false;
-            triggerEnd = false;
         }
 
         /// <summary>
@@ -77,6 +72,13 @@ namespace Project
             IsMouseVisible = true;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
+            input = new Input();
+            scoreCal = new Score();
+            velocity = Vector2.Zero;
+            distance = 0;
+            gameStatus = gameState.Start;
+            endState = false;
+            triggerEnd = false;
             scoreCal.Initialize();
             base.Initialize();
         }
@@ -94,7 +96,10 @@ namespace Project
             spriteFont = Content.Load<SpriteFont>("font");
             scoreHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15));
             levelHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15), 5);
-            
+            pauseHUD = new HUD();
+            loseHUD = new HUD("lose");
+            winHUD = new HUD("win");
+
             // Textures 
             //////////////////////////////////////////////////////////////////////////
             Assets.Add("background", Content.Load<Texture2D>("background"));
@@ -277,10 +282,10 @@ namespace Project
                     PauseGame(gameTime);
                     break;
                 case gameState.Win:
-                    Console.WriteLine("WinGame");
+                    WinGame(gameTime);
                     break;
                 case gameState.Lose:
-                    Console.WriteLine("LoseGame");
+                    LoseGame(gameTime);
                     break;
             }
 
@@ -302,7 +307,13 @@ namespace Project
             spriteBatch.Begin();
                 World.Draw(spriteBatch, gameTime); 
                 scoreHUD.Draw(spriteBatch, spriteFont, GraphicsDevice); 
-                levelHUD.Draw(spriteBatch, spriteFont, GraphicsDevice); 
+                levelHUD.Draw(spriteBatch, spriteFont, GraphicsDevice);
+            if (gameStatus == gameState.Pause)
+                pauseHUD.Draw(spriteBatch, spriteFont, GraphicsDevice);
+            if (gameStatus == gameState.Lose)
+                loseHUD.Draw(spriteBatch, spriteFont, GraphicsDevice);
+            if (gameStatus == gameState.Win)
+                winHUD.Draw(spriteBatch, spriteFont, GraphicsDevice);
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -320,6 +331,28 @@ namespace Project
         private void PauseGame(GameTime gameTime)
         {
             input.Update();
+        }
+
+        private void LoseGame(GameTime gameTime)
+        {
+            input.Update();
+        }
+
+        private void WinGame(GameTime gameTime)
+        {
+            input.Update();
+        }
+
+        public static void RestartGame() {
+            
+            World.objects["alo"].alive = true;
+            World.objects["player"].alive = true;
+            endState = false;
+            triggerEnd = false; 
+            Score.score = 0;
+            Score.level = 1;
+            World.Reset();
+            gameStatus = gameState.Start;
         }
     }
 }

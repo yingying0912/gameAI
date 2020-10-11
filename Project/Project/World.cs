@@ -150,5 +150,15 @@ namespace Project
                     objects[obj.Key].position += velocity * 2f * distance * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }                
         }
+
+        public static void Reset()
+        {
+            foreach (var obj in objects)
+            {
+                if (obj.Key != "player" && obj.Key != "bg")
+                    objects[obj.Key].position -= worldPosition;
+            }
+            objects["bg"].position = Vector2.Zero;
+        }
     }
 }
