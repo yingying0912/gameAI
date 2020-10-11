@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Documents/GitHub/gameAI/Project/Project/Content/player.png</SourceFile>
-  <SourceTime>2020-10-11T18:49:09.6100257+08:00</SourceTime>
-  <DestFile>D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/player.xnb</DestFile>
-  <DestTime>2020-10-11T19:46:52.7181398+08:00</DestTime>
+  <SourceFile>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/player.png</SourceFile>
+  <SourceTime>2020-10-12T00:34:48.41381+08:00</SourceTime>
+  <DestFile>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/bin/Windows/Content/player.xnb</DestFile>
+  <DestTime>2020-10-12T01:13:56.8828175+08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-09T00:35:54+08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

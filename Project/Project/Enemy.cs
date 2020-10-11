@@ -12,6 +12,7 @@ namespace Project
         public bool school;
         public state status;
         private Vector2 displacement;
+        public Vector2 acceleration;
         private int timeCounter, maxTime;
         private float respawnTimer, currentTime;
 
@@ -168,7 +169,44 @@ namespace Project
 
         public void BasicMovement(GameTime gameTime)
         {
+            acceleration = Separate();
+            heading += acceleration;
             position += heading * 150 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        private Vector2 Separate()
+        {
+            Vector2 average = Vector2.Zero;
+            int count = 0;
+
+            foreach (var obj in World.objects)
+            {
+                if (obj.Key != "bg" && obj.Key != "player" && obj.Value.alive && obj.Key != this.name && IsNear(obj.Value, 100))
+                {
+                    Vector2 v = position - obj.Value.position;
+                    float d = v.Length();
+                    v /= d;
+
+                    average += v;
+                    count++;
+                }
+            }
+
+            if (count > 0 && average.Length() > 0)
+            {
+                average /= count;
+                average = Vector2.Normalize(average);
+                Vector2 steer = average - heading;
+                return steer * 1.5f;
+            }
+            else
+                return Vector2.Zero;
+        }
+
+        private bool IsNear(GameObject obj, float radius)
+        {
+            float distance = (position - obj.position).Length();
+            return (0 < distance && distance < radius);
         }
     }
 }
