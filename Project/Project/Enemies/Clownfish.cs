@@ -9,7 +9,7 @@ namespace Project
             name = "clownfish";
             gameSize = 1;
             speed = 3;
-            location = 3;
+            location = 1;
         }
         public override void PatternMovement(GameTime gameTime)
         {

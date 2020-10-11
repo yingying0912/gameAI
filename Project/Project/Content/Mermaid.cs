@@ -12,7 +12,7 @@ namespace Project
             name = "mermaid";
             alive = true;
             tag = "mermaid";
-            heading = new Vector2(0f, -1f);
+            heading = new Vector2(0f, 1f);
             heading.Normalize(); 
         }
 
@@ -26,10 +26,11 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-            //if (position.Y < 3500 || position.Y > 4800)
-              //  heading.Y *= -1;
+            //if (position.Y < 4500 || position.Y > 5200)
+                //heading.Y *= -1;
 
-            position += heading * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            //Console.WriteLine("mermaid Y " + position.Y);
+            //position += heading * 150 * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         }
 

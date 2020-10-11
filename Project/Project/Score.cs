@@ -24,7 +24,7 @@ namespace Project
             alive = true;
             // Testing purposes
             // level = 1;
-            level = 5;
+            level = 3;
             maxScorePerLevel.Add(200);
             maxScorePerLevel.Add(500);
             maxScorePerLevel.Add(750);
@@ -36,13 +36,13 @@ namespace Project
             alive = World.objects["player"].alive;
             if (alive)
             {
-                if (level == 1 && score >= 200)
+                if (level == 1 && score >= 100)
                     level++;
-                if (level == 2 && score >= 500)
+                if (level == 2 && score >= 250)
                     level++;
-                if (level == 3 && score >= 750)
+                if (level == 3 && score >= 375)
                     level++;
-                if (level == 4 && score >= 1000)
+                if (level == 4 && score >= 500)
                     level++;
                 //if (level == 5 && EndTriggered)
                 //Game1.gameStatus = gameState.Win

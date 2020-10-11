@@ -26,7 +26,7 @@ namespace Project
         {
             position += heading * 150f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             
-            scale = new Vector2(gameSize * 0.15f, gameSize * 0.15f);
+            scale = new Vector2(gameSize * 0.125f, gameSize * 0.125f);
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
         }
 

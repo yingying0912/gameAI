@@ -35,7 +35,7 @@ namespace Project
         {
             texture = Game1.Assets[name];
 
-            scale = new Vector2(gameSize * 0.15f, gameSize * 0.15f); 
+            scale = new Vector2(gameSize * 0.125f, gameSize * 0.125f); 
 
             float yRand = 0;
             while (yRand == 0)
@@ -101,7 +101,7 @@ namespace Project
                 if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
                 * (World.objects["player"].position.X - position.X)
                 + (World.objects["player"].position.Y - position.Y)
-                * (World.objects["player"].position.Y - position.Y)) < 500)
+                * (World.objects["player"].position.Y - position.Y)) < 200)
                 {
                     if (gameSize <= World.objects["player"].gameSize)
                         status = state.Fleeing;

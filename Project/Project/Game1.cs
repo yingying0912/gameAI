@@ -26,6 +26,27 @@ namespace Project
         SpriteBatch spriteBatch;
         public SpriteFont spriteFont;
 
+        int anglerNo    = 3; 
+        int barraNo     = 15; 
+        int blueNo      = 1; 
+        int bristleNo   = 10; 
+        int clownNo     = 30; 
+        int cuttleNo    = 5; 
+        int flatNo      = 8; 
+        int lancetNo    = 3; 
+        int opahNo      = 3; 
+        int spermNo     = 4; 
+        int stingrayNo  = 6; 
+        int surgeonNo   = 20; 
+        int tripodNo    = 4;
+
+        int turtleNo    = 2;
+        int jellyNo     = 20;
+        int prawnNo     = 2;
+        int octoNo      = 1;
+        int crabNo      = 3; 
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -113,12 +134,91 @@ namespace Project
             // Objects 
             //////////////////////////////////////////////////////////////////////////
             World.Add("bg", new Background()); 
-            World.Add("player", new Player()); 
+            World.Add("player", new Player());
 
-            World.Add("anglerfish", new Anglerfish()); 
-            World.Add("barracudina", new Barracudina()); 
-            World.Add("blueWhale", new BlueWhale()); 
-            World.Add("bristlemouth", new Bristlemouth()); 
+            for (int i = 0; i < anglerNo; i++)
+            {
+                string n = "anglerfish" + i.ToString();
+                World.Add(n, new Anglerfish());
+            }
+
+            for (int i = 0; i < barraNo; i++)
+            {
+                string n = "barracudina" + i.ToString();
+                World.Add(n, new Barracudina());
+            }
+
+            for (int i = 0; i < blueNo; i++)
+            {
+                string n = "blueWhale" + i.ToString();
+                World.Add(n, new BlueWhale());
+            }
+
+            for (int i = 0; i < bristleNo; i++)
+            {
+                string n = "bristlemouth" + i.ToString();
+                World.Add(n, new Bristlemouth());
+            }
+
+            for (int i = 0; i < clownNo; i++)
+            {
+                string n = "clownfish" + i.ToString();
+                World.Add(n, new Clownfish());
+            }
+
+            for (int i = 0; i < cuttleNo; i++)
+            {
+                string n = "cuttlefish" + i.ToString();
+                World.Add(n, new Cuttlefish());
+            }
+
+            for (int i = 0; i < flatNo; i++)
+            {
+                string n = "flatfish" + i.ToString();
+                World.Add(n, new Flatfish());
+            }
+
+            for (int i = 0; i < lancetNo; i++)
+            {
+                string n = "lancetfish" + i.ToString();
+                World.Add(n, new Lancetfish());
+            }
+
+            for (int i = 0; i < opahNo; i++)
+            {
+                string n = "opah" + i.ToString();
+                World.Add(n, new Opah());
+            }
+
+            for (int i = 0; i < spermNo; i++)
+            {
+                string n = "spermWhale" + i.ToString();
+                World.Add(n, new SpermWhale());
+            }
+
+            for (int i = 0; i < stingrayNo; i++)
+            {
+                string n = "stingray" + i.ToString();
+                World.Add(n, new Stingray());
+            }
+
+            for (int i = 0; i < surgeonNo; i++)
+            {
+                string n = "surgeonfish" + i.ToString();
+                World.Add(n, new Surgeonfish());
+            }
+
+            for (int i = 0; i < tripodNo; i++)
+            {
+                string n = "tripodfish" + i.ToString();
+                World.Add(n, new Tripodfish());
+            }
+
+            /*
+            World.Add("anglerfish", new Anglerfish());
+            World.Add("barracudina", new Barracudina());
+            World.Add("blueWhale", new BlueWhale());
+            World.Add("bristlemouth", new Bristlemouth());
             World.Add("clownfish", new Clownfish()); 
             World.Add("cuttlefish", new Cuttlefish()); 
             World.Add("flatfish", new Flatfish()); 
@@ -128,6 +228,7 @@ namespace Project
             World.Add("stingray", new Stingray()); 
             World.Add("surgeonfish", new Surgeonfish()); 
             World.Add("tripodfish", new Tripodfish());
+            */
 
             World.Add("mermaid", new Mermaid()); 
 
