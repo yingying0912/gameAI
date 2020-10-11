@@ -28,55 +28,55 @@ namespace Project
         public static List<SpermWhale>      sperm   = new List<SpermWhale>(); 
         public static List<Stingray>        stingray= new List<Stingray>(); 
         public static List<Surgeonfish>     surgeon = new List<Surgeonfish>(); 
-        public static List<Tripodfish>      tripod  = new List<Tripodfish>(); 
+        public static List<Tripodfish>      tripod  = new List<Tripodfish>();
 
         public static void Sort()
         {
             foreach (var obj in objects)
             {
-                switch (objects[obj.Key].name)
+                switch (obj.Value.name)
                 {
                     case "anglerfish":
-                        angler.Add((Anglerfish)objects[obj.Key]);
-                        break; 
+                        angler.Add((Anglerfish)obj.Value);
+                        break;
                     case "barracudina":
-                        barra.Add((Barracudina)objects[obj.Key]); 
-                            break; 
+                        barra.Add((Barracudina)obj.Value);
+                        break;
                     case "blueWhale":
-                        blue.Add((BlueWhale)objects[obj.Key]);
-                        break; 
-                    case "brislemouth":
-                        bristle.Add((Bristlemouth)objects[obj.Key]);
-                        break; 
+                        blue.Add((BlueWhale)obj.Value);
+                        break;
+                    case "bristlemouth":
+                        bristle.Add((Bristlemouth)obj.Value);
+                        break;
                     case "clownfish":
-                        clown.Add((Clownfish)objects[obj.Key]);
-                        break; 
+                        clown.Add((Clownfish)obj.Value);
+                        break;
                     case "cuttlefish":
-                        cuttle.Add((Cuttlefish)objects[obj.Key]);
-                        break; 
+                        cuttle.Add((Cuttlefish)obj.Value);
+                        break;
                     case "flatfish":
-                        flat.Add((Flatfish)objects[obj.Key]);
-                        break; 
+                        flat.Add((Flatfish)obj.Value);
+                        break;
                     case "lancetfish":
-                        lancet.Add((Lancetfish)objects[obj.Key]);
-                        break; 
+                        lancet.Add((Lancetfish)obj.Value);
+                        break;
                     case "opah":
-                        opah.Add((Opah)objects[obj.Key]);
-                        break; 
+                        opah.Add((Opah)obj.Value);
+                        break;
                     case "spermWhale":
-                        sperm.Add((SpermWhale)objects[obj.Key]);
-                        break; 
+                        sperm.Add((SpermWhale)obj.Value);
+                        break;
                     case "stingray":
-                        stingray.Add((Stingray)objects[obj.Key]);
-                        break; 
+                        stingray.Add((Stingray)obj.Value);
+                        break;
                     case "surgeonfish":
-                        surgeon.Add((Surgeonfish)objects[obj.Key]);
-                        break; 
+                        surgeon.Add((Surgeonfish)obj.Value);
+                        break;
                     case "tripodfish":
-                        tripod.Add((Tripodfish)objects[obj.Key]);
+                        tripod.Add((Tripodfish)obj.Value);
                         break;
                     default:
-                        break; 
+                        break;
                 }
             }
         }

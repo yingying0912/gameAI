@@ -232,10 +232,11 @@ namespace Project
 
             World.Add("mermaid", new Mermaid()); 
 
-            World.Add("alo", new Alo()); 
+            World.Add("alo", new Alo());
             //World.Add("ob1", new Obstacle("obs1", 2500, 1000)); 
             //////////////////////////////////////////////////////////////////////////
 
+            World.Sort(); 
             World.Initialize(rand);
         }
 
