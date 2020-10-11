@@ -41,7 +41,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Crab.cs" />
     <Compile Include="Enemies\Alo.cs" />
+    <Compile Include="Jellyfish.cs" />
     <Compile Include="Mermaid.cs" />
     <Compile Include="Enemies\Cuttlefish.cs" />
     <Compile Include="Enemies\Anglerfish.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Input.cs" />
     <Compile Include="Enemies\Opah.cs" />
     <Compile Include="Obstacle.cs" />
+    <Compile Include="Prawn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Score.cs" />
@@ -68,6 +71,7 @@
     <Compile Include="Enemies\SpermWhale.cs" />
     <Compile Include="Enemies\Stingray.cs" />
     <Compile Include="Enemies\Surgeonfish.cs" />
+    <Compile Include="Turtle.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>
