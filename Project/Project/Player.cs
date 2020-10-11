@@ -9,7 +9,7 @@ namespace Project
     {
         public Player()
         {
-            name = tag = "player"; 
+            name = "player"; 
         }
 
         public override void Initialize(Random rand)

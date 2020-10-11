@@ -68,8 +68,10 @@ namespace Project
                     Flee(gameTime);
                     break;
                 case state.Dead:
-                    Console.WriteLine(position);
-                    WaitForRespawn(gameTime);
+                    if (name != "alo")
+                        WaitForRespawn(gameTime);
+                    else
+                        Game1.endState = true;
                     break;
             }
             

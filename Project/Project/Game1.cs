@@ -17,6 +17,8 @@ namespace Project
         Vector2 velocity;
         float distance;
         public static gameState gameStatus;
+        public static bool endState;
+        public static bool triggerEnd;
         HUD scoreHUD, levelHUD;
         Input input;
         Score scoreCal;
@@ -59,6 +61,8 @@ namespace Project
             gameStatus = gameState.Start;
             input = new Input();
             scoreCal = new Score();
+            endState = false;
+            triggerEnd = false;
         }
 
         /// <summary>
@@ -128,6 +132,7 @@ namespace Project
             Assets.Add("prawn", Content.Load<Texture2D>("prawn"));
             Assets.Add("turtle", Content.Load<Texture2D>("turtle"));
             Assets.Add("mermaid", Content.Load<Texture2D>("mermaid"));
+            Assets.Add("mermaid2", Content.Load<Texture2D>("mermaid2"));
             Assets.Add("alo", Content.Load<Texture2D>("Alo"));
             //////////////////////////////////////////////////////////////////////////
 
@@ -259,6 +264,9 @@ namespace Project
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
+            if (endState && triggerEnd)
+                gameStatus = gameState.Win;
 
             switch (gameStatus)
             {

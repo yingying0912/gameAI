@@ -80,7 +80,7 @@ namespace Project
         {
             foreach (var obj in World.objects)
             {
-                if (obj.Key != "bg" && obj.Key != "player" && obj.Value.alive == true)
+                if (obj.Key != "bg" && obj.Key != "player" && obj.Key != "mermaid" && obj.Value.alive == true)
                 {
                     if (World.objects["player"].Boundary().Intersects(obj.Value.Boundary()))
                     {
@@ -94,6 +94,9 @@ namespace Project
                     }
                 }
             }
+
+            if (World.objects["player"].Boundary().Intersects(World.objects["mermaid"].Boundary()) && Game1.endState)
+                Game1.triggerEnd = true;
         }
     }
 }

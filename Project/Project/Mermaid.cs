@@ -7,11 +7,11 @@ namespace Project
 {
     public class Mermaid : GameObject
     {
+        Texture2D texture2;
         public Mermaid()
         {
             name = "mermaid";
             alive = true;
-            tag = "mermaid";
             heading = new Vector2(0f, 1f);
             heading.Normalize(); 
         }
@@ -19,6 +19,7 @@ namespace Project
         public override void Initialize(Random rand)
         {
             texture = Game1.Assets[name];
+            texture2 = Game1.Assets["mermaid2"];
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
 
             position = new Vector2(4800, 5000); 
@@ -36,7 +37,10 @@ namespace Project
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(texture, position, origin: origin, scale: scale);
+            if (!Game1.endState)
+                spriteBatch.Draw(texture, position, origin: origin, scale: scale);
+            else
+                spriteBatch.Draw(texture2, position, origin: origin, scale: scale);
         }
     }
 }
