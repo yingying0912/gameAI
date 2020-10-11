@@ -107,19 +107,31 @@ namespace Project
             Assets.Add("prawn", Content.Load<Texture2D>("prawn"));
             Assets.Add("turtle", Content.Load<Texture2D>("turtle"));
             Assets.Add("mermaid", Content.Load<Texture2D>("mermaid"));
+            Assets.Add("alo", Content.Load<Texture2D>("Alo"));
             //////////////////////////////////////////////////////////////////////////
 
             // Objects 
             //////////////////////////////////////////////////////////////////////////
-            World.Add("bg", new Background());
-            World.Add("player", new Player());
+            World.Add("bg", new Background()); 
+            World.Add("player", new Player()); 
 
-            World.Add("blueWhale", new BlueWhale());
-            World.Add("opah", new Opah());
-            World.Add("barracudina", new Barracudina());
+            World.Add("anglerfish", new Anglerfish()); 
+            World.Add("barracudina", new Barracudina()); 
+            World.Add("blueWhale", new BlueWhale()); 
+            World.Add("bristlemouth", new Bristlemouth()); 
+            World.Add("clownfish", new Clownfish()); 
+            World.Add("cuttlefish", new Cuttlefish()); 
+            World.Add("flatfish", new Flatfish()); 
+            World.Add("lancetfish", new Lancetfish()); 
+            World.Add("opah", new Opah()); 
+            World.Add("spermWhale", new SpermWhale()); 
+            World.Add("stingray", new Stingray()); 
+            World.Add("surgeonfish", new Surgeonfish()); 
             World.Add("tripodfish", new Tripodfish());
-            World.Add("flatfish", new Flatfish());
 
+            World.Add("mermaid", new Mermaid()); 
+
+            World.Add("alo", new Alo()); 
             //World.Add("ob1", new Obstacle("obs1", 2500, 1000)); 
             //////////////////////////////////////////////////////////////////////////
 

@@ -20,16 +20,14 @@ namespace Project
             alive = true;
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
-            gameSize = 4;
-
-            scale = new Vector2(gameSize * 0.25f, gameSize * 0.25f);
         }
 
         public override void Update(GameTime gameTime)
         {
             position += heading * 150f * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            scale = new Vector2(gameSize * 0.25f, gameSize * 0.25f);
+            
+            scale = new Vector2(gameSize * 0.15f, gameSize * 0.15f);
+            size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)

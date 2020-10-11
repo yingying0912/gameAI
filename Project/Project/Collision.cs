@@ -22,6 +22,7 @@ namespace Project
             for (int i = 1; i < 6; i++)
             {
                 collider = new List<GameObject>();
+
                 foreach (var obj in World.objects)
                 {
                     if (obj.Key != "player" && World.objects[obj.Key].location == i)
@@ -34,24 +35,28 @@ namespace Project
             }
             for (int i = 0; i < 6; i++)
             {
-                levelCoord.Add( - 540 - 1080 * i); 
+                levelCoord.Add(- 1080 - 864 * i); 
             }
         }
 
         public void Update()
         {
-            for (int i = 0; i < 5;i++)
+            /*
+            for (int i = 0; i < 5; i++)
             {
                 if (World.objects["bg"].position.Y > levelCoord[i])
                     CheckCollision(i+1); 
             }
+            */
+
+            CheckCollision2(); 
         }
 
         void CheckCollision(int no)
         {
             foreach (GameObject obj in level[no])
             {
-                if (obj.tag == "enemy" && obj.alive == true)
+                if (obj.alive == true)
                 {
                     if (World.objects["player"].Boundary().Intersects(obj.Boundary()))
                     {
@@ -63,22 +68,25 @@ namespace Project
                         else
                             World.objects["player"].alive = false;
                     }
+                }
+            }
+        }
 
-                    foreach (GameObject obj2 in level[no])
+        void CheckCollision2()
+        {
+            foreach (var obj in World.objects)
+            {
+                if (obj.Key != "bg" && obj.Key != "player" && obj.Value.alive == true)
+                {
+                    if (World.objects["player"].Boundary().Intersects(obj.Value.Boundary()))
                     {
-                        if (obj2.tag == "obstacle" && obj2.alive == true && obj2.Boundary().Intersects(obj.Boundary()))
+                        if (obj.Value.gameSize <= World.objects["player"].gameSize)
                         {
-                            if (obj.Boundary().Top < obj2.Boundary().Bottom || obj2.Boundary().Top > obj.Boundary().Bottom)
-                            {
-                                obj.heading.Y *= -1;
-                                Console.WriteLine(obj.name + " hit Y of " + obj2.name); 
-                            }
-                            if (obj.Boundary().Left < obj2.Boundary().Right || obj.Boundary().Right > obj2.Boundary().Left)
-                            {
-                                obj.heading.X *= -1;
-                                Console.WriteLine(obj.name + " hit X of " + obj2.name);
-                            }
+                            obj.Value.alive = false;
+                            Score.addScore(obj.Value.gameSize);
                         }
+                        else
+                            World.objects["player"].alive = false;
                     }
                 }
             }

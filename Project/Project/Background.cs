@@ -8,7 +8,7 @@ namespace Project
     {
         public Background()
         {
-            name = "backgroundwgrid"; 
+            name = "background"; 
             scale = new Vector2(5f, 5f); 
         }
 
@@ -32,7 +32,6 @@ namespace Project
             for (int i = 0; i <= 5; i++)
             {
                 World.testLocationBoundary[i] = World.locationBoundary[i] + position.Y;
-                Console.WriteLine(i + " boundary " + World.locationBoundary[i]);
             }
 
         }

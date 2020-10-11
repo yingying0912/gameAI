@@ -42,6 +42,7 @@ namespace Project
                 yRand = (float)rand.NextDouble();
             position = new Vector2(Game1.Screen.ClientBounds.Width / 2 + (World.worldSize.X - Game1.Screen.ClientBounds.Width) * rand.Next(1, 5) / 5f,
             Game1.Screen.ClientBounds.Height / 2 + (location / 5f * (World.worldSize.Y - Game1.Screen.ClientBounds.Height)) - Game1.Screen.ClientBounds.Height * yRand);
+
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
             alive = true;

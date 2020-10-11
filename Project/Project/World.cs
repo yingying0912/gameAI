@@ -117,7 +117,7 @@ namespace Project
         {
             foreach (GameObject obj in drawList)
                 obj.Initialize(rand);
-
+            
             collision.Initialize(); 
             Console.WriteLine("world.cs: " + worldSize);
         }
