@@ -136,7 +136,6 @@ namespace Project
                 obj.Initialize(rand);
             
             collision.Initialize(); 
-            Console.WriteLine("world.cs: " + worldSize);
         }
 
         public static void Update(GameTime gameTime)
@@ -170,12 +169,13 @@ namespace Project
 
         public static void Reset()
         {
+            objects["mermaid"].position -= objects["bg"].position;
+            objects["bg"].position = Vector2.Zero;
             foreach (var obj in objects)
             {
-                if (obj.Key != "player" && obj.Key != "bg")
-                    objects[obj.Key].position -= worldPosition;
+                if (obj.Key != "player" && obj.Key != "bg" && obj.Key != "mermaid")
+                    ((Enemy)obj.Value).Respawn();
             }
-            objects["bg"].position = Vector2.Zero;
         }
     }
 }

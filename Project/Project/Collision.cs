@@ -12,7 +12,6 @@ namespace Project
         Dictionary<int, List<GameObject>> level;
         List<GameObject> collider;
         List<int> levelCoord;
-        Player player; 
         
         public Collision()
         {
@@ -22,7 +21,6 @@ namespace Project
 
         public void Initialize()
         {
-            Console.WriteLine("Collider contents:");
             for (int i = 1; i < 6; i++)
             {
                 collider = new List<GameObject>();
@@ -33,9 +31,6 @@ namespace Project
                         collider.Add(World.objects[obj.Key]);
                 }
                 level.Add(i, collider);
-
-                if (collider.Count > 0)
-                    Console.WriteLine("Level " + i + " content: " + collider[0].name);
             }
             for (int i = 0; i < 6; i++)
             {
@@ -88,6 +83,7 @@ namespace Project
                         {
                             obj.Value.alive = false;
                             Score.addScore(obj.Value.gameSize);
+                            Game1.soundEffects[3].Play();
                         }
                         else
                             World.objects["player"].alive = false;

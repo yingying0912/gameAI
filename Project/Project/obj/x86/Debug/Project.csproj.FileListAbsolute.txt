@@ -87,17 +87,6 @@ C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\P
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\lancetfish.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\mermaid.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\mermaid2.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs1.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs10.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs11.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs2.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs3.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs4.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs5.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs6.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs7.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs8.xnb
-C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs9.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\prawn.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\sperm whale.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\stingray.xnb
@@ -107,3 +96,9 @@ D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bgm.wma
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bgm.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\levelUp.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\ambience.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\ambience.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bgm.wma
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bgm.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\levelUp.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bubble.xnb
+C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\swallow.xnb

@@ -22,7 +22,6 @@ namespace Project
             if (position.X > World.worldPosition.X + World.worldSize.X * 3 / 4) 
                 heading.X = -1;
 
-            Console.WriteLine(World.worldPosition.X + World.worldSize.X); 
             position += heading * speed * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
     }

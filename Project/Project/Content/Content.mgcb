@@ -109,6 +109,12 @@
 /processorParam:TextureFormat=Color
 /build:bristlemouth.png
 
+#begin bubble.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:bubble.wav
+
 #begin clownfish.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -289,6 +295,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:surgeonfish.png
+
+#begin swallow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:swallow.wav
 
 #begin tripodfish.png
 /importer:TextureImporter

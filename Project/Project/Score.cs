@@ -24,7 +24,7 @@ namespace Project
             alive = true;
             // Testing purposes
             // level = 1;
-            level = 5;
+            level = 1;
             maxScorePerLevel.Add(200);
             maxScorePerLevel.Add(500);
             maxScorePerLevel.Add(750);
@@ -74,7 +74,6 @@ namespace Project
                 score += 3;
             else if (level == enemySize + 3)
                 score += 2;
-            //Console.WriteLine(score);
         }
 
     }

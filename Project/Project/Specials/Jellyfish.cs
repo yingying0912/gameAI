@@ -13,7 +13,7 @@ namespace Project
         }
         public override void PatternMovement(GameTime gameTime)
         {
-            FlockingMovement(gameTime, World.stingray);
+            FlockingMovement(gameTime, World.jelly);
         }
     }
 }

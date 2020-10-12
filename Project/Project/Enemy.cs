@@ -14,7 +14,6 @@ namespace Project
         public state status;
         private Vector2 displacement;
         public Vector2 acceleration;
-        private int timeCounter, maxTime;
         private float respawnTimer, currentTime;
 
         public int moveCounter; 
@@ -27,8 +26,6 @@ namespace Project
             displacement = Vector2.Zero;
             respawnTimer = 20f;
             currentTime = 0f;
-
-            tag = "enemy";
 
             moveCounter = 0; 
         }
@@ -48,8 +45,6 @@ namespace Project
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
             alive = true;
-            timeCounter = 0;
-            maxTime = 200;
         }
 
         public override void Update(GameTime gameTime)
@@ -78,18 +73,6 @@ namespace Project
                         
                     break;
             }
-            
-            if ((Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2) && heading.X < 0
-                || (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2) && heading.X > 0)
-            {
-                heading.X *= -1;
-            }
-            if ((Boundary().Bottom > World.testLocationBoundary[location] && heading.Y > 0)
-                || (Boundary().Top < World.testLocationBoundary[location - 1] && heading.Y < 0))
-            {
-                heading.Y *= -1;
-            }
-        
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -109,12 +92,18 @@ namespace Project
                 if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
                 * (World.objects["player"].position.X - position.X)
                 + (World.objects["player"].position.Y - position.Y)
+                * (World.objects["player"].position.Y - position.Y)) < 250)
+                {
+                    if (gameSize > World.objects["player"].gameSize)
+                        status = state.Seeking;
+                }
+                else if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
+                * (World.objects["player"].position.X - position.X)
+                + (World.objects["player"].position.Y - position.Y)
                 * (World.objects["player"].position.Y - position.Y)) < 200)
                 {
                     if (gameSize <= World.objects["player"].gameSize)
                         status = state.Fleeing;
-                    else
-                        status = state.Seeking;
                 }
                 else
                     status = state.Idle;
@@ -127,6 +116,7 @@ namespace Project
         {
             heading = World.objects["player"].position - position;
             heading.Normalize();
+            checkBoundary();
             position += heading * speed * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
@@ -134,12 +124,7 @@ namespace Project
         {
             heading = position - World.objects["player"].position;
             heading.Normalize();
-
-            //next -> can try random heading number of opposite direction when enemy reached the boundary.
-            if (Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2 && heading.X < 0) heading.X = 0;
-            if (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2 && heading.X > 0) heading.X = 0;
-            if (Boundary().Top < World.objects["bg"].Boundary().Top + Game1.Screen.ClientBounds.Height / 2 && heading.Y < 0) heading.Y = 0;
-            if (Boundary().Bottom > World.objects["bg"].Boundary().Bottom - Game1.Screen.ClientBounds.Height / 2 && heading.Y > 0) heading.Y = 0;
+            checkBoundary();
             position += heading * speed * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
@@ -156,10 +141,20 @@ namespace Project
             }
         }
 
+        public void Respawn()
+        {
+            position = World.worldPosition + new Vector2(Game1.Screen.ClientBounds.Width / 2 + (World.worldSize.X - Game1.Screen.ClientBounds.Width) * Game1.rand.Next(1, 5) / 5f,
+                    Game1.Screen.ClientBounds.Height / 2 + (location / 5f * (World.worldSize.Y - Game1.Screen.ClientBounds.Height)) - Game1.Screen.ClientBounds.Height * (float)Game1.rand.NextDouble()); ;
+            heading = new Vector2(1f, 0f);
+            alive = true;
+        }
+
         public void BasicMovement(GameTime gameTime)
         {
             acceleration = Separate();
             heading += acceleration;
+            heading.Normalize();
+            checkBoundary();
             position += heading * 80 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
@@ -167,6 +162,8 @@ namespace Project
         {
             acceleration = Separate() + Alignment(flock) + Cohesion(flock);
             heading += acceleration;
+            heading.Normalize();
+            checkBoundary();
             position += heading * 80 * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
@@ -177,17 +174,18 @@ namespace Project
 
             foreach (var obj in flock)
             {
-                if (obj.alive && obj != this && IsNear(obj, 70))
+                if (obj.alive && obj != this && IsNear(obj, 100))
                 {
                     average += obj.heading;
                     count++;
                 }
             }
 
+
             if (count > 0 && average.Length() > 0)
             {
                 average /= count;
-                average = Vector2.Normalize(average);
+                average = Vector2.Normalize(average) * 80 * speed;
                 Vector2 steer = average - heading;
                 return steer;
             }
@@ -202,7 +200,7 @@ namespace Project
 
             foreach (var obj in flock)
             {
-                if (obj.alive && obj != this && IsNear(obj, 70))
+                if (obj.alive && obj != this && IsNear(obj, 100))
                 {
                     average += obj.position;
                     count++;
@@ -212,7 +210,7 @@ namespace Project
             if (count > 0 && average.Length() > 0)
             {
                 average /= count;
-                average = Vector2.Normalize(average);
+                average = Vector2.Normalize(average) * 80 * speed;
                 Vector2 steer = average - position;
                 return steer;
             }
@@ -227,7 +225,7 @@ namespace Project
 
             foreach (var obj in World.objects)
             {
-                if (obj.Key != "bg" && obj.Key != "player" && obj.Value.alive && obj.Key != this.name && IsNear(obj.Value, 100))
+                if (obj.Key != "bg" && obj.Key != "player" && obj.Value.alive && obj.Key != this.name && IsNear(obj.Value, 80))
                 {
                     Vector2 v = position - obj.Value.position;
                     float d = v.Length();
@@ -241,7 +239,7 @@ namespace Project
             if (count > 0 && average.Length() > 0)
             {
                 average /= count;
-                average = Vector2.Normalize(average);
+                average = Vector2.Normalize(average) * 80 * speed;
                 Vector2 steer = average - heading;
                 return steer;
             }
@@ -253,6 +251,20 @@ namespace Project
         {
             float distance = (position - obj.position).Length();
             return (0 < distance && distance < radius);
+        }
+
+        private void checkBoundary()
+        {
+            if ((Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2 + 10) && heading.X < 0
+                || (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2 - 10) && heading.X > 0)
+            {
+                heading.X = 0;
+            }
+            if ((Boundary().Bottom > World.testLocationBoundary[location] + 10 && heading.Y > 0)
+                || (Boundary().Top < World.testLocationBoundary[location - 1] - 10 && heading.Y < 0))
+            {
+                heading.Y = 0;
+            }
         }
     }
 }

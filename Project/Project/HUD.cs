@@ -36,6 +36,7 @@ namespace Project
             textColor = new Color(255, 255, 255);
             position = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2);
             desPos = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2 + 55);
+            dimension = new Vector2(850, 100);
             type = 2;
         }
 
@@ -46,6 +47,7 @@ namespace Project
             textColor = new Color(255, 255, 255);
             position = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2);
             desPos = new Vector2(Game1.Screen.ClientBounds.Width / 2, Game1.Screen.ClientBounds.Height / 2 + 55);
+            dimension = new Vector2(850, 100);
             type = 3; 
         }
 
@@ -73,8 +75,8 @@ namespace Project
             {
                 case 0: TextHUD(spriteBatch, spriteFont); break; 
                 case 1: BarHUD(spriteBatch, spriteFont, graphicsDevice); break;
-                case 2: PauseHUD(spriteBatch, spriteFont); break;
-                case 3: EndHUD(spriteBatch, spriteFont); break;
+                case 2: PauseHUD(spriteBatch, spriteFont, graphicsDevice); break;
+                case 3: EndHUD(spriteBatch, spriteFont, graphicsDevice); break;
                 default: break; 
             }
         }
@@ -128,16 +130,38 @@ namespace Project
             spriteBatch.Draw(dummyTexture, backgroundRectangle, backgroundColor);
         }
 
-        public void PauseHUD(SpriteBatch spriteBatch, SpriteFont spriteFont)
+        public void PauseHUD(SpriteBatch spriteBatch, SpriteFont spriteFont, GraphicsDevice graphicsDevice)
         {
+            Rectangle backgroundRectangle = new Rectangle();
+            Color backgroundColor = new Color(0, 0, 0, 128);
+            Texture2D dummyTexture = new Texture2D(graphicsDevice, 1, 1);
+            dummyTexture.SetData(new Color[] { backgroundColor });
+
             spriteBatch.DrawString(spriteFont, textLabel, position, textColor);
             spriteBatch.DrawString(spriteFont, textDescription, desPos, textColor);
+
+            backgroundRectangle.Width = (int)(dimension.X * 0.75);
+            backgroundRectangle.Height = (int)(dimension.Y * 1.5);
+            backgroundRectangle.X = Game1.Screen.ClientBounds.Width / 2 - 5;
+            backgroundRectangle.Y = Game1.Screen.ClientBounds.Height / 2;
+            spriteBatch.Draw(dummyTexture, backgroundRectangle, backgroundColor);
         }
 
-        public void EndHUD(SpriteBatch spriteBatch, SpriteFont spriteFont)
+        public void EndHUD(SpriteBatch spriteBatch, SpriteFont spriteFont, GraphicsDevice graphicsDevice)
         {
+            Rectangle backgroundRectangle = new Rectangle();
+            Color backgroundColor = new Color(0, 0, 0, 128);
+            Texture2D dummyTexture = new Texture2D(graphicsDevice, 1, 1);
+            dummyTexture.SetData(new Color[] { backgroundColor });
+
             spriteBatch.DrawString(spriteFont, textLabel, position, textColor);
             spriteBatch.DrawString(spriteFont, textDescription, desPos, textColor);
+
+            backgroundRectangle.Width = (int)(dimension.X * 0.75);
+            backgroundRectangle.Height = (int)(dimension.Y * 1.5);
+            backgroundRectangle.X = Game1.Screen.ClientBounds.Width / 2 - 5;
+            backgroundRectangle.Y = Game1.Screen.ClientBounds.Height / 2;
+            spriteBatch.Draw(dummyTexture, backgroundRectangle, backgroundColor);
         }
     }
 }

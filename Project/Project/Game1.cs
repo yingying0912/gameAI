@@ -19,12 +19,13 @@ namespace Project
         public static bool triggerEnd;
 
         Song bgm;
-        public static List<SoundEffect> soundEffects; 
+        public static List<SoundEffect> soundEffects;
+        private float soundCD = 10f;
+        private float currentTime = 0f;
 
         public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
         public static GameWindow Screen;
         Vector2 velocity;
-        float distance;
         
         HUD scoreHUD, levelHUD, pauseHUD, loseHUD, winHUD;
         Input input;
@@ -80,7 +81,6 @@ namespace Project
             input = new Input();
             scoreCal = new Score();
             velocity = Vector2.Zero;
-            distance = 0;
             gameStatus = gameState.Start;
             endState = false;
             triggerEnd = false;
@@ -113,10 +113,13 @@ namespace Project
 
             soundEffects.Add(Content.Load<SoundEffect>("levelUp"));
             soundEffects.Add(Content.Load<SoundEffect>("ambience"));
+            soundEffects.Add(Content.Load<SoundEffect>("bubble"));
+            soundEffects.Add(Content.Load<SoundEffect>("swallow"));
+
             SoundEffect.MasterVolume = 0.25f;
             var instance = soundEffects[1].CreateInstance();
             instance.IsLooped = true;
-            instance.Play(); 
+            instance.Play();
 
             // Textures 
             //////////////////////////////////////////////////////////////////////////
@@ -355,6 +358,14 @@ namespace Project
             scoreHUD.Update(Score.score.ToString(), new Color(255, 255, 255));
             levelHUD.Update(World.objects["player"].gameSize);
             input.Update(Screen, gameTime);
+            currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (currentTime >= soundCD)
+            {
+                currentTime = 0;
+                soundEffects[2].Play();
+            }
+            
             scoreCal.Update();
         }
 
@@ -375,7 +386,6 @@ namespace Project
 
         public static void RestartGame() {
             
-            World.objects["alo"].alive = true;
             World.objects["player"].alive = true;
             endState = false;
             triggerEnd = false; 
