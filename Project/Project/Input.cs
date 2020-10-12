@@ -39,10 +39,10 @@ namespace Project
 
         bool InControlArea(GameWindow Screen)
         {
-            if (mouse.Position.X < Screen.ClientBounds.Width / 3
-             || mouse.Position.X > Screen.ClientBounds.Width * 2 / 3
-             || mouse.Position.Y < Screen.ClientBounds.Height / 3
-             || mouse.Position.Y > Screen.ClientBounds.Height * 2 / 3)
+            if (mouse.Position.X < Screen.ClientBounds.Width * 2 / 5
+             || mouse.Position.X > Screen.ClientBounds.Width * 3 / 5
+             || mouse.Position.Y < Screen.ClientBounds.Height * 2 / 5
+             || mouse.Position.Y > Screen.ClientBounds.Height * 3 / 5)
                 return true;
             else
                 return false;

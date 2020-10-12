@@ -41,16 +41,16 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Crab.cs" />
-    <Compile Include="Enemies\Alo.cs" />
-    <Compile Include="Jellyfish.cs" />
-    <Compile Include="Mermaid.cs" />
+    <Compile Include="Specials\Crab.cs" />
+    <Compile Include="Specials\Alo.cs" />
+    <Compile Include="Specials\Jellyfish.cs" />
+    <Compile Include="Specials\Mermaid.cs" />
     <Compile Include="Enemies\Cuttlefish.cs" />
     <Compile Include="Enemies\Anglerfish.cs" />
     <Compile Include="Enemies\Barracudina.cs" />
     <Compile Include="Enemies\BlueWhale.cs" />
     <Compile Include="Enemies\Lancetfish.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Specials\Player.cs" />
     <Compile Include="Collision.cs" />
     <Compile Include="Enemies\Bristlemouth.cs" />
     <Compile Include="Enemies\Clownfish.cs" />
@@ -63,7 +63,7 @@
     <Compile Include="Input.cs" />
     <Compile Include="Enemies\Opah.cs" />
     <Compile Include="Obstacle.cs" />
-    <Compile Include="Prawn.cs" />
+    <Compile Include="Specials\Prawn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Score.cs" />
@@ -71,7 +71,7 @@
     <Compile Include="Enemies\SpermWhale.cs" />
     <Compile Include="Enemies\Stingray.cs" />
     <Compile Include="Enemies\Surgeonfish.cs" />
-    <Compile Include="Turtle.cs" />
+    <Compile Include="Specials\Turtle.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>

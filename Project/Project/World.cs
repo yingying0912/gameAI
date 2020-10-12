@@ -30,6 +30,11 @@ namespace Project
         public static List<Enemy>    surgeon    = new List<Enemy>(); 
         public static List<Enemy>    tripod     = new List<Enemy>();
 
+        public static List<Enemy>   crab        = new List<Enemy>();
+        public static List<Enemy>   jelly       = new List<Enemy>();
+        public static List<Enemy>   prawn       = new List<Enemy>();
+        public static List<Enemy>   turtle      = new List<Enemy>();
+
         public static void Sort()
         {
             foreach (var obj in objects)
@@ -74,6 +79,18 @@ namespace Project
                         break;
                     case "tripodfish":
                         tripod.Add((Tripodfish)obj.Value);
+                        break;
+                    case "crab":
+                        crab.Add((Crab)obj.Value);
+                        break;
+                    case "jellyfish":
+                        jelly.Add((Jellyfish)obj.Value);
+                        break;
+                    case "prawn":
+                        prawn.Add((Prawn)obj.Value);
+                        break;
+                    case "turtle":
+                        turtle.Add((Turtle)obj.Value);
                         break;
                     default:
                         break;

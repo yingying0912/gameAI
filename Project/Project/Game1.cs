@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,9 @@ namespace Project
         public static gameState gameStatus;
         public static bool endState;
         public static bool triggerEnd;
+
+        Song bgm;
+        public static List<SoundEffect> soundEffects; 
 
         public static Dictionary<string, Texture2D> Assets = new Dictionary<string, Texture2D>();
         public static GameWindow Screen;
@@ -47,7 +52,6 @@ namespace Project
         int turtleNo    = 2;
         int jellyNo     = 20;
         int prawnNo     = 2;
-        int octoNo      = 1;
         int crabNo      = 3; 
 
 
@@ -57,7 +61,8 @@ namespace Project
             graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             Content.RootDirectory = "Content";
-            Screen = this.Window;
+            Screen = Window;
+            soundEffects = new List<SoundEffect>();
         }
 
         /// <summary>
@@ -93,12 +98,25 @@ namespace Project
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            spriteFont = Content.Load<SpriteFont>("font");
-            scoreHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15));
-            levelHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 15), 5);
+            spriteFont = Content.Load<SpriteFont>("font");//levelHUD = new HUD("Level", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 7), new Vector2(200, 50), 5);
+            levelHUD = new HUD("Level", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 11), new Vector2(500, 50), 5);
+            scoreHUD = new HUD("Score", new Vector2(Screen.ClientBounds.Width / 15, Screen.ClientBounds.Height / 7));
             pauseHUD = new HUD();
             loseHUD = new HUD("lose");
             winHUD = new HUD("win");
+
+            // Audio 
+            bgm = Content.Load<Song>("bgm");
+            MediaPlayer.Volume = 0.25f; 
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(bgm);
+
+            soundEffects.Add(Content.Load<SoundEffect>("levelUp"));
+            soundEffects.Add(Content.Load<SoundEffect>("ambience"));
+            SoundEffect.MasterVolume = 0.25f;
+            var instance = soundEffects[1].CreateInstance();
+            instance.IsLooped = true;
+            instance.Play(); 
 
             // Textures 
             //////////////////////////////////////////////////////////////////////////
@@ -119,18 +137,6 @@ namespace Project
             Assets.Add("stingray", Content.Load<Texture2D>("stingray"));
             Assets.Add("surgeonfish", Content.Load<Texture2D>("surgeonfish"));
             Assets.Add("tripodfish", Content.Load<Texture2D>("tripodfish"));
-            // Obstacles 
-            Assets.Add("obs1", Content.Load<Texture2D>("obs1"));
-            Assets.Add("obs2", Content.Load<Texture2D>("obs2"));
-            Assets.Add("obs3", Content.Load<Texture2D>("obs3"));
-            Assets.Add("obs4", Content.Load<Texture2D>("obs4"));
-            Assets.Add("obs5", Content.Load<Texture2D>("obs5"));
-            Assets.Add("obs6", Content.Load<Texture2D>("obs6"));
-            Assets.Add("obs7", Content.Load<Texture2D>("obs7"));
-            Assets.Add("obs8", Content.Load<Texture2D>("obs8"));
-            Assets.Add("obs9", Content.Load<Texture2D>("obs9"));
-            Assets.Add("obs10", Content.Load<Texture2D>("obs10"));
-            Assets.Add("obs11", Content.Load<Texture2D>("obs11"));
             // Others 
             Assets.Add("crab", Content.Load<Texture2D>("crab"));
             Assets.Add("jellyfish", Content.Load<Texture2D>("jellyfish"));
@@ -224,6 +230,30 @@ namespace Project
                 World.Add(n, new Tripodfish());
             }
 
+            for (int i = 0; i < crabNo; i++)
+            {
+                string n = "crab" + i.ToString();
+                World.Add(n, new Crab());
+            }
+
+            for (int i = 0; i < jellyNo; i++)
+            {
+                string n = "jellyfish" + i.ToString();
+                World.Add(n, new Jellyfish());
+            }
+
+            for (int i = 0; i < prawnNo; i++)
+            {
+                string n = "prawn" + i.ToString();
+                World.Add(n, new Prawn());
+            }
+
+            for (int i = 0; i < turtleNo; i++)
+            {
+                string n = "turtle" + i.ToString();
+                World.Add(n, new Turtle());
+            }
+
             /*
             World.Add("anglerfish", new Anglerfish());
             World.Add("barracudina", new Barracudina());
@@ -305,9 +335,9 @@ namespace Project
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-                World.Draw(spriteBatch, gameTime); 
-                scoreHUD.Draw(spriteBatch, spriteFont, GraphicsDevice); 
+                World.Draw(spriteBatch, gameTime);
                 levelHUD.Draw(spriteBatch, spriteFont, GraphicsDevice);
+                scoreHUD.Draw(spriteBatch, spriteFont, GraphicsDevice); 
             if (gameStatus == gameState.Pause)
                 pauseHUD.Draw(spriteBatch, spriteFont, GraphicsDevice);
             if (gameStatus == gameState.Lose)
@@ -323,7 +353,7 @@ namespace Project
         {
             World.Update(gameTime);
             scoreHUD.Update(Score.score.ToString(), new Color(255, 255, 255));
-            levelHUD.Update("value", new Color(255, 255, 255), 2);
+            levelHUD.Update(World.objects["player"].gameSize);
             input.Update(Screen, gameTime);
             scoreCal.Update();
         }

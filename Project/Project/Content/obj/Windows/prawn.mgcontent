@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/Documents/GitHub/gameAI/Project/Project/Content/prawn.png</SourceFile>
-  <SourceTime>2020-10-11T18:22:15.3047141+08:00</SourceTime>
+  <SourceTime>2020-10-12T03:59:20.9278667+08:00</SourceTime>
   <DestFile>D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/prawn.xnb</DestFile>
-  <DestTime>2020-10-11T18:26:12.7215981+08:00</DestTime>
+  <DestTime>2020-10-12T09:49:08.6110068+08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-09T00:35:54+08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

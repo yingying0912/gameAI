@@ -37,7 +37,7 @@ namespace Project
         {
             texture = Game1.Assets[name];
 
-            scale = new Vector2(gameSize * 0.125f, gameSize * 0.125f); 
+            if (name != "alo") scale = new Vector2(gameSize * 0.12f, gameSize * 0.12f); 
 
             float yRand = 0;
             while (yRand == 0)

@@ -18,12 +18,14 @@ namespace Project
             this.position = position;
             type = 0; 
         }
-
-        public HUD(string textLabel, Vector2 position, float valueMax)
+        
+        public HUD(string textLabel, Vector2 position, Vector2 dimension, float valueMax)
         {
-            this.textLabel = textLabel;
+            this.textLabel = textLabel; 
             this.position = position;
+            this.dimension = dimension;
             this.valueMax = valueMax;
+            textColor = new Color(255, 255, 255);
             type = 1; 
         }
 
@@ -53,6 +55,11 @@ namespace Project
             this.textColor = textColor;
         }
 
+        public void Update(float valueCurrent)
+        {
+            this.valueCurrent = valueCurrent;
+        }
+
         public void Update(string textValue, Color textColor, float valueCurrent)
         {
             this.textValue = textValue;
@@ -79,42 +86,46 @@ namespace Project
 
         public void BarHUD(SpriteBatch spriteBatch, SpriteFont spriteFont, GraphicsDevice graphicsDevice)
         {
+            //spriteBatch.DrawString(spriteFont, textLabel + ": ", position, textColor);
+
             float percent = valueCurrent / valueMax;
 
             Color backgroundColor = new Color(0, 0, 0, 128);
-            Color barColor = new Color(0, 255, 0, 200);
-            if (percent < 0.50)
-                barColor = new Color(255, 255, 0, 200);
-            if (percent < 0.20)
-                barColor = new Color(255, 0, 0, 200);
+            Color barColor = new Color( 0, 255, 0, 200);
+            Color barColor2 = new Color(100, 100, 200, 200);
 
             Rectangle backgroundRectangle = new Rectangle();
-            backgroundRectangle.Width = (int)dimension.X;
-            backgroundRectangle.Height = (int)dimension.Y;
-            backgroundRectangle.X = (int)position.X;
-            backgroundRectangle.Y = (int)position.Y;
-
             Texture2D dummyTexture = new Texture2D(graphicsDevice, 1, 1);
+
             dummyTexture.SetData(new Color[] { backgroundColor });
+            backgroundRectangle.Width = (int)dimension.X / 5;
+            backgroundRectangle.Height = (int)dimension.Y;
+            //backgroundRectangle.Y = 13 + (int)position.Y;
+            backgroundRectangle.Y = (int)position.Y;
+            for (int i = 0; i < valueMax; i++)
+            {
+                //backgroundRectangle.X = (int)(position.X + 180 + dimension.X / 4.5 * i);
+                backgroundRectangle.X = (int)(position.X + dimension.X / 4.5 * i);
+                spriteBatch.Draw(dummyTexture, backgroundRectangle, backgroundColor);
+            }
 
-            spriteBatch.Draw(dummyTexture, backgroundRectangle, backgroundColor);
-
-            backgroundRectangle.Width = (int)(dimension.X * 0.9);
-            backgroundRectangle.Height = (int)(dimension.Y * 0.5);
-            backgroundRectangle.X = (int)position.X + (int)(dimension.X * 0.05);
-            backgroundRectangle.Y = (int)position.Y + (int)(dimension.Y * 0.25);
-
-            spriteBatch.Draw(dummyTexture, backgroundRectangle, backgroundColor);
-
-            backgroundRectangle.Width = (int)(dimension.X * 0.9 * percent);
-            backgroundRectangle.Height = (int)(dimension.Y * 0.5);
-            backgroundRectangle.X = (int)position.X + (int)(dimension.X * 0.05);
-            backgroundRectangle.Y = (int)position.Y + (int)(dimension.Y * 0.25);
-
-            dummyTexture = new Texture2D(graphicsDevice, 1, 1);
             dummyTexture.SetData(new Color[] { barColor });
+            backgroundRectangle.Width = (int)(dimension.X / 6);
+            backgroundRectangle.Height = (int)(dimension.Y * 0.5);
+            //backgroundRectangle.Y = 13 + (int)position.Y + (int)(dimension.Y * 0.25);
+            backgroundRectangle.Y = (int)position.Y + (int)(dimension.Y * 0.25);
+            for (int i = 0; i < valueCurrent; i++)
+            {
+                //backgroundRectangle.X = (int)(position.X + 180 + dimension.X / 60) + (int)(dimension.X / 4.5 * i);
+                backgroundRectangle.X = (int)(position.X + dimension.X / 60) + (int)(dimension.X / 4.5 * i);
+                spriteBatch.Draw(dummyTexture, backgroundRectangle, barColor);
+            }
 
-            spriteBatch.Draw(dummyTexture, backgroundRectangle, barColor);
+            backgroundRectangle.Width = (int)(dimension.X * 0.75);
+            backgroundRectangle.Height = (int)(dimension.Y * 1.5);
+            backgroundRectangle.X = (int)position.X;
+            backgroundRectangle.Y = (int)position.Y + 55;
+            spriteBatch.Draw(dummyTexture, backgroundRectangle, backgroundColor);
         }
 
         public void PauseHUD(SpriteBatch spriteBatch, SpriteFont spriteFont)

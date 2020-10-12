@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/Documents/GitHub/gameAI/Project/Project/Content/turtle.png</SourceFile>
-  <SourceTime>2020-10-11T18:22:55.4334554+08:00</SourceTime>
+  <SourceTime>2020-10-12T05:18:47.5257556+08:00</SourceTime>
   <DestFile>D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/turtle.xnb</DestFile>
-  <DestTime>2020-10-11T18:26:12.8854901+08:00</DestTime>
+  <DestTime>2020-10-12T09:49:08.8274863+08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-09T00:35:54+08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

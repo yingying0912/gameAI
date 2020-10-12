@@ -37,13 +37,25 @@ namespace Project
             if (alive)
             {
                 if (level == 1 && score >= 100)
+                {
+                    Game1.soundEffects[0].Play();
                     level++;
+                }
                 if (level == 2 && score >= 250)
+                {
+                    Game1.soundEffects[0].Play();
                     level++;
+                }
                 if (level == 3 && score >= 375)
+                {
+                    Game1.soundEffects[0].Play();
                     level++;
+                }
                 if (level == 4 && score >= 500)
+                {
+                    Game1.soundEffects[0].Play();
                     level++;
+                }
             }
             else
             {
@@ -62,7 +74,7 @@ namespace Project
                 score += 3;
             else if (level == enemySize + 3)
                 score += 2;
-            Console.WriteLine(score);
+            //Console.WriteLine(score);
         }
 
     }

@@ -72,17 +72,6 @@ D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\surgeon
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\crab.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\jellyfish.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\mermaid.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs1.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs10.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs11.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs2.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs3.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs4.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs5.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs6.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs7.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs8.xnb
-D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\obs9.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\prawn.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\sperm whale.xnb
 D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\turtle.xnb
@@ -114,3 +103,7 @@ C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\P
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\stingray.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\surgeonfish.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\turtle.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bgm.wma
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bgm.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\levelUp.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\ambience.xnb
