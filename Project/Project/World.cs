@@ -171,6 +171,7 @@ namespace Project
         {
             objects["mermaid"].position -= objects["bg"].position;
             objects["bg"].position = Vector2.Zero;
+            worldPosition = objects["bg"].position;
             foreach (var obj in objects)
             {
                 if (obj.Key != "player" && obj.Key != "bg" && obj.Key != "mermaid")
