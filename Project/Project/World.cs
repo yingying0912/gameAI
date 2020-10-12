@@ -16,19 +16,19 @@ namespace Project
         public static List<float> locationBoundary = new List<float>();
         public static List<float> testLocationBoundary = new List<float>();
 
-        public static List<Enemy>    angler     = new List<Enemy>(); 
-        public static List<Enemy>    barra      = new List<Enemy>(); 
-        public static List<Enemy>    blue       = new List<Enemy>(); 
-        public static List<Enemy>    bristle    = new List<Enemy>(); 
-        public static List<Enemy>    clown      = new List<Enemy>(); 
-        public static List<Enemy>    cuttle     = new List<Enemy>(); 
-        public static List<Enemy>    flat       = new List<Enemy>(); 
-        public static List<Enemy>    lancet     = new List<Enemy>(); 
-        public static List<Enemy>    opah       = new List<Enemy>(); 
-        public static List<Enemy>    sperm      = new List<Enemy>(); 
-        public static List<Enemy>    stingray   = new List<Enemy>(); 
-        public static List<Enemy>    surgeon    = new List<Enemy>(); 
-        public static List<Enemy>    tripod     = new List<Enemy>();
+        public static List<Enemy>   angler      = new List<Enemy>(); 
+        public static List<Enemy>   barra       = new List<Enemy>(); 
+        public static List<Enemy>   blue        = new List<Enemy>(); 
+        public static List<Enemy>   bristle     = new List<Enemy>(); 
+        public static List<Enemy>   clown       = new List<Enemy>(); 
+        public static List<Enemy>   cuttle      = new List<Enemy>(); 
+        public static List<Enemy>   flat        = new List<Enemy>(); 
+        public static List<Enemy>   lancet      = new List<Enemy>(); 
+        public static List<Enemy>   opah        = new List<Enemy>(); 
+        public static List<Enemy>   sperm       = new List<Enemy>(); 
+        public static List<Enemy>   stingray    = new List<Enemy>(); 
+        public static List<Enemy>   surgeon     = new List<Enemy>(); 
+        public static List<Enemy>   tripod      = new List<Enemy>();
 
         public static List<Enemy>   crab        = new List<Enemy>();
         public static List<Enemy>   jelly       = new List<Enemy>();

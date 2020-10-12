@@ -106,6 +106,7 @@ namespace Project
             winHUD = new HUD("win");
 
             // Audio 
+            //////////////////////////////////////////////////////////////////////////
             bgm = Content.Load<Song>("bgm");
             MediaPlayer.Volume = 0.25f; 
             MediaPlayer.IsRepeating = true;
@@ -120,7 +121,8 @@ namespace Project
             var instance = soundEffects[1].CreateInstance();
             instance.IsLooped = true;
             instance.Play();
-
+            //////////////////////////////////////////////////////////////////////////
+            
             // Textures 
             //////////////////////////////////////////////////////////////////////////
             Assets.Add("background", Content.Load<Texture2D>("background"));
@@ -256,27 +258,10 @@ namespace Project
                 string n = "turtle" + i.ToString();
                 World.Add(n, new Turtle());
             }
-
-            /*
-            World.Add("anglerfish", new Anglerfish());
-            World.Add("barracudina", new Barracudina());
-            World.Add("blueWhale", new BlueWhale());
-            World.Add("bristlemouth", new Bristlemouth());
-            World.Add("clownfish", new Clownfish()); 
-            World.Add("cuttlefish", new Cuttlefish()); 
-            World.Add("flatfish", new Flatfish()); 
-            World.Add("lancetfish", new Lancetfish()); 
-            World.Add("opah", new Opah()); 
-            World.Add("spermWhale", new SpermWhale()); 
-            World.Add("stingray", new Stingray()); 
-            World.Add("surgeonfish", new Surgeonfish()); 
-            World.Add("tripodfish", new Tripodfish());
-            */
+            
 
             World.Add("mermaid", new Mermaid()); 
-
             World.Add("alo", new Alo());
-            //World.Add("ob1", new Obstacle("obs1", 2500, 1000)); 
             //////////////////////////////////////////////////////////////////////////
 
             World.Sort(); 
@@ -384,8 +369,8 @@ namespace Project
             input.Update();
         }
 
-        public static void RestartGame() {
-            
+        public static void RestartGame()
+        {
             World.objects["player"].alive = true;
             endState = false;
             triggerEnd = false; 

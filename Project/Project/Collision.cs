@@ -40,38 +40,10 @@ namespace Project
 
         public void Update()
         {
-            /*
-            for (int i = 0; i < 5; i++)
-            {
-                if (World.objects["bg"].position.Y > levelCoord[i])
-                    CheckCollision(i+1); 
-            }
-            */
-
-            CheckCollision2(); 
+            CheckCollision(); 
         }
 
-        void CheckCollision(int no)
-        {
-            foreach (GameObject obj in level[no])
-            {
-                if (obj.alive == true)
-                {
-                    if (World.objects["player"].Boundary().Intersects(obj.Boundary()))
-                    {
-                        if (obj.gameSize <= World.objects["player"].gameSize)
-                        {
-                            obj.alive = false;
-                            Score.addScore(obj.gameSize);
-                        }
-                        else
-                            World.objects["player"].alive = false;
-                    }
-                }
-            }
-        }
-
-        void CheckCollision2()
+        void CheckCollision()
         {
             foreach (var obj in World.objects)
             {

@@ -62,7 +62,6 @@
     <Compile Include="HUD.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Enemies\Opah.cs" />
-    <Compile Include="Obstacle.cs" />
     <Compile Include="Specials\Prawn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
