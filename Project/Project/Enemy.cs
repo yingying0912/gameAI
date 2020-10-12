@@ -92,18 +92,18 @@ namespace Project
                 if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
                 * (World.objects["player"].position.X - position.X)
                 + (World.objects["player"].position.Y - position.Y)
-                * (World.objects["player"].position.Y - position.Y)) < 250)
-                {
-                    if (gameSize > World.objects["player"].gameSize)
-                        status = state.Seeking;
-                }
-                else if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
-                * (World.objects["player"].position.X - position.X)
-                + (World.objects["player"].position.Y - position.Y)
                 * (World.objects["player"].position.Y - position.Y)) < 200)
                 {
                     if (gameSize <= World.objects["player"].gameSize)
                         status = state.Fleeing;
+                }
+                else if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
+                * (World.objects["player"].position.X - position.X)
+                + (World.objects["player"].position.Y - position.Y)
+                * (World.objects["player"].position.Y - position.Y)) < 250)
+                {
+                    if (gameSize <= World.objects["player"].gameSize)
+                        status = state.Seeking;
                 }
                 else
                     status = state.Idle;
