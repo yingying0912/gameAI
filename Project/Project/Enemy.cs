@@ -88,31 +88,36 @@ namespace Project
 
         private void getStatus()
         {
-            if (alive == true)
+            if (name != "crab")
             {
-                if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
-                * (World.objects["player"].position.X - position.X)
-                + (World.objects["player"].position.Y - position.Y)
-                * (World.objects["player"].position.Y - position.Y)) < 300 + 30 * (World.objects["player"].gameSize - 1))
+                if (alive == true)
                 {
-                    if (gameSize > World.objects["player"].gameSize)
-                        status = state.Seeking;
-                    else
+                    if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
+                    * (World.objects["player"].position.X - position.X)
+                    + (World.objects["player"].position.Y - position.Y)
+                    * (World.objects["player"].position.Y - position.Y)) < 300 + 30 * (World.objects["player"].gameSize - 1))
                     {
-                        if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
-                        * (World.objects["player"].position.X - position.X)
-                        + (World.objects["player"].position.Y - position.Y)
-                        * (World.objects["player"].position.Y - position.Y)) < 200 + 30 * (World.objects["player"].gameSize - 1))
-                            status = state.Fleeing;
+                        if (gameSize > World.objects["player"].gameSize)
+                            status = state.Seeking;
                         else
-                            status = state.Idle;
+                        {
+                            if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
+                            * (World.objects["player"].position.X - position.X)
+                            + (World.objects["player"].position.Y - position.Y)
+                            * (World.objects["player"].position.Y - position.Y)) < 200 + 30 * (World.objects["player"].gameSize - 1))
+                                status = state.Fleeing;
+                            else
+                                status = state.Idle;
+                        }
                     }
+                    else
+                        status = state.Idle;
                 }
                 else
-                    status = state.Idle;
+                    status = state.Dead;
             }
             else
-                status = state.Dead;
+                status = state.Idle;
         }
 
         public void Seek(GameTime gameTime)
