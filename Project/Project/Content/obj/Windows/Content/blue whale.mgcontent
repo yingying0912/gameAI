@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/blue whale.png</SourceFile>
-  <SourceTime>2020-10-12T10:30:43.1000173+08:00</SourceTime>
-  <DestFile>C:/Users/Z/OneDrive/Trimester 1 2010/TGD3351 Game Algorithms/Assignment/gameAI/Project/Project/Content/bin/Windows/Content/blue whale.xnb</DestFile>
-  <DestTime>2020-10-12T10:32:44.567751+08:00</DestTime>
+  <SourceFile>D:/Documents/GitHub/gameAI/Project/Project/Content/blue whale.png</SourceFile>
+  <SourceTime>2020-10-12T05:15:53.7688078+08:00</SourceTime>
+  <DestFile>D:/Documents/GitHub/gameAI/Project/Project/Content/bin/Windows/Content/blue whale.xnb</DestFile>
+  <DestTime>2020-10-12T15:52:56.9128695+08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-09T00:35:54+08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

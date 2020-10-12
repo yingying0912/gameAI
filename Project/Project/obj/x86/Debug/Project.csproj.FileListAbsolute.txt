@@ -102,3 +102,5 @@ C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\P
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\levelUp.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bubble.xnb
 C:\Users\Z\OneDrive\Trimester 1 2010\TGD3351 Game Algorithms\Assignment\gameAI\Project\Project\bin\Windows\x86\Debug\Content\swallow.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\bubble.xnb
+D:\Documents\GitHub\gameAI\Project\Project\bin\Windows\x86\Debug\Content\swallow.xnb
