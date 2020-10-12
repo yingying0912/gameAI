@@ -24,7 +24,7 @@ namespace Project
 
         public override void Update(GameTime gameTime)
         {
-            position += heading * 150f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            position += heading * 100f * (float)gameTime.ElapsedGameTime.TotalSeconds;
             
             scale = new Vector2(gameSize * 0.125f, gameSize * 0.125f);
             size = new Vector2(texture.Width * scale.X, texture.Height * scale.Y);

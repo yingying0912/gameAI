@@ -93,7 +93,7 @@ namespace Project
                 if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
                 * (World.objects["player"].position.X - position.X)
                 + (World.objects["player"].position.Y - position.Y)
-                * (World.objects["player"].position.Y - position.Y)) < 300)
+                * (World.objects["player"].position.Y - position.Y)) < 300 + 30 * (World.objects["player"].gameSize - 1))
                 {
                     if (gameSize > World.objects["player"].gameSize)
                         status = state.Seeking;
@@ -102,7 +102,7 @@ namespace Project
                         if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
                         * (World.objects["player"].position.X - position.X)
                         + (World.objects["player"].position.Y - position.Y)
-                        * (World.objects["player"].position.Y - position.Y)) < 200)
+                        * (World.objects["player"].position.Y - position.Y)) < 200 + 30 * (World.objects["player"].gameSize - 1))
                             status = state.Fleeing;
                         else
                             status = state.Idle;
@@ -276,8 +276,8 @@ namespace Project
             {
                 heading.X = 0;
             }
-            if ((Boundary().Bottom > World.testLocationBoundary[location] + 10 && heading.Y > 0)
-                || (Boundary().Top < World.testLocationBoundary[location - 1] - 10 && heading.Y < 0))
+            if ((Boundary().Bottom > World.objects["bg"].Boundary().Bottom + Game1.Screen.ClientBounds.Height / 2 && heading.Y > 0)
+                || (Boundary().Top < World.objects["bg"].Boundary().Top + Game1.Screen.ClientBounds.Height / 2 && heading.Y < 0))
             {
                 heading.Y = 0;
             }
