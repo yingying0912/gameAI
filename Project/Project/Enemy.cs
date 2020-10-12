@@ -94,15 +94,15 @@ namespace Project
                 + (World.objects["player"].position.Y - position.Y)
                 * (World.objects["player"].position.Y - position.Y)) < 250)
                 {
-                    if (gameSize <= World.objects["player"].gameSize)
-                        status = state.Fleeing;
+                    if (gameSize > World.objects["player"].gameSize)
+                        status = state.Seeking;
                     else
                     {
                         if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
                         * (World.objects["player"].position.X - position.X)
                         + (World.objects["player"].position.Y - position.Y)
                         * (World.objects["player"].position.Y - position.Y)) < 200)
-                            status = state.Seeking;
+                            status = state.Fleeing;
                     }
                 }
                 else
