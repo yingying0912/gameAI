@@ -134,8 +134,6 @@ namespace Project
         {
             foreach (GameObject obj in drawList)
                 obj.Initialize(rand);
-            
-            collision.Initialize(); 
         }
 
         public static void Update(GameTime gameTime)

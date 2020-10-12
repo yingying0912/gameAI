@@ -22,7 +22,7 @@ namespace Project
         {
             score = 0;
             alive = true;
-            level = 1;
+            level = 5;
             maxScorePerLevel.Add(200);
             maxScorePerLevel.Add(500);
             maxScorePerLevel.Add(750);
