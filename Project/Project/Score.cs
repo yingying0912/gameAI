@@ -36,22 +36,22 @@ namespace Project
             alive = World.objects["player"].alive;
             if (alive)
             {
-                if (level == 1 && score >= 100)
+                if (level == 1 && score >= maxScorePerLevel[level - 1])
                 {
                     Game1.soundEffects[0].Play();
                     level++;
                 }
-                if (level == 2 && score >= 250)
+                if (level == 2 && score >= maxScorePerLevel[level - 1])
                 {
                     Game1.soundEffects[0].Play();
                     level++;
                 }
-                if (level == 3 && score >= 375)
+                if (level == 3 && score >= maxScorePerLevel[level - 1])
                 {
                     Game1.soundEffects[0].Play();
                     level++;
                 }
-                if (level == 4 && score >= 500)
+                if (level == 4 && score >= maxScorePerLevel[level - 1])
                 {
                     Game1.soundEffects[0].Play();
                     level++;

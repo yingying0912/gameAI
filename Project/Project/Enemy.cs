@@ -73,6 +73,7 @@ namespace Project
                         
                     break;
             }
+            checkBoundary();
         }
 
         public override void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -92,7 +93,7 @@ namespace Project
                 if ((float)Math.Sqrt((World.objects["player"].position.X - position.X)
                 * (World.objects["player"].position.X - position.X)
                 + (World.objects["player"].position.Y - position.Y)
-                * (World.objects["player"].position.Y - position.Y)) < 250)
+                * (World.objects["player"].position.Y - position.Y)) < 300)
                 {
                     if (gameSize > World.objects["player"].gameSize)
                         status = state.Seeking;
@@ -103,6 +104,8 @@ namespace Project
                         + (World.objects["player"].position.Y - position.Y)
                         * (World.objects["player"].position.Y - position.Y)) < 200)
                             status = state.Fleeing;
+                        else
+                            status = state.Idle;
                     }
                 }
                 else
@@ -116,7 +119,6 @@ namespace Project
         {
             heading = World.objects["player"].position - position;
             heading.Normalize();
-            checkBoundary();
             position += heading * speed * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
@@ -124,7 +126,7 @@ namespace Project
         {
             heading = position - World.objects["player"].position;
             heading.Normalize();
-            checkBoundary();
+            checkBoundaryFlee();
             position += heading * speed * 100 * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
@@ -255,8 +257,22 @@ namespace Project
 
         private void checkBoundary()
         {
-            if ((Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2 + 10) && heading.X < 0
-                || (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2 - 10) && heading.X > 0)
+            if ((Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2) && heading.X < 0
+                || (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2) && heading.X > 0)
+            {
+                heading.X *= -1;
+            }
+            if ((Boundary().Bottom > World.testLocationBoundary[location] && heading.Y > 0)
+                || (Boundary().Top < World.testLocationBoundary[location - 1] && heading.Y < 0))
+            {
+                heading.Y *= -1;
+            }
+        }
+
+        private void checkBoundaryFlee()
+        {
+            if ((Boundary().Left < World.objects["bg"].Boundary().Left + Game1.Screen.ClientBounds.Width / 2) && heading.X < 0
+                || (Boundary().Right > World.objects["bg"].Boundary().Right - Game1.Screen.ClientBounds.Width / 2) && heading.X > 0)
             {
                 heading.X = 0;
             }
